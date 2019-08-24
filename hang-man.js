@@ -5,18 +5,20 @@ let hiddenWord = [];
 let gameStarted = false;
 let hasFinished = false;
 let wins = 0;
-let maxTries = 0;
+let maxTries = 10;
 let rightLetter = [];
 let wrongLetter = [];
 
 //manipulating the DOM
 let docUnderScore = document.getElementsByClassName("underscores");
 let rightGuess = document.getElementsByClassName('right_letter');
-let wrongGuess = document.getElementsByClassName('wrong_guess');
+let wrongGuess = document.getElementsByClassName('wrong_letter');
+let loser = document.getElementsByClassName('lose')
+//let button = document.getElementsByClassName('button')
 
-let paragraph = document.querySelector('p')
+let paragraph = document.getElementsByClassName('test')
 
-let words = ["able", "about", "account", "acid", "across", "addition", "adjustment", "advertisement", "after", "again",
+let words = ["able", "about", "account", "accident", "acid", "across", "addition", "adjustment", "advertisement", "after", "again",
     "against", "agreement", "almost", "among", "amount", "amusement", "angle", "angry", "animal", "answer", "apparatus",
     "apple", "approval", "arch", "argument", "army", "attack", "attempt", "attention", "attraction", "authority", "automatic",
     "awake", "baby", "back", "balance", "ball", "band", "base", "basin", "basket", "bath", "beautiful", "because", "before", "behaviour",
@@ -78,6 +80,11 @@ function validity(arg1, arg2) {
                 docUnderScore[0].innerHTML = arg2.join(' ');
                 rightGuess[0].innerHTML = rightLetter.join(' ');
                 console.log(hiddenWord, "the hiddenWord");
+                if (arg1.join('') === arg2.join('')) {
+                    paragraph[0].innerHTML = `You win`
+                    console.log(paragraph);
+                    runGame()
+                }
             }
             // else {
             //     maxTries--;
@@ -85,7 +92,15 @@ function validity(arg1, arg2) {
             //     return;
             // } 
         }
-        //console.log(attempt);
+        if (!arg1.includes(keyWord)) {
+            maxTries--;
+            wrongLetter.push(keyWord)
+            wrongGuess[0].innerHTML = wrongLetter.join(' ')
+        }
+        if (maxTries === 0) {
+            loser[0].innerHTML = `You lost. Press button to restart.`;
+        }
+        console.log(maxTries);
     })
 
 }
@@ -100,4 +115,9 @@ const runGame = () => {
 //the runGame function will be triggered and perform all the function calls
 document.addEventListener('DOMContentLoaded', (Event) => {
     runGame();
+
+    // button.addEventListener('click', (event) => {
+    //     document.location.reload(true);
+    // })
+
 })

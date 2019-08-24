@@ -13,18 +13,21 @@
 <body>
     <h1> Voniel's Hangman Game</h1>
     <br>
+    <p class="remaining"></p>
+    <br>
+
     <div class="underscores"></div>
     <br>
     <div id="right_guess_parent">Right Guess
         <div class="right_letter"></div>
-        <p class="test"></p>
+        <p class="win_text"></p>
     </div>
     <div id="wrong_guess_parent">Wrong Guess
         <div class="wrong_letter"> </div>
+        <br>
         <p class="lose"></p>
     </div>
-
-    <input type="button" class="button" value="Restart" onclick="document.location.reload(true)"></input>
+    <button id='button'>Restart</button>
 </body>
 
 </html>

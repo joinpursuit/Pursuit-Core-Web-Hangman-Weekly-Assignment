@@ -1,0 +1,39 @@
+body{
+    background-color: white;
+}
+
+/* make the text be a mix of blue, yellow, & green */
+h1{
+    background-image: linear-gradient(to left, yellow,blue, yellow,lightgreen,  blue, yellow,green, blue, yellow);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 60px;
+}
+
+.balloons{
+    border: solid 2px black;
+    background-color: white;
+    height: 500px;
+    width: 500px;
+}
+#wrongGuess{
+    border: 2px dashed black;
+    height: 200px;
+    width: auto;
+    font-size: 50px;
+    color: red;
+
+}
+#underScore{
+    font-size: 50px;
+    color: darkcyan;
+    text-align: center;
+}
+#win{
+    color: green;
+    font-size: 50px
+}
+#lose{
+    color: red;
+    font-size: 50px
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+  
+        <h1><strong>Hangman</strong></h1>
+        <h4 id="typeOfGuess">Type of Guess (<span style="color:blue">Correct</span> or <span style="color:red">Incorrect</span>)</h4>
+        <h1 id="hangmanPicture" style="white-space: pre"></h1>
+        <div id="dashesDiv">
+                <h3 id="enterYourGuessh3">Enter your guess:</h3>
+                <p id="dashes"></p>
+                <p id="lettersAlreadyGuessed"></p>
+                <p id="amountOfGuesses"></p>
+        </div>
+        
+        <div id="inputDiv">
+                <input id="userInput" type="text" placeholder="Guess a letter" maxlength="1" minlength="1" name="inputName" style="border: solid black 1px;">
+                <button id="submitButton">Submit</button>
+        </div>
+        <br>
+        <button id="restart">Restart</button>
+
+</body>
+</html>

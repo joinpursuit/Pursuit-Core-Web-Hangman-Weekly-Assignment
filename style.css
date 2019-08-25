@@ -1,0 +1,37 @@
+body {
+  background-color: darkgray;
+  font-family: sans-serif;
+  font-size: 25px
+}
+
+h1 {
+  text-align:center;
+  color:black;
+  font-style: italic;
+}
+
+div {
+  text-align:center;
+}
+
+img {
+  padding-left: 560px
+}
+
+input {
+  height: 25px;
+  width: 25px
+}
+
+button {
+  height: 30px
+}
+p {
+  font-size: 25px;
+  color: darkblue;
+}
+
+#p3 {
+  padding-top: 50px;
+  padding-left: 980px;
+}

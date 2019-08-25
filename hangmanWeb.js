@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let guess = 6;
   let underScore = document.getElementById('underScore');
   let wrongGuess = document.getElementById('wrongGuess');
+
+  let pic6 = document.getElementById('b6');
+
   const makeBlanks = () => {
     for (let i = 0; i < selectedWord.length; i++) {
       selectedWordBlanks.push('_');
@@ -70,6 +73,70 @@ document.addEventListener('DOMContentLoaded', () => {
       guess.innerText = `you have ${guess} left`;
       console.log(guessedLetters)
       wrongGuess.innerText = guessedLetters.join(' ');
+      switch (guess){
+        case 0:
+          b6.style.opacity = '1.0';
+          b5.style.opacity = '0.0';
+          b4.style.opacity = '0.0';
+          b3.style.opacity = '0.0';
+          b2.style.opacity = '0.0';
+          b1.style.opacity = '0.0';
+          b0.style.opacity = '0.0';
+        break;
+        case 1:
+          b6.style.opacity = '0.0';
+          b5.style.opacity = '1.0';
+          b4.style.opacity = '0.0';
+          b3.style.opacity = '0.0';
+          b2.style.opacity = '0.0';
+          b1.style.opacity = '0.0';
+          b0.style.opacity = '0.0';
+        break;
+        case 2:
+          b6.style.opacity = '0.0';
+          b5.style.opacity = '0.0';
+          b4.style.opacity = '1.0';
+          b3.style.opacity = '0.0';
+          b2.style.opacity = '0.0';
+          b1.style.opacity = '0.0';
+          b0.style.opacity = '0.0';
+        break;
+        case 3:
+          b6.style.opacity = '0.0';
+          b5.style.opacity = '0.0';
+          b4.style.opacity = '0.0';
+          b3.style.opacity = '1.0';
+          b2.style.opacity = '0.0';
+          b1.style.opacity = '0.0';
+          b0.style.opacity = '0.0';
+        break;
+        case 4:
+          b6.style.opacity = '0.0';
+          b5.style.opacity = '0.0';
+          b4.style.opacity = '0.0';
+          b3.style.opacity = '0.0';
+          b2.style.opacity = '1.0';
+          b1.style.opacity = '0.0';
+          b0.style.opacity = '0.0';
+        break;
+        case 5:
+          b6.style.opacity = '0.0';
+          b5.style.opacity = '0.0';
+          b4.style.opacity = '0.0';
+          b3.style.opacity = '0.0';
+          b2.style.opacity = '0.0';
+          b1.style.opacity = '1.0';
+          b0.style.opacity = '0.0';
+        break;
+        case 6:
+          b6.style.opacity = '0.0';
+          b5.style.opacity = '0.0';
+          b4.style.opacity = '0.0';
+          b3.style.opacity = '0.0';
+          b2.style.opacity = '0.0';
+          b1.style.opacity = '0.0';
+          b0.style.opacity = '1.0';
+      }
     }
   });
 })

@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', (Event) => {
                         sound.src = "./2018-04-02_-_Beautiful_Village_-_David_Fesliyan.mp3"
                         sound.currentTime = 5;
                         button.style.visibility = "visible"
+                        document.removeEventListener('keypress', tester)
                     }
                 }
             }

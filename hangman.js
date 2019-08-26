@@ -39,7 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let theButton = document.getElementById("submit");
     theButton.addEventListener("click", () => {
         let userGuess = input.value;
+
+            if(userGuess === "" || userGuess > -Infinity) {
+                window.alert("You didn't enter a letter!")
+            }
         console.log(userGuess)
+        console.log(typeof userGuess);
             if (hangmanWord.includes(userGuess)) {
                 for (let i = 0; i < hangmanWord.length; i++) { 
                 let arr = hangmanWord.split("");
@@ -58,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 limit --;
                 imageCounter++;
             }
+
+
             guesses += userGuess;
             guessed.innerText = guesses;
             input.value = ""

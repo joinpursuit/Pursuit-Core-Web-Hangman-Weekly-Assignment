@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Creepster|Marck+Script|Mr+Dafoe|Permanent+Marker|Princess+Sofia|Rock+Salt|Shojumaru&display=swap');
+
+
+body {
+     background-color: rgb(39, 37, 37);
+     color: rgba(228, 180, 121, 0.863);
+     margin: auto;
+     padding: 10px;
+     flex-wrap: wrap;
+     text-align: center;
+}
+
+h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 70px;
+    color: rgba(224, 46, 46, 0.911);
+}
+
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    align-content: space-between;
+    justify-content: center;
+}
+/* #main > #progress {
+    float: left;
+    width: 550px;
+    height: 350px;
+    flex-wrap: wrap;
+}
+#main > #strike {
+    overflow: auto;
+    height: 350px;
+} */
+
+#progress > img {
+    width: 500px;
+    padding: 8px;
+    border: 2px black;
+    margin: 5px;
+    border-radius: 10%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#guess > img {
+    width: 20px;
+    height: 25px;
+    padding: 8px;
+    border: 2px black;
+    background: lightgreen;
+    margin: 5px;
+    border-radius: 20%;
+}
+
+#alphabet img {
+    width: 20px;
+    height: 25px;
+    padding: 8px;
+    border: 2px black;
+    background: lightblue;
+    margin: 5px;
+    border-radius: 20%;
+}
+
+#strike img {
+    width: 20px;
+    height: 25px;
+    padding: 8px;
+    border: 2px black;
+    background: rgb(238, 167, 167);
+    margin: 5px;
+    border-radius: 20%;
+}
+
+#strike  p {
+    color: orangered;
+    font-family: 'Shojumaru', cursive; */
+    font-size: 20px
+}
+
+#guesses-paragraph {
+    color: rgb(0, 183, 255);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        width: auto;
+    }
+    #progress > img {
+        width: 400px;
+        padding: 8px;
+        border: 2px black;
+        margin: 3px;
+        border-radius: 8%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+  }
+  
+  @media screen and (max-width: 400px) {
+    body {
+        width: auto;
+    }
+    #progress > img {
+        width: 380px;
+        padding: 2px;
+        border: 1px black;
+        margin: 2px;
+        border-radius: 8%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+  }
+  
+  @media screen and (max-width: 321px) {
+    body {
+        width: auto;
+    }
+    #progress > img {
+        width: 280px;
+        padding: 1px;
+        border: 1px black;
+        margin: 2px;
+        border-radius: 8%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+  }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang=en dir=ltr>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Escape Game</title>
+        <script src="./HangmanWebApp.js"></script>
+        <!-- <link href="./index_reset.css" rel="stylesheet"></style> -->
+        <link href="./index.css" rel="stylesheet"></style>
+    </head>
+    <body>
+        <audio id="bg-sound" autoplay>
+            <source src="./Sounds/Background.mp3" type="audio/mpeg">
+            <p>Your browser doesn't support HTML5 audio.</p>
+        </audio>
+        <div id="sound"></div>
+        
+        <h1>Escape The Dungeon !!</h1>
+        <div>
+            <p></p>
+        <div id="main">
+            <div id="progress"></div>
+            <div id="strike">
+                <p>strikes</p>
+            </div>
+        </div>
+
+        <div id="guess">
+            <p id="guesses-paragraph">word to guess</p>
+        </div>
+        
+        <div id="alphabet">
+            <p id="alphabet-paragraph"></p>
+        </div>
+
+        <div id="solution">
+            <p></p>
+        </div>
+        <hr>
+        <div id="restart"></div>
+    </body>
+</html>

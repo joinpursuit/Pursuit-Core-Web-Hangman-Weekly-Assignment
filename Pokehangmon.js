@@ -263,7 +263,7 @@ const processLetter = (theirLetter) => {
         }
 
         //Display answer in console for debugging
-        console.log(letterWordArr.join(' '))
+        // console.log(letterWordArr.join(' '))
       
         //Check win condition. Keep the space after the string interpolation
       if (`${letterWordArr.join(' ')} ` === randomWord.createHiddenString()) {

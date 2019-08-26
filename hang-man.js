@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', (Event) => {
                         console.log(paragraph);
                         sound.src = "./2018-04-02_-_Beautiful_Village_-_David_Fesliyan.mp3"
                         sound.currentTime = 5;
+                        button.style.visibility = "visible"
                     }
                 }
             }
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', (Event) => {
                 loser[0].innerHTML = `You lost. Press button to restart.`;
                 docUnderScore[0].innerHTML = arg1.join(' ');
                 document.removeEventListener('keypress', tester)
+                button.style.visibility = "visible"
             }
             console.log(maxTries);
         })
@@ -175,8 +177,9 @@ document.addEventListener('DOMContentLoaded', (Event) => {
     // when the document eventListener 'DOMContentLoaded' is triggered  
     //the runGame function will be triggered and perform all the function calls
     runGame();
+    button.style.visibility = "hidden"
     button.addEventListener('click', () => {
         document.location.reload(true);
-
+        // button.style.visibility = "hidden"
     })
 })

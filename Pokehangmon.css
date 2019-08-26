@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: fantasy, Helvetica, sans-serif;
+}
+
+
+p img {
+    height:250px; 
+    width:250px; 
+}
+
+#introPic {
+    height: 300px;
+    width: 450px;
+}
+
+#runGame {
+    height:20px; 
+    width:100px; 
+    top:50px;
+}
+
+.nextTextBtn {
+    height: 20px;
+    width: 100px;
+    top: 50px;
+}
+
+/* Style the header */
+.header {
+  background-color: coral;
+  padding: 1px;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 30px;
+  height: 450px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 20%;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Middle column */
+.column.middle {
+  width: 60%;
+}
+
+/* Style the footer */
+.footer {
+    background-color: orange;
+    margin: 0px;
+    /* padding: 0px; */
+    text-align: center;
+  }
+
+  .green {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    border: 3px groove black;
+  }
+
+  .red {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border: 3px groove black;
+  }

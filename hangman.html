@@ -1,0 +1,24 @@
+<!doctype html>
+    <html>
+        <head>
+            <title>Hangman</title>
+            <script src="./hangman.js"></script>
+            <link rel="stylesheet" href="./hangman.css">
+        </head>
+        <body>
+            <h1 class="font">Let's Play Hangman!</h1>
+            <img src="./1.png" alt="hangman"/>
+            <h3 class="font" id="theWord"></h3>
+            <br>
+            <h2 class="font">Letter's guessed:</h2>
+            <h2 class="font" id="guessed">  </h2>
+            <br>
+            <h2 class="font" id="guessesLeft"></h2>
+            <br>
+            <div>
+            <input type="text" name="userInput" id="userInput" autofocus>
+            <button id="submit" >Submit</button>
+            <button id="refresh" onclick="window.location.reload();">Play Again!</button>
+            </div>
+        </body>
+    </html>

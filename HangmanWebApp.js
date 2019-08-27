@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let letter = clickedElement.alt[7];
             if (letter) {
                 let emptySpace = document.createElement("img");
-                emptySpace.setAttribute("src", `/Alphabet/Empty.png`);
+                emptySpace.setAttribute("src", `Alphabet/Empty.png`);
                 emptySpace.setAttribute("alt", `empty`);
                 emptySpace.setAttribute("class", "blank");
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     let letter = event.code[3];
 
     //     let emptySpace = document.createElement("img");
-    //     emptySpace.setAttribute("src", `/Alphabet/Empty.png`);
+    //     emptySpace.setAttribute("src", `Alphabet/Empty.png`);
     //     emptySpace.setAttribute("alt", `empty`);
     //     emptySpace.setAttribute("class", "blank");
 
@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let previousImage = document.querySelector(".progress");
         let progressImage = document.createElement("img");
         if (winning) {
-            progressImage.setAttribute("src", `/Game_Stages/End.jpg`);
+            progressImage.setAttribute("src", `Game_Stages/End.jpg`);
             progressImage.setAttribute("alt", `escaping the dungeon`);
             progressImage.setAttribute("class", "progress");     
         } else {
-            progressImage.setAttribute("src", `/Game_Stages/Stage${winCounter}/Step_${triesCounter}.jpg`);
+            progressImage.setAttribute("src", `Game_Stages/Stage${winCounter}/Step_${triesCounter}.jpg`);
             progressImage.setAttribute("alt", `Stage ${winCounter}, Step ${triesCounter}`);
             progressImage.setAttribute("class", "progress");
         }
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         for (let element of alp) {
             let newLetter = document.createElement("img");
-            newLetter.setAttribute("src", `/Alphabet/${element}.png`);
+            newLetter.setAttribute("src", `Alphabet/${element}.png`);
             newLetter.setAttribute("alt", `letter ${element}`);
             newLetter.setAttribute("class", "alph");
             lettersList.appendChild(newLetter);
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayDashes(str) {
         for (i = 0; i < str.length; i++) {
             let newDash = document.createElement("img");
-            newDash.setAttribute("src", `/Alphabet/Dash.png`);
+            newDash.setAttribute("src", `Alphabet/Dash.png`);
             newDash.setAttribute("alt", `Empty_${str[i]}`);
  //           newDash.setAttribute("class", "alph");
             newDash.setAttribute("class", "dash");
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (dashTag[6] === character) {
                     let dash = dashedWord[i];
                     let newLetter = document.createElement("img");
-                    newLetter.setAttribute("src", `/Alphabet/${character}.png`);
+                    newLetter.setAttribute("src", `Alphabet/${character}.png`);
                     newLetter.setAttribute("alt", `letter ${character}`);
                     newLetter.setAttribute("class", "guess"); // Class guess for right guesses
                     guess.replaceChild(newLetter, dash);
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!letterRepeats) {
             let newStrike = document.createElement("img");
-            newStrike.setAttribute("src", `/Alphabet/${character}.png`);
+            newStrike.setAttribute("src", `Alphabet/${character}.png`);
             newStrike.setAttribute("alt", `Letter ${character}`);
             newStrike.setAttribute("class", "strike");
             strikes.appendChild(newStrike);
@@ -292,34 +292,34 @@ document.addEventListener("DOMContentLoaded", () => {
         soundEffect.setAttribute("type", "audio/mp3"); 
 
         if (strNum === "init") {
-            soundEffect.src = "/Sounds/Wind.mp3";
+            soundEffect.src = "Sounds/Wind.mp3";
         }
         if (strNum === "whisper") {
-            soundEffect.src = "/Sounds/Creepy.mp3";
+            soundEffect.src = "Sounds/Creepy.mp3";
         }
         if (strNum === "wall") {
-            soundEffect.src = "/Sounds/Stone Slide.mp3";
+            soundEffect.src = "Sounds/Stone Slide.mp3";
         }
         if (strNum === "floor") {
-            soundEffect.src = "/Sounds/Floor Collapse.mp3";
+            soundEffect.src = "Sounds/Floor Collapse.mp3";
         }
         if (strNum === "laugh") {
-            soundEffect.src = "/Sounds/Evil Laugh.mp3";
+            soundEffect.src = "Sounds/Evil Laugh.mp3";
         }
         if (strNum === "smash") {
-            soundEffect.src = "/Sounds/Scream.mp3";
+            soundEffect.src = "Sounds/Scream.mp3";
         }
         if (strNum === "fall") {
-            soundEffect.src = "/Sounds/Falling.mp3";
+            soundEffect.src = "Sounds/Falling.mp3";
         }
         if (strNum === "lock") {
-            soundEffect.src = "/Sounds/Lock.mp3";
+            soundEffect.src = "Sounds/Lock.mp3";
         }
         if (strNum === "win") {
-            soundEffect.src = "/Sounds/Door Open.mp3";
+            soundEffect.src = "Sounds/Door Open.mp3";
         }
         if (strNum === "free") {
-            soundEffect.src = "/Sounds/Forest.mp3";
+            soundEffect.src = "Sounds/Forest.mp3";
         }
 
         if (previousSound) {

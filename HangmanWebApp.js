@@ -46,23 +46,25 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // document.addEventListener('keypress', (event) => {
     //     let letter = event.code[3];
-
-    //     let emptySpace = document.createElement("img");
-    //     emptySpace.setAttribute("src", `Letters/Empty.png`);
-    //     emptySpace.setAttribute("alt", `empty`);
-    //     emptySpace.setAttribute("class", "blank");
-
-    //     wordIncludesLetter(wordToGuess, letter);
-    //     displayProgress();
-
     //     let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    //     let alp = letters.split('');
-    //     let indexOfLetter = alp.indexOf(letter);
+
+    //     if letters.includes(letter) {
+    //          let emptySpace = document.createElement("img");
+    //          emptySpace.setAttribute("src", `Letters/Empty.png`);
+    //          emptySpace.setAttribute("alt", `empty`);
+    //          emptySpace.setAttribute("class", "blank");
+
+    //          wordIncludesLetter(wordToGuess, letter);
+    //          displayProgress();
+
+    //          let alp = letters.split('');
+    //          let indexOfLetter = alp.indexOf(letter);
         
         
-    //     let old = allAlphabetImages[indexOfLetter];
+    //          let old = allAlphabetImages[indexOfLetter];
         
-    //     lettersList.replaceChild(emptySpace, old);
+    //          lettersList.replaceChild(emptySpace, old);
+    //      }
     // });
 
 //========================================================================================

@@ -46,8 +46,9 @@ form.addEventListener('submit',event =>{
 
 //calling out the value of the guess input box
 let inputBox = document.getElementById('guess')
-let inputValue = inputBox.value
+let inputValue = inputBox.value.toLowerCase()
 let submit = document.getElementById('button2')
+//clearing the inputBox
 inputBox.value = "";
 
 // creates the container of all attempted guesses
@@ -59,13 +60,63 @@ for(let s = 0; s < randomWord.length; s++){
       if(randomWord[s] === inputValue){
         answer[s] = inputValue;
       }else if(!randomWord.includes(inputValue)){
-          lives--
+          lives--;
           livesLeft.innerText = 'You have ' + lives + ' tries left.'
           break;
           console.log(lives);
       }
     }
-    para.innerText = answer.join(' ')
+    para.innerText = answer.join(' ');
+
+// displaying images after every failed attempt
+let imgDiv = document.getElementById('image');
+
+
+
+if(lives === 5){
+  let image = document.createElement('img');
+  image.src = './images/1.jpg';
+  imgDiv.appendChild(image);
+  imgDiv.value = image;
+}else if (lives === 4) {
+
+  // image.parentNode.removeChild(image);
+  // let image2 = document.createElement('img');
+  // image2.src = './images/2.jpg';
+  // imgDiv.appendChild(image2);
+  // imgDiv.value = image2;
+  image.src = './images/2.jpg';
+  imgDiv.appendChild(image)
+  imgDiv.value = image
+
+} else if (lives === 3) {
+
+  // let image3 = document.createElement('img')
+  // image3.src = './images/3.jpg'
+  // imgDiv.appendChild(image3)
+  // imgDiv.value = image3
+
+} else if (lives === 2) {
+
+  // let image4 = document.createElement('img')
+  // image4.src = './images/4.jpg'
+  // imgDiv.appendChild(image4)
+  // imgDiv.value = image4
+
+} else if (lives === 1) {
+
+  // let image5 = document.createElement('img')
+  // image5.src = './images/5.jpg'
+  // imgDiv.appendChild(image5)
+  // imgDiv.value = image5
+
+}else if(lives === 0) {
+
+  // let image6 = document.createElement('img')
+  // image6.src = './images/6.jpg'
+  // imgDiv.appendChild(image6)
+  // imgDiv.value = image6
+}
 
 // removing the input box so no more entries can be made after losing
 if (lives === 0){

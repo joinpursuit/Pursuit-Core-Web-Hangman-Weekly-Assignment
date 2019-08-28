@@ -22,9 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   para.innerText = hiddenWord.join(" ")
 
+console.log(randomWord)
+
 form.addEventListener("submit", () => {
   event.preventDefault();
-  header.innerText = "HANGMAN";
+  header.innerText = "HANG-WIZARD";
   image.innerText = "Take a guess!"
 
 let input = document.querySelector("#input");
@@ -41,7 +43,14 @@ for(let i = 0; i < randomWord.length; i++) {
       hiddenWord[i] = input.value;
       para.innerText = hiddenWord.join(' ')
       guess.innerText = `You have ${guessesLeft} guesses left.`
+      error.innerText = ""
       // correctLetters.innerText += input.value
+      if(hiddenWord.includes("_") === false) {
+        header.innerText = `YOU WON!`
+        image.innerText = `YER BLOODY BRILLIANT!`
+        form.removeChild(input);
+        form.removeChild(submit);
+        }
     }
     else if(randomWord.includes(input.value) === false) {
       error.innerText = "You guessed wrong."

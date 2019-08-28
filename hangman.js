@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let words = ["chicken", "dog", "bird", "snake", "rabbit", "deer"];
+  let words = ["chicken", "dog", "bird", "snake", "rabbit", "deer", "cat"];
   // Pick a random word
   let word = words[Math.floor(Math.random() * words.length)];
   // // set tries to 5 for the chances
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (word.includes(guess) === false) {
         tries--;
         livesRemaining.innerText = "You have " + tries + " left";
+
         break;
       }
     }

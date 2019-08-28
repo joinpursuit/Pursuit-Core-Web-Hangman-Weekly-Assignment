@@ -60,7 +60,14 @@ input[type="submit"],
 
 div > img {
   justify-content: center;
-  width: 250px;
+  height: 105px;
+  width: 200px;
   /* display: none; */
+  border: 3px solid;
+  margin: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+img {
   visibility: hidden;
 }

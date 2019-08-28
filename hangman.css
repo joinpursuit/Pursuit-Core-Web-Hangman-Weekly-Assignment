@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
+
 body {
-    background-color: 
+    background: rgb(194,63,251);
+    background: radial-gradient(circle, rgba(194,63,251,1) 6%, rgba(215,238,114,1) 42%, rgba(20,195,218,1) 100%);
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 48px;
 }
+
+h1 {
+    font-family: 'Italianno', cursive;
+    text-align: center;
+    font-size: 150px;
+}
+
+#input
+{
+    width:300px;
+    height:150px;
+    display: block;
+    margin: 0px auto;
+    padding: 10px;
+    font-size: 32px;

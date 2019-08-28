@@ -1,14 +1,5 @@
 const celebrities = ['Beyonce', 'Taylor Swift', 'Ellen DeGeneres', 'Dwayne Johnson', 'George Clooney', 'Sean Comb', 'Alec Baldwin', 'Bradley Cooper', 'Serena Williams', 'Laila Ali', 'Rosario Dawson', 'Cardi B', 'Leonardo DiCaprio', 'Liam Hemsworth', 'Will Smith', 'Shawn Carter', 'Sofia Vergara', 'Demi Lovato', 'Jennifer Lawrence','Miley Cyrus','Idris Elba', 'Kanye West','Kylie Jenner','Ed Sheeran','Rihanna','Drake','Nipsey Hussle']
 
-
-
-const movie()
-{
-    rand = Math.floor(Math.random() * movies.length);
-    word = movies[rand];
-    document.getElementById('singlePage').style.display = "none";
-    document.getElementById('categoryName').innerHTML = "Movies Name";
-
 const celebrity = () => {
     randCeleb = Math.floor(Math.random() * celebrities.length);
     selectCeleb = celebrities[randCeleb];

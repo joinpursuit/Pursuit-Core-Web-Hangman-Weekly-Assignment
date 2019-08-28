@@ -8,11 +8,22 @@
     <div id="intro">
         <h1>Celebrity Hangman</h1>
     </div>
-   <p id="selected-word"></p>
-    <p id="on-screen-answer"></p>
-    <div id="buttons">
-
+   <h3 id="selected-word"></h3>
+   <br>
+    <p id="guess-letters"></p>
+    <br>
+    <p id="remaining"></p>
+     </div>
+    <div id="game-start">
+        <form id="input">
+            <p>Type a letter:
+                <input type="text" id="letter-input" autofocus>
+                <button id="submit">Submit</button>
+            </p>
+        </form>
+        <button id="reset" onclick="window.location()">Start New Game</button>
     </div>
+    
 </body>
 </html>
 

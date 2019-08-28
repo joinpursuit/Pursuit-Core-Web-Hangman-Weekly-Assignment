@@ -1,0 +1,17 @@
+#intro{
+  font-family: 'Bangers', cursive;
+  color: orange;
+  font-size: 70px;
+  text-shadow:
+		  -1px -1px 0 #000,
+		   1px -1px 0 #000,
+		  -1px 1px 0 #000,
+		   1px 1px 0 #000;
+}
+
+body{
+  font-size:
+  font-weight: bold;
+  text-align: center;
+  background-image: url('https://vignette.wikia.nocookie.net/simpsons/images/5/50/Wiki-background/revision/latest?cb=20111015160455');
+}

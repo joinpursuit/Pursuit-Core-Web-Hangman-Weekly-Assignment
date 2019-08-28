@@ -1,0 +1,35 @@
+html{
+	padding:0;
+	margin:0 auto;
+	width:100%;
+	height:100%;
+	background-color:#ccccff;
+	text-align:center;
+  font-family:arial;
+}
+
+body{
+  font-family:fantasy;
+  background:linear-gradient(90deg,
+   #b43a7c14 0%, 
+   rgb(29, 219, 253) 50%, 
+   rgba(252,176,69,1) 100%);
+   align-content: center;
+}
+
+ button {
+  text-decoration-style: double;
+  text-decoration-color: blue;
+  background-color : rgb(29, 219, 253);
+  text-size-adjust: auto;
+}
+
+#Wrong_Guesses
+element.style {
+  -webkit-text-decorations-in-effect: unset;
+  text-size-adjust: auto;
+}
+
+
+
+

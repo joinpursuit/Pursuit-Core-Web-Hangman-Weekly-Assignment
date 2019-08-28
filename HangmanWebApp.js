@@ -41,31 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    let allAlphabetImages = document.querySelectorAll(".alph");
-    
-    // document.addEventListener('keypress', (event) => {
-    //     let letter = event.code[3];
-    //     let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    //     if letters.includes(letter) {
-    //          let emptySpace = document.createElement("img");
-    //          emptySpace.setAttribute("src", `Letters/Empty.png`);
-    //          emptySpace.setAttribute("alt", `empty`);
-    //          emptySpace.setAttribute("class", "blank");
-
-    //          wordIncludesLetter(wordToGuess, letter);
-    //          displayProgress();
-
-    //          let alp = letters.split('');
-    //          let indexOfLetter = alp.indexOf(letter);
-        
-        
-    //          let old = allAlphabetImages[indexOfLetter];
-        
-    //          lettersList.replaceChild(emptySpace, old);
-    //      }
-    // });
 
 //========================================================================================
     function printSolution() {
@@ -192,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     guess.replaceChild(newLetter, dash);
                 }
             }
+            lookForAWin();
         }   
 
         let missedSound;
@@ -214,9 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (winCounter === 3) {
                 missedSound = "floor";
             }
+            soundEffect(missedSound);
         }
-
-        lookForAWin();
 
         if (triesCounter > 5) {
             printSolution();
@@ -231,8 +206,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (winCounter === 3) {
                 missedSound = "fall";
             }
+            soundEffect(missedSound);
         }
-        soundEffect(missedSound);
     }
 //==========================================================================================
     function restartGame() {
@@ -295,34 +270,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (strNum === "init") {
             soundEffect.src = "Sounds/Wind.mp3";
-        }
-        if (strNum === "whisper") {
+        } else if (strNum === "whisper") {
             soundEffect.src = "Sounds/Creepy.mp3";
-        }
-        if (strNum === "wall") {
+        } else if (strNum === "wall") {
             soundEffect.src = "Sounds/Stone Slide.mp3";
-        }
-        if (strNum === "floor") {
+        } else if (strNum === "floor") {
             soundEffect.src = "Sounds/Floor Collapse.mp3";
-        }
-        if (strNum === "laugh") {
+        } else if (strNum === "laugh") {
             soundEffect.src = "Sounds/Evil Laugh.mp3";
-        }
-        if (strNum === "smash") {
+        } else if (strNum === "smash") {
             soundEffect.src = "Sounds/Scream.mp3";
-        }
-        if (strNum === "fall") {
+        } else if (strNum === "fall") {
             soundEffect.src = "Sounds/Falling.mp3";
-        }
-        if (strNum === "lock") {
-            soundEffect.src = "Sounds/Lock.mp3";
-        }
-        if (strNum === "win") {
+        } else if (strNum === "lock") {
+            soundEffect.src = "Sounds/Locking.mp3";
+        } else if (strNum === "win") {
             soundEffect.src = "Sounds/Door Open.mp3";
-        }
-        if (strNum === "free") {
+        } else if (strNum === "free") {
             soundEffect.src = "Sounds/Forest.mp3";
-        }
+            backgroundSound.muted = true;
+        } 
 
         if (previousSound) {
             soundsDiv.replaceChild(soundEffect, previousSound);

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Creepster&display=swap');
+
 @import url('https://fonts.googleapis.com/css?family=Creepster|Marck+Script|Mr+Dafoe|Permanent+Marker|Princess+Sofia|Rock+Salt|Shojumaru&display=swap');
 
 
@@ -25,16 +25,6 @@ h1 {
     align-content: space-between;
     justify-content: center;
 }
-/* #main > #progress {
-    float: left;
-    width: 550px;
-    height: 350px;
-    flex-wrap: wrap;
-}
-#main > #strike {
-    overflow: auto;
-    height: 350px;
-} */
 
 #progress > img {
     width: 500px;

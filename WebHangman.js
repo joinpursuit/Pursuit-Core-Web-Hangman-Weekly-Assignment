@@ -37,13 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
        //makes sure input is valid like salad
      if (letterInput === '' || letterInput.length !== 1){
       gameStatus.innerText= 'Not a valid guess';
+      document.getElementById('myForm').reset()
 
       //replace innerText
     } else if (isLetterInWord(letterInput, randomWord, hiddenWord)){
       hiddenWord = replaceMatches(letterInput, randomWord, hiddenWord)
       myHiddenWord.innerText= hiddenWord
       gameStatus.innerText = 'Correct Guess'
-      usedLetters.push(letterInput)    
+      document.getElementById('myForm').reset()
+      usedLetters.push(letterInput)
+
 
         // if no: lose a life
     } else if(!isLetterInWord(letterInput, randomWord, hiddenWord)){
@@ -51,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tries = tries -1 
       usedLetters.push(letterInput)
       numberOfGuesses.innerText = tries + ' guesses/guess left'
+      document.getElementById('myForm').reset()
     }
     
     letterGuessed.innerText = usedLetters
@@ -75,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Defining functions 
  
-  const refreshGame = () => location = location
+  const newGame = () => location = location
 
   const getRandomWord = (words) => {
     let randomIndex = Math.floor(Math.random() * words.length);

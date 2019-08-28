@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Classic Hangman</title>
+        <script src= './WebHangman.js'></script>
+    </head>
+    <body>
+        <h1>Hangman</h1>  
+        <div>
+            <p>This is<strong> Classic Hangman</strong></p>
+            <p>Rules: </p>
+            <ol>
+                <li>Guess a letter</li>
+                <li> Guess correctly and you unlock a letter in the hidden word</li>
+                <li>Guess incorrectly and you lose a life</li>
+                <li>Lose 6 lives and the game is over</li>
+            </ol>
+        </div>
+        <br>
+        <div>
+            <p id='game-status'>Welcome to Hangman</p>
+            <p id='guess-letters'>No guessed letters</p>
+            <p id= 'guess-counter'>guesses left</p>
+        </div>
+        <div>
+            <p id= 'hiddenword'></p>
+        </div>
+        <br>
+        <div>
+            <form id='myForm'>
+            <label for='letterinput'>Choose a letter:</label>
+            <input id='letterinput' type='text'>
+            <button type='submit' id='play'>Submit</button>
+            <br>
+            <br>
+            <button onclick=refreshGame()>Refresh game</button>
+            </form>
+        </div>
+            
+        <div>  
+            <!-- <img src='http://www.dreamincode.net/forums/uploads/monthly_12_2013/post-635566-138610833847.jpg'> -->
+            <!-- <img src='./hangmanpics/hangmanhead.jpg'>
+            <img src='./hangmanpics/hangmantorso.jpg'>
+            <img src="./hangmanpics/hangmanleftarm.jpg>" -->
+        </div>
+        
+    </body>
+</html>

@@ -1,5 +1,8 @@
 body {
   text-align: center;
+  height: 800px;
+  background-color: #f4d03f;
+  background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
 }
 header {
   background-image: url(https://image.shutterstock.com/image-vector/green-jungle-landscape-illustration-260nw-1237929424.jpg);
@@ -12,7 +15,7 @@ header {
 }
 
 h1 {
-  color: lightblue;
+  color: #fbc52f;
   font-family: fantasy;
 }
 
@@ -28,7 +31,7 @@ input[type="text"] {
   box-sizing: content-box;
   border: 1px solid #555;
   outline: none;
-  background-color: lightpink;
+  background-color: aquamarine;
   display: inline-block;
   text-align: center;
 }
@@ -49,6 +52,8 @@ input[type="submit"],
 }
 
 #dashes {
+  font-style: bold;
+  font-size: 24px;
   font-style: italic;
   font-family: monospace;
 }

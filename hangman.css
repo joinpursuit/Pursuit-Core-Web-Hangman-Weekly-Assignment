@@ -1,0 +1,61 @@
+body {
+  text-align: center;
+}
+header {
+  background-image: url(https://image.shutterstock.com/image-vector/green-jungle-landscape-illustration-260nw-1237929424.jpg);
+  border: 3px solid goldenrod;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px auto;
+  height: 150px;
+  width: 80%;
+}
+
+h1 {
+  color: lightblue;
+  font-family: fantasy;
+}
+
+.Guess {
+  border: 3px solid black;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: content-box;
+  border: 1px solid #555;
+  outline: none;
+  background-color: lightpink;
+  display: inline-block;
+  text-align: center;
+}
+
+input[type="submit"],
+[type="reset"] {
+  background-color: gray;
+  border-radius: 18px;
+  border: 1px solid blue;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #810e05;
+}
+
+#dashes {
+  font-style: italic;
+  font-family: monospace;
+}
+
+div > img {
+  justify-content: center;
+  width: 250px;
+  /* display: none; */
+  visibility: hidden;
+}

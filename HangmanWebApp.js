@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let winning = false;
     let wordToGuess = randomWord(winCounter);
 
+    let intro = document.querySelector("#intro")
+
     let guesses = document.querySelector("#guess");
     let lettersList = document.querySelector("#alphabet");
     let strikes = document.querySelector("#strike");
@@ -12,13 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
     let solution = document.querySelector("#solution");
     let restart = document.querySelector("#restart");
     let soundsDiv = document.querySelector("#sound");
-    let backgroundSound = document.querySelector("#bg-sound");
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    alphabet();
-    displayDashes(wordToGuess);
-    displayProgress();
-    soundEffect("init");
+    intro.addEventListener(("click"), () => {
+        let bgSound = document.createElement("audio");
+        bgSound.src = "Sounds/Background.mp3";
+        bgSound.autoplay = true;
+        bgSound.loop = true;
+        bgSound.setAttribute("type", "audio/mp3"); 
+        bgSound.setAttribute("id", "bg-sound")
+        document.head.appendChild(bgSound);
+        
+        alphabet();
+        displayDashes(wordToGuess);
+        displayProgress();
+        soundEffect("init");
+        document.body.removeChild(intro);
+    })
+    let backgroundSound = document.querySelector("#bg-sound");
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     lettersList.addEventListener("click", (event) => {
@@ -142,7 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
             let newDash = document.createElement("img");
             newDash.setAttribute("src", `Letters/Dash.png`);
             newDash.setAttribute("alt", `Empty_${str[i]}`);
- //           newDash.setAttribute("class", "alph");
             newDash.setAttribute("class", "dash");
             guesses.appendChild(newDash);
         }
@@ -216,6 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let restartButton = document.createElement("input");
         restartButton.setAttribute("type", "button");
         restartButton.setAttribute("value", "Restart");
+        restartButton.setAttribute("class", "myButton")
         restartButton.setAttribute("onClick", "window.location.reload();");
         restart.appendChild(restartButton);
     }
@@ -260,8 +273,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function soundEffect(strNum) {
-        backgroundSound.loop = true;
-
         let previousSound = soundsDiv.lastChild;
 
         let soundEffect = document.createElement("audio");
@@ -283,12 +294,12 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (strNum === "fall") {
             soundEffect.src = "Sounds/Falling.mp3";
         } else if (strNum === "lock") {
-            soundEffect.src = "Sounds/Locking.mp3";
+            soundEffect.src = "Sounds/Lock.mp3";
         } else if (strNum === "win") {
             soundEffect.src = "Sounds/Door Open.mp3";
         } else if (strNum === "free") {
             soundEffect.src = "Sounds/Forest.mp3";
-            backgroundSound.muted = true;
+            backgroundSound.pause();
         } 
 
         if (previousSound) {

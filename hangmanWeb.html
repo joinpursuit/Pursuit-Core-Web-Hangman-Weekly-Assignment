@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="hangmanWeb.js"></script> <!-- inports a javascript file into the html file --->
-    <link href = 'hangmanWeb.css' rel = 'stylesheet'></link>
+    <link href='hangmanWeb.css' rel='stylesheet'>
+    </link>
     <title> Hangman </title>
 </head>
+
 <body>
-    <h1> Welcome to Ballon Pop </h1>
-    <p>Type any letter to start playing!</p>
-    <img id = 'b0' src = 'https://www.balloondealer.com/app/images/BD11ASSORT.jpg'>
-    <img id = 'b1' src = 'https://images-na.ssl-images-amazon.com/images/I/31zvxz0xxKL._SY355_.jpg'>
-    <img id = 'b2' src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReWTX9iItH_EEawk1Gfn6IqhkgM2QGy4E7tUdmUDgPgky1NfOJbQ'>
-    <img id = 'b3' src = 'http://cdn.shopify.com/s/files/1/1413/4098/products/2e584a30e15f2c2ca2ac7aea27dca87b_grande.jpg?v=1489474672'>
-    <img id = 'b4' src ='https://www.sccpre.cat/mypng/detail/206-2061546_balloons-pink-green-flying-png-image-2-balloons.png'>
-    <img id = 'b5' src = 'http://www.loneballoon.com/images/loneballoon.jpg'>
-    <img id = 'b6' src = 'http://www.foreverbermuda.com/wp-content/uploads/2019/05/no-balloons-sign-generic-cTcQvAEA-ForB.jpg'>
-<div id = 'underScore'> </div>
-<div id = 'wrongGuess'></div>
-<p id = 'guess'></p>
-<p id = 'win'></p> <p id = 'lose'></p>
-<p id = 'para2'></p>
-<br>
-<button value="Refresh Page" onClick="window.location.reload();"> New Game </button> <!-- Restarts the game-->
-    <!-- <button id = 'enter'> Enter </button> -->
+    <div id='heading'>
+        <h1> Welcome to Ballon Pop </h1>
+    </div>
+
+    <div id='button'>
+        <button value="Refresh Page" onClick="window.location.reload();"> New Game </button> <!-- Restarts the game-->
+    </div>
+
+    <p id='instructions'>Type any letter to start playing!</p>
+    <div id='pictures'>
+        <p id='comments'></p>
+        <img src='https://www.balloondealer.com/app/images/BD11ASSORT.jpg'></imgsrc>
+    </div>
+
+    <div id='underScore'> </div>
+
+    <div id='wrong'>
+        <p>Wrong guesses: <div id='wrongGuess'> </div>
+        </p>
+    </div>
+    <p id='guess'></p>
+    <div>
+        <p id='outcome'></p>
+    </div>
+    <br>
 </body>
+
 </html>

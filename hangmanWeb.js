@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return selectedWordBlanks;
   }
 
-
+  console.log(selectedWord)
   //this function will check for duplicates of user's input
   function checkDuplicate(userInput) {
     if (!usedLetters.includes(userInput)) {
@@ -68,20 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!usedLetters.includes(input)) {
               usedLetters.push(input)
               if (answerArray.join('') === selectedWord.join('')) {
-                outcome.innerText = 'You Win';
+                outcome.innerText = (`You win!`);
               }
             }
           }
         }
       }
     } else {
-      if (checkDuplicate(input)){
-      guessedLetters.push(input);
-      usedLetters.push(input);
-      //guess--;
-      comment.innerText = `you have ${guess-1} balloons left`;
-      console.log(guessedLetters)
-      wrongGuess.innerText = guessedLetters.join(' ');
+      if (checkDuplicate(input)) {
+        guessedLetters.push(input);
+        usedLetters.push(input);
+        //guess--;
+        comment.innerText = `you have ${guess - 1} balloons left`;
+        console.log(guessedLetters)
+        wrongGuess.innerText = guessedLetters.join(' ');
         switch (guess) {
           case 6:
             guess--;
@@ -104,15 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
             comment.innerText = `you only have ${guess} balloon left`;
             replacePicture();
             break;
-           case 1:
+          case 1:
             guess--;
             replacePicture();
             outcome.style.color = `#FF0000`
             outcome.innerText = (`You lose. The word was ${selectedWord.join('')}`);
             underScore.innerText = selectedWord.join('');
             replacePicture();
+        }
       }
     }
-  }
-   document.removeEventListener('keypress', event)}, true);
+    document.removeEventListener('keypress', event)
+  }, true);
 })

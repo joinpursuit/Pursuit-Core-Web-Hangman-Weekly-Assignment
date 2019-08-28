@@ -46,6 +46,7 @@ for(let i = 0; i < randomWord.length; i++) {
       error.innerText = ""
       // correctLetters.innerText += input.value
       if(hiddenWord.includes("_") === false) {
+        // document.querySelector("link").href = "./win.css"
         header.innerText = `YOU WON!`
         image.innerText = `YER BLOODY BRILLIANT!`
         form.removeChild(input);

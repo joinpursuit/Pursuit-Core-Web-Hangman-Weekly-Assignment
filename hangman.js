@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let win = word.length;
   // check for letters only
   let strCheck = /^[a-zA-z]+$/;
+  //letters Guessed
+  // let usedLetters = [];
 
   for (var i = 0; i < word.length; i++) {
     underScores[i] = "_";
@@ -30,24 +32,34 @@ document.addEventListener("DOMContentLoaded", () => {
     // Get a guess from the player
     let input = document.getElementById("input");
     //grabbing the value entered into the input
-    let guess = input.value.trim();
+    let guess = input.value;
     //clearing the input box
     input.value = "";
 
-    //pushes guessed letters to letters guessed
     event.preventDefault();
-    progress.innerText += " " + guess + ",";
+    // function checkDupes(guess) {
+    //   if (!usedLetters.includes(userInput)) {
+    //     return true;
+    //   } else {
+    //     window.alert("This Letter Was Used Already!");
+    //   }
+    // }
 
+    //pushes guessed letters to letters guessed
+    progress.innerText += " " + guess + ",";
     //Update the game state with the guess
     for (let j = 0; j < word.length; j++) {
       if (!guess.match(strCheck)) {
         answerText.innerText = "Please Enter a Letter!";
+        break;
       }
       //check letters against word
       if (word[j] === guess) {
         underScores[j] = guess;
         answerText.innerText = underScores.join(" ");
         win--;
+        //checking dupes
+        // usedLetters.push(guess);
       } //check to see if the letter is in the word
       else if (word.includes(guess) === false) {
         tries--;
@@ -55,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       }
     }
+
     //add the pictures depending on the lives left
     let newElement = document.createElement("img");
     switch (tries) {
@@ -87,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (win === 0) {
       answerText.innerText = "You Win!";
       form.removeChild(input);
-      form.removeChild(submit);
+      form.removeChild(button);
     }
     //checking remaining Lives
     if (tries === 0) {

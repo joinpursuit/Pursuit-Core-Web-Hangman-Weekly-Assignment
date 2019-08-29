@@ -12,6 +12,7 @@ header {
   margin: 15px auto;
   height: 150px;
   width: 80%;
+  opacity: 0.9;
 }
 
 h1 {
@@ -57,16 +58,19 @@ input[type="submit"],
   font-style: italic;
   font-family: monospace;
 }
-
 div > img {
   display: flex;
   /* flex-wrap: wrap; */
   flex-direction: column;
-  height: 105px;
-  width: 200px;
+  /* position: fixed; */
+  left: 90px;
+  top: 169px;
+  height: 100px;
+  width: 150px;
   /* border: 3px solid; */
   /* padding-left: 45%; */
   /* margin: auto 0; */
+  opacity: 4;
 }
 /* img {
  visibility: hidden;

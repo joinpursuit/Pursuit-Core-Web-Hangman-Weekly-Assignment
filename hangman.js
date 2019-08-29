@@ -52,9 +52,36 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (word.includes(guess) === false) {
         tries--;
         livesRemaining.innerText = "You have " + tries + " left";
-
         break;
       }
+    }
+    //add the pictures depending on the lives left
+    let newElement = document.createElement("img");
+    switch (tries) {
+      case 4:
+        newElement.setAttribute("src", "FullSizeRender.png");
+        document.getElementById("image").appendChild(newElement);
+        break;
+      case 3:
+        // let newElement = document.createElement("img");
+        newElement.setAttribute("src", "FullSizeRender-1.png");
+        document.getElementById("image").appendChild(newElement);
+        break;
+      case 2:
+        // let newElement = document.createElement("img");
+        newElement.setAttribute("src", "FullSizeRender-2.png");
+        document.getElementById("image").appendChild(newElement);
+        break;
+      case 1:
+        // let newElement = document.createElement("img");
+        newElement.setAttribute("src", "FullSizeRender-3.png");
+        document.getElementById("image").appendChild(newElement);
+        break;
+      case 0:
+        // let newElement = document.createElement("img");
+        newElement.setAttribute("src", "FullSizeRender-4.png");
+        document.getElementById("image").appendChild(newElement);
+        break;
     }
     //checking if the word has no remaining letters
     if (win === 0) {

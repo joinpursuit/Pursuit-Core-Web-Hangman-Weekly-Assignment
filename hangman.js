@@ -43,7 +43,7 @@ while (!winner && misses > 0) {
         }
       }
   
-      //regardless add their guess to the list of guesse letters
+      //regardless add their guess to the list of guessed letters
       guessedLetters.add(x);
   
       //if not lettr was found, loose a return
@@ -63,6 +63,7 @@ while (!winner && misses > 0) {
   }
   
   if (winner) {
-    console.log('You\'re smart! Congrats!!!!');
+    console.log("You're smart! Congrats!!!!");
   }
-}
+    })
+})

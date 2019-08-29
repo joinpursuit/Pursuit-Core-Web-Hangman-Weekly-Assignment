@@ -57,7 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     theWord.innerText = wordDash;     
                 }
                 }
-            } else {
+            } else if (guesses.includes(userGuess)) {
+                window.alert("You already guessed that letter!")
+            }else {
+
+
                 thePic.src = images[imageCounter];
                 counter ++;
                 limit --;

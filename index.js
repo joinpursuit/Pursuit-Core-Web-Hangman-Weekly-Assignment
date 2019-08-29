@@ -39,7 +39,8 @@ form.addEventListener("submit",(evt)=>{
 
     playersGuess = input.value
     input.value = ""
-    if(playersGuess.trim() && isNaN(playersGuess)){
+
+      if( playersGuess.toLowerCase() !== playersGuess.toUpperCase()){
     if(guesses.includes(playersGuess)){
       status.innerText = "You already guessed that letter."
 

@@ -76,106 +76,94 @@ theButton.addEventListener ('click', () => {
         }
     }
 
+
     //logic for pictures
     if (amountOfGuessesLeft === 0) {
         let result = "";
-        result += ("||:====}]]\n")
-        result += ("||/      |\n")
-        result += ("||        0\n")
-        result += ("||       /|\\ \n")
-        result += ("||       / \\ \n")
-        result += ("||\n")
-        result += ("=====\n")
+        result += ("|:-----}]]\n")
+        result += ("|/          |\n")
+        result += ("|           0\n")
+        result += ("|          /|\\ \n")
+        result += ("|          / \\ \n")
+        result += ("|\n")
+        result += ("----------\n")
         console.log(result);
         hangmanPic.innerText = result;
     }
     
     else if(amountOfGuessesLeft === 1) {
         let result = "";
-        result += ("||:====}]]\n")
-        result += ("||/      |\n")
-        result += ("||        0\n")
-        result += ("||       /|\ \n")
-        result += ("||       /\n")
-        result += ("||\n")
-        result += ("=====\n") 
+        result += ("|:-----}]]\n")
+        result += ("|/          |\n")
+        result += ("|           0\n")
+        result += ("|          /|\\ \n")
+        result += ("|          /\n")
+        result += ("|\n")
+        result += ("----------\n") 
         console.log(result);
         hangmanPic.innerText = result;
     }
 
     else if (amountOfGuessesLeft === 2) {
         let result = "";
-        result += ("||:====}]]\n")
-        result += ("||/      |\n")
-        result += ("||       0\n")
-        result += ("||      /|\\ \n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("=====\n") 
+        result += ("|:-----}]]\n")
+        result += ("|/          |\n")
+        result += ("|           0\n")
+        result += ("|          /|\\ \n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("----------\n") 
         console.log(result);
         hangmanPic.innerText = result;
     }
 
     else if (amountOfGuessesLeft === 3) {
         let result = "";
-        result += ("||:====}]]\n")
-        result += ("||/      |\n")
-        result += ("||       0\n")
-        result += ("||      /|\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("=====\n") 
+        result += ("|:-----}]]\n")
+        result += ("|/          |\n")
+        result += ("|           0\n")
+        result += ("|          /|\n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("----------\n") 
         console.log(result);
         hangmanPic.innerText = result;
     }
 
     else if (amountOfGuessesLeft === 4) {
         let result = "";  
-        result += ("||:====}]]\n")
-        result += ("||/      |\n")
-        result += ("||       0\n")
-        result += ("||       |\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("=====\n") 
+        result += ("|:-----}]]\n")
+        result += ("|/          |\n")
+        result += ("|           0\n")
+        result += ("|           |\n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("----------\n") 
         console.log(result);
         hangmanPic.innerText = result;
     }
     else if (amountOfGuessesLeft === 5) {
         let result = "";    
-        result += ("||:====}]]\n")
-        result += ("||/      |\n")
-        result += ("||       0\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("=====\n")
+        result += ("|:-----}]]\n")
+        result += ("|/          |\n")
+        result += ("|           0\n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("----------\n")
         console.log(result);
         hangmanPic.innerText = result;
     }
 
     else if (amountOfGuessesLeft === 6) {
         let result = "";
-        result += ("||:====}]]\n")
-        result += ("||/      |\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("=====\n")
-        console.log(result);
-        hangmanPic.innerText = result;
-    }
-
-    else if (amountOfGuessesLeft === 7) {
-        let result = "";
-        result += ("||:====}]]\n")
-        result += ("||/\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("||\n")
-        result += ("=====\n")
+        result += ("|:-----}]]\n")
+        result += ("|/          |\n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("|\n")
+        result += ("----------\n")
         console.log(result);
         hangmanPic.innerText = result;
     }

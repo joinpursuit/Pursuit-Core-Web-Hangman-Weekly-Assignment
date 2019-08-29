@@ -65,4 +65,4 @@ while (!winner && misses > 0) {
   if (winner) {
     console.log('You\'re smart! Congrats!!!!');
   }
-  
+}

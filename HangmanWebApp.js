@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let solution = document.querySelector("#solution");
     let restart = document.querySelector("#restart");
     let soundsDiv = document.querySelector("#sound");
+    let strikesPara = document.querySelector("#strikes-paragraph");
+    let backgroundSound;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     intro.addEventListener(("click"), () => {
@@ -24,14 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
         bgSound.setAttribute("type", "audio/mp3"); 
         bgSound.setAttribute("id", "bg-sound")
         document.head.appendChild(bgSound);
+        backgroundSound = document.querySelector("#bg-sound");
         
         alphabet();
         displayDashes(wordToGuess);
         displayProgress();
         soundEffect("init");
         document.body.removeChild(intro);
+
+        strikesPara.innerText = `strikes ... \n${triesCounter}/6`;
+
+        let guessesPara = document.querySelector("#guesses-paragraph");
+        guessesPara.innerText = "Word To Guess";
     })
-    let backgroundSound = document.querySelector("#bg-sound");
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     lettersList.addEventListener("click", (event) => {
@@ -46,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 emptySpace.setAttribute("src", `Letters/Empty.png`);
                 emptySpace.setAttribute("alt", `empty`);
                 emptySpace.setAttribute("class", "blank");
+                parent.replaceChild(emptySpace, clickedElement);
 
                 wordIncludesLetter(wordToGuess, letter);
                 displayProgress();
-                parent.replaceChild(emptySpace, clickedElement);
             }
         }
     })
@@ -192,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
             strikes.appendChild(newStrike);
 
             triesCounter += 1;
+            strikesPara.innerText = `strikes ... \n${triesCounter}/6`;
 
             if (winCounter === 1) {
                 missedSound = "whisper";
@@ -244,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
             winCounter += 1;
             triesCounter = 0;
             soundEffect("win");
+            strikesPara.innerText = `strikes ... \n${triesCounter}/6`;
             
             for (let i = 0; i < allStrikes.length; i++) { // REINITIALIZE STRIKES
                 strikes.removeChild(allStrikes[i]);
@@ -263,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
             displayDashes(wordToGuess);
             displayProgress();
 
-        } else if (allGuesses.length === wordToGuess.length && winCounter >= 3){
+        } else if (allGuesses.length === wordToGuess.length && winCounter === 3){
             winning = true;
             displayProgress();
             restartGame();
@@ -279,28 +288,39 @@ document.addEventListener("DOMContentLoaded", () => {
         soundEffect.autoplay = true;
         soundEffect.setAttribute("type", "audio/mp3"); 
 
-        if (strNum === "init") {
-            soundEffect.src = "Sounds/Wind.mp3";
-        } else if (strNum === "whisper") {
-            soundEffect.src = "Sounds/Creepy.mp3";
-        } else if (strNum === "wall") {
-            soundEffect.src = "Sounds/Stone Slide.mp3";
-        } else if (strNum === "floor") {
-            soundEffect.src = "Sounds/Floor Collapse.mp3";
-        } else if (strNum === "laugh") {
-            soundEffect.src = "Sounds/Evil Laugh.mp3";
-        } else if (strNum === "smash") {
-            soundEffect.src = "Sounds/Scream.mp3";
-        } else if (strNum === "fall") {
-            soundEffect.src = "Sounds/Falling.mp3";
-        } else if (strNum === "lock") {
-            soundEffect.src = "Sounds/Lock.mp3";
-        } else if (strNum === "win") {
-            soundEffect.src = "Sounds/Door Open.mp3";
-        } else if (strNum === "free") {
-            soundEffect.src = "Sounds/Forest.mp3";
-            backgroundSound.pause();
-        } 
+        switch(strNum) {
+            case "init":
+                soundEffect.src = "Sounds/Wind.mp3";
+                break;
+            case "whisper":
+                soundEffect.src = "Sounds/Creepy.mp3";
+                break;
+            case "wall":
+                soundEffect.src = "Sounds/Stone Slide.mp3";
+                break;                
+            case "floor":
+                soundEffect.src = "Sounds/Floor Collapse.mp3";
+                break;
+            case "laugh":
+                soundEffect.src = "Sounds/Evil Laugh.mp3";
+                break;
+            case "smash":
+                soundEffect.src = "Sounds/Scream.mp3";
+                break;
+            case "fall":
+                soundEffect.src = "Sounds/Falling.mp3";
+                break;
+            case "lock":
+                soundEffect.src = "Sounds/Lock.mp3";
+                break;
+            case "win":
+                soundEffect.src = "Sounds/Door Open.mp3";
+                break;
+            case "free":
+                soundEffect.src = "Sounds/Forest.mp3";
+                soundEffect.loop = true;
+                backgroundSound.muted = true;
+        }
 
         if (previousSound) {
             soundsDiv.replaceChild(soundEffect, previousSound);

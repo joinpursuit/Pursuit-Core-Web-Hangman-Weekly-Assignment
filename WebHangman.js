@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // check if letterguess is in hiddenword
 
        //makes sure input is valid like salad
-     if (letterInput === '' || letterInput.length !== 1){
+     if (letterInput === '' || letterInput.length !== 1 || letterInput > -Infinity){
       gameStatus.innerText= 'Not a valid guess';
       document.getElementById('myForm').reset()
 
@@ -62,9 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // We're in the end game now
     if (tries === 0){
-      gameStatus.innerText = `Aww man... The word you were looking for was: ${randomWord}`
+      gameStatus.innerText = `EXODIAAAAAAAAAAAA. The word you were looking for was: ${randomWord}`
       window.alert('Game over, you lose')
       document.getElementById('myForm').reset()
+      // location = location
 
     } else if (hiddenWord.join('') === randomWord){
       gameStatus.innerText = `Congrats you found the hidden word .....  ${randomWord} `
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       myHiddenWord.innerText = hiddenWord.join('')
     }
   })   
-   
+   //PUT REFRESH FUNCTION BUTTON OUTSIDE SUBMIT EVENT
 })
 
 // Defining functions 

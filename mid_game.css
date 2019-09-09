@@ -1,0 +1,13 @@
+body{
+    background-image: url('https://media.giphy.com/media/xUn3CdoxxuzV5J6X5u/giphy.gif');
+    background-size: cover;
+    width: auto;
+    height: auto;
+    color: coral;
+    text-align: center;
+}
+
+li{
+  list-style: circle;
+  list-style-position: inside;
+}

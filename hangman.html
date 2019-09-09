@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hangman Project</title>
+    <link rel="stylesheet" href="./hangman.css">
+    <script src="./hangman.js"></script>
+
+  </head>
+  <body>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <form>
+      <h1>Save The World!</h1>
+
+      <p id= "story">
+        Oh no !An asteroid is heading straight for Earth!<br>
+        The whole worls is in a panic; but not you. You just<br>
+        so happen to have an old laser gun that's perfect<br>
+        for blowing up asteroids. The laser gun is very<br>
+        dangerous so you password protected it.<br>
+        The password is your favorite movie.<br>
+        What was that password again?
+      </p>
+
+      <br>
+      <br>
+
+      <input type="text" placeholder="Guess Here" id ='Guess' maxlength="1">
+      <input type="submit" value="Submit" id="Guess-Button" >
+      <p class="rules" id="rules"> Game Rules
+      <span>
+        <ul>
+          <li id="item1">You have 6 tries to guess a random movie</li>
+          <li id="item2">Guesses should be letters only. No numbers!</li>
+          <li id="item3">Your guesses are NOT case sensitive!</li>
+          <li id="item4">Guess the correct movie and you are earth's savior!</li>
+        </ul>
+      </span>
+      </p>
+    </form>
+  </body>
+</html>

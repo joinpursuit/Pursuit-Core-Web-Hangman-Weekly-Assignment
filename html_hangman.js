@@ -3,9 +3,27 @@ document.addEventListener('DOMContentLoaded', () =>{
    function pick (arr){
       arr[Math.floor((Math.random() * arr.length))]
   }
-   let hidden = pick(gameBank)
-   let rightGuesses = [];
-   let wrongGuesses = [];
-   let allGuesses = [];
-   let guessesLeft = 6
+   // wanted all variable here but idk
+   var hidden = pick(gameBank)
+   var cInput = [];
+   var wInput = [];
+   var cumulative = [];
+   var tries = 6
+   var remaining = hidden.length
+   
+   var progress = document.createElement('p')
+   progress.innerText = cInput.join(" ") //Never really felt comfortable using this
+
+   var regress = document.createElement('p')
+   regress.innerText = (`only ${tries} guesses left`)
+   
+
+//Losing condition
+function lCondition () { 
+   window.alert (`You lost, the word was ${hidden}`)
+}
+for (i = 0; i = hidden.length; i++) {
+   cInput[i] = "_"
+}
+ 
 })

@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let letterInput = document.querySelector('#letterinput').value.toLowerCase()
     let letterGuessed = document.querySelector('#guess-letters')
 
+    let rightArmOfExodia = document.querySelector('#rightarm')
+    let leftArmOfExodia = document.querySelector('#leftarm')
+    let leftLegOfExodia = document.querySelector('#leftleg')
+    let rightLegOfExodia = document.querySelector('#rightleg')
+    let headOfExodia = document.querySelector('#head')
+
+    let arrayOfExodia = []
+
     // check if letterguess is in hiddenword
 
        //makes sure input is valid like salad
@@ -59,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     letterGuessed.innerText = usedLetters
     console.log(usedLetters)
-    
+
     // We're in the end game now
     if (tries === 0){
       gameStatus.innerText = `EXODIAAAAAAAAAAAA. The word you were looking for was: ${randomWord}`

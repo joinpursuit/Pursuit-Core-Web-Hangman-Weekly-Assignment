@@ -7,8 +7,9 @@
         
     </head>
     <body>
+        <div class='game-layout'>
         <h1>Yu Gi Oh Hangman</h1>  
-        <div>
+        <div class='game-instructions'>
             <p>This is<strong> YuGiOh Hangman</strong></p>
             <p>Rules: </p>
             <ol id='rules'>
@@ -20,12 +21,11 @@
         </div>
     
         <br>
+        <div class='gamestatus'>
         <div class='gameinfo'>
             <p id='game-status'>Exodia is dormant</p>
             <p id='guess-letters'>No guessed letters</p>
             <p id= 'guess-counter'>guesses left</p>
-        </div>
-        <div>
             <p id= 'hiddenword'></p>
         </div>
         <br>
@@ -39,15 +39,16 @@
             <button onclick=newGame()>New Game</button>
             </form>
         </div>
-            
-        <div class='exodia-images'>  
-         <img src='https://www.shitpostbot.com/img/sourceimages/right-arm-of-the-forbidden-one-57ef02144e6f9.png' alt='rightarm'>
-         <img src='https://www.shitpostbot.com/img/sourceimages/exodia-the-forbidden-one-57ef0247ab4e1.png' alt='head'>
-          <img src='https://www.shitpostbot.com/img/sourceimages/left-arm-of-the-forbidden-one-57ef01f64b4bc.png' alt='leftarm'>  
-           <br>
-           <img src='https://www.shitpostbot.com/img/sourceimages/right-leg-of-the-forbidden-one-57ef022730a16.png' alt='rightleg'>
-           <img src='https://www.shitpostbot.com/img/sourceimages/left-leg-of-the-forbidden-one-57ef023911c63.png' alt='leftleg'>
         </div>
         
+        <div class='exodia-images'>  
+         <img src='https://www.shitpostbot.com/img/sourceimages/right-arm-of-the-forbidden-one-57ef02144e6f9.png' alt='rightarm' id='rightarm'>
+         <img src='https://www.shitpostbot.com/img/sourceimages/exodia-the-forbidden-one-57ef0247ab4e1.png' alt='head' id='head'>
+          <img src='https://www.shitpostbot.com/img/sourceimages/left-arm-of-the-forbidden-one-57ef01f64b4bc.png' alt='leftarm' id='leftarm'>  
+           <br>
+           <img src='https://www.shitpostbot.com/img/sourceimages/right-leg-of-the-forbidden-one-57ef022730a16.png' alt='rightleg' id='rightleg'>
+           <img src='https://www.shitpostbot.com/img/sourceimages/left-leg-of-the-forbidden-one-57ef023911c63.png' alt='leftleg' id='leftleg'>
+        </div>
+        </div>
     </body>
 </html>

@@ -1,4 +1,4 @@
-# Hangman: The Web App
+# Hangperson: The Web App
 
 ## Instructions for weekly assignment submission
 

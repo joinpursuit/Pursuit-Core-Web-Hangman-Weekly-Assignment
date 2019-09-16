@@ -22,9 +22,27 @@
     "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
   ]
 
-
-
-
+//_________
+//Breaking down the assignment:
+//you need the title (CSS Colors Hangperson)
+//the user should be able to start the game off?
+//the computer has to pull a random word from the array
+//the word has to appear on the screen as underscores
+//you need the user to enter a guess in a text field
+//the user needs to be able to submit said guess in a button
+//it has to acknowlege if it's 1 letter or not
+  //if not, prompt to guess with just 1 letter (1 character of string type?)
+  //if so, if letter is in word then equivalent letter appears instead of the underscore
+  //if so, if letter is not in word:
+    //# of guesses remaining goes down
+    //letter that's wrong appears in a box of wrong letters guessed?
+    //another hangperson image appears to show how far wrong you are
+//when all your letters are letters aka no more underscores, the user has won
+  //only while there are guesses remaining left
+  //if there are still guesses, program should alert that the user has won!
+  //if there are no guesses at any point, the game is over
+    //either way prompt to restart game
+//__________
 
 // //pull a word for the user
 // let currentRoundArtist = artistWordBank[Math.floor(Math.random() * artistWordBank.length)];

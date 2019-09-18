@@ -66,6 +66,10 @@ let userGuess = window.prompt("Guess a letter in the color.");
 //how many guesses do i get
 let numberOfWrongGuessesAllowed = 5;
 
+
+//you need letters left to account for when someone wins
+let lettersRemaining = randomColor.length
+
 //THINGS THAT ACTUALLY HAPPEN
 
 for (let i = 0; i < randomColor.length; i++) {
@@ -75,14 +79,16 @@ for (let i = 0; i < randomColor.length; i++) {
 
 //i want the user to guess and it should just be a letter, not like nothing or lots of letters
 if (userGuess.length !== 1) {
-  window.alert("Just enter one letter! Pretty please.");
+  window.alert("Just enter one letter!");
 } else if (userGuess.length === 1) {
   for (let j = 0; j < currentRoundColor.length; j++) {
     //ok so if my single letter guess is equivalent to any of the letters in my
       //current color then my underscore at that index is going to be the letter
     if (randomColor[j] === userGuess) {
       currentRoundColor[j] === userGuess;
-      //then what:
+      lettersRemaining--;
+    } else if (randomColor[j] !== userGuess) {
+      numberOfWrongGuessesAllowed--;
     }
   }
 }
@@ -91,8 +97,6 @@ if (userGuess.length !== 1) {
 
 //________ZZZZZZ OLD TO BE REMOVED LATER ZZZZ______
 
-// //after the loop runs how many letters are left?
-// let lettersRemaining = currentRoundArtist.length;
 //
 // while (lettersRemaining > 0 || numberOfGameGuesses > 0) {
 //   // window.alert(blanksForUser.join(" ")); //makes alert blanks look cleaner for user

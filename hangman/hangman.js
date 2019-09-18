@@ -1,4 +1,4 @@
-//CSS Accepted Color hangman
+//CSS Accepted Color hangperson
 
 //_________
 //Breaking down the assignment:
@@ -44,7 +44,7 @@ let cssColorsBank = [ "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure"
    "SeaGreen", "SeaShell", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey","Snow",
    "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet",
    "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
- ]
+ ];
 
 //picking index to get my random color for game
 //i'm saying pick an index number from within the number of items in my array
@@ -59,11 +59,12 @@ let randomColor = cssColorsBank[Math.floor(Math.random()*cssColorsBank.length)];
 let currentRoundColor = [];
 
 //actual user guess/prompt i have to change this because
-  //i have to get the guess from when the user presses the submit button
+  //i have to get the guess from when the user presses the submit button, and probably
+  //pulling using the get element by id
 let userGuess = window.prompt("Guess a letter in the color.");
 
 //how many guesses do i get
-let numberOfGameGuesses = 6;
+let numberOfWrongGuessesAllowed = 5;
 
 //THINGS THAT ACTUALLY HAPPEN
 

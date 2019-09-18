@@ -24,6 +24,17 @@
 //i want to set up some variables I think here VARIABLES??
 
 document.addEventListener("DOMContentLoaded", () => {
+  let button = document.querySelector("submitButton");
+  button.addEventListener("click", makeAGuess)
+})
+
+//actual user guess/prompt i have to change this because
+  //i have to get the guess from when the user presses the submit button, and probably
+  //pulling using the get element by id
+function makeAGuess() {
+  let userGuess = window.prompt("Guess a letter in the color.");
+}
+
 
 let cssColorsBank = [ "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige",
    "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood","CadetBlue",
@@ -60,11 +71,6 @@ let randomColor = cssColorsBank[Math.floor(Math.random()*cssColorsBank.length)];
   //have blank spaces for the each letter
 let currentRoundColor = [];
 
-//actual user guess/prompt i have to change this because
-  //i have to get the guess from when the user presses the submit button, and probably
-  //pulling using the get element by id
-let userGuess = window.prompt("Guess a letter in the color.");
-
 //how many guesses do i get
 let numberOfWrongGuessesAllowed = 5;
 
@@ -94,7 +100,6 @@ if (userGuess.length !== 1) {
   }
 }
 
-})
 
 
 //________ZZZZZZ OLD TO BE REMOVED LATER ZZZZ______

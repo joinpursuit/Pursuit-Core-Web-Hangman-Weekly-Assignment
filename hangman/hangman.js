@@ -21,7 +21,7 @@
     //either way prompt to restart game
 //__________
 
-//i want to set up some variables I think here
+//i want to set up some variables I think here VARIABLES??
 
 let cssColorsBank = [ "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige",
    "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood","CadetBlue",
@@ -58,9 +58,31 @@ let randomColor = cssColorsBank[Math.floor(Math.random()*cssColorsBank.length)];
   //have blank spaces for the each letter
 let currentRoundColor = [];
 
+//actual user guess/prompt
+let userGuess = window.prompt("Guess a letter in the color.");
+
+//how many guesses do i get
+
+
+//THINGS THAT ACTUALLY HAPPEN
+
 for (let i = 0; i < randomColor.length; i++) {
   currentRoundColor[i] === "_";   //so where i have my current round's color
                                   //should be my underscores in a magical working code world
+}
+
+//i want the user to guess and it should just be a letter, not like nothing or lots of letters
+if (userGuess.length !== 1) {
+  window.alert("Just enter one letter! Pretty please.");
+} else if (userGuess.length === 1) {
+  for (let j = 0; j < currentRoundColor.length; j++) {
+    //ok so if my single letter guess is equivalent to any of the letters in my
+      //current color then my underscore at that index is going to be the letter
+    if (randomColor[j] === userGuess) {
+      currentRoundColor[j] === userGuess;
+      //then what: 
+    }
+  }
 }
 
 

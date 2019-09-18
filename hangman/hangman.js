@@ -58,11 +58,12 @@ let randomColor = cssColorsBank[Math.floor(Math.random()*cssColorsBank.length)];
   //have blank spaces for the each letter
 let currentRoundColor = [];
 
-//actual user guess/prompt
+//actual user guess/prompt i have to change this because
+  //i have to get the guess from when the user presses the submit button
 let userGuess = window.prompt("Guess a letter in the color.");
 
 //how many guesses do i get
-
+let numberOfGameGuesses = 6;
 
 //THINGS THAT ACTUALLY HAPPEN
 
@@ -80,42 +81,15 @@ if (userGuess.length !== 1) {
       //current color then my underscore at that index is going to be the letter
     if (randomColor[j] === userGuess) {
       currentRoundColor[j] === userGuess;
-      //then what: 
+      //then what:
     }
   }
 }
 
 
-//model for my 'hangperson' bad colors grid image
-// let hangPersonImage = {
-  //colorsAllTheGuessesAvail =
-  //colorsFiveGuessesLeft =
-  //colorsFourGuessesLeft =
-  //colorsThreeGuessesLeft =
-  //colorsTwoGuessesLeft =
-  //colorsOneGuess Left =
-  //colorsGameOver =
-  //oneFewerTurn: function () {
-  //}
-// }
 
 //________ZZZZZZ OLD TO BE REMOVED LATER ZZZZ______
-// //pull a word for the user
-// let currentRoundArtist = artistWordBank[Math.floor(Math.random() * artistWordBank.length)];
-// //my user's artist guess
-// let userGuess = window.prompt("Guess a letter.");
-// //how many incorrect tries
-// let numberOfGameGuesses = 6;
-//
-// //Set Up of Game
-//
-// //array of blanks to match number of letters in current round's word
-// //aka this says you'll have as many underscores as there are letters
-// //in the current round's word
-// let blanksForUser = [];
-// for (let i = 0; i < currentRoundArtist.length; i++) {
-//   blanksForUser[i] = "_";
-// }
+
 // //after the loop runs how many letters are left?
 // let lettersRemaining = currentRoundArtist.length;
 //

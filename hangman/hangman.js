@@ -25,7 +25,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   let button = document.querySelector("#startButton");
-  button.addEventListener("click", makeAGuess)
+  button.addEventListener("click", makeAGuess);
+})
 
 //actual user guess/prompt i have to change this because
   //i have to get the guess from when the user presses the submit button, and probably
@@ -100,7 +101,6 @@ if (userGuess.length !== 1) {
   }
 }
 
-})
 
 //________ZZZZZZ OLD TO BE REMOVED LATER ZZZZ______
 

@@ -50,11 +50,18 @@ let cssColorsBank = [ "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure"
 //i'm saying pick an index number from within the number of items in my array
 let randomColor = cssColorsBank[Math.floor(Math.random()*cssColorsBank.length)];
 
+//so far i have:
+  //my array of colors
+  //a var to say i need a random color from my bank
 
+//ok so i am gonna have more array fun with my answer for the round and i need to be able to
+  //have blank spaces for the each letter
+let currentRoundColor = [];
 
-
-
-
+for (let i = 0; i < randomColor.length; i++) {
+  currentRoundColor[i] === "_";   //so where i have my current round's color
+                                  //should be my underscores in a magical working code world
+}
 
 
 //model for my 'hangperson' bad colors grid image

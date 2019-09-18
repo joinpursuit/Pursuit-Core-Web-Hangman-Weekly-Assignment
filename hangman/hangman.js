@@ -23,6 +23,8 @@
 
 //i want to set up some variables I think here VARIABLES??
 
+document.addEventListener("DOMContentLoaded", () => {
+
 let cssColorsBank = [ "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige",
    "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood","CadetBlue",
    "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue",
@@ -66,7 +68,6 @@ let userGuess = window.prompt("Guess a letter in the color.");
 //how many guesses do i get
 let numberOfWrongGuessesAllowed = 5;
 
-
 //you need letters left to account for when someone wins
 let lettersRemaining = randomColor.length
 
@@ -93,6 +94,7 @@ if (userGuess.length !== 1) {
   }
 }
 
+})
 
 
 //________ZZZZZZ OLD TO BE REMOVED LATER ZZZZ______

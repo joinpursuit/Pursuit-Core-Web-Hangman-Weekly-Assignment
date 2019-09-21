@@ -84,7 +84,6 @@ const checkLetter = (ltr) => {
     console.log(ltr.charCodeAt(0));
     
     document.querySelector('#guess_letter').value = '';
-    document.querySelector('#guess_letter').value = '';
     
     if (game.tries[ltr.toLowerCase()]) {
         document.querySelector('#message_board p').innerText = `You've already guessed: ${ltr.toLowerCase()}\nTry again.\n`;

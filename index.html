@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hangman</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="words.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Hangman</h1>
+        </div>
+        <div class="empty"></div>
+        <div id="message_board">
+            <p>Messages board:</p>
+        </div>
+        <div class="empty"></div>
+        <div id="welcome_screen">
+            <div id="choose_word_type">
+                <p>
+                    Welcome to Mike's simple hangman. <br><br>
+                    Would you like to pick your own word or choose a random word
+                </p>
+                <br>
+                <button id="own_word" onclick="chooseWordType(true)">Choose my own word</button>
+                <br>
+                <button id="random_word" onclick="chooseWordType(false)">random</button>
+            </div>
+            <div id="pick_word" style="display: none">
+                <form onsubmit="event.preventDefault();startGame(true);">
+                    <label for="word_input">Enter your word:</label>
+                    <input type="password" id="word_input" pattern="[' '|a-zA-Z0-9]{1,30}" title="Alphanumeric only. No more than 30 characters" required>
+                    <br><br>
+                    <label for="show_word">Show word: </label>
+                    <input type="checkbox" id="show_word" onclick="showWord(this.checked)">
+                    <br><br>
+                    <button type="submit">Start</button>
+                </form>
+            </div>
+        </div>
+        <div id="game" style="display: none">
+            <div id="hangman_figure">
+                <img src="hang7.svg" alt="">
+            </div>
+            <div id="guess_entry">
+                <div id="lives_left">
+                    <p>Lives left: 7</p>
+                </div>
+                <div id="display_word">
+                    <p>_ _ _ _ _ _ _ _</p>
+                </div>
+                <div id="incorrect">                
+                    <p>
+                        Incorrect: <br>
+                    </p>
+                </div>
+            </div>
+            <div class="guess">
+                <label for='guess_letter'>Guess a letter</label><br><br>
+                <input type="text" id="guess_letter" size="3" onkeyup="isItAlphanumeric(event.key) ? checkLetter(event.key) : this.value = '';" title="Alphanumeric only">
+            </div>
+            <div class="guess">
+                <label for="guess_word">Guess a word or phrase</label>
+                <br><br>
+                <input type="text" name="guess_word" id="guess_word">
+                <br><br>
+                <button onclick="checkLetter(document.querySelector('#guess_word').value)">Guess  Word!</button>
+            </div>
+        </div>
+        <div id="end_screen" style="display: none">
+            <div id="winning_screen" style="display: none">
+                <img src="nohang.svg" alt="">
+                <p>Congrats you won!!!!</p>
+                <button onclick="window.location.reload()">New Game</button>
+            </div>
+            <div id="losing_screen" style="display: none">
+                <img src="hang0.svg" alt="">
+                <p>Sorry you lost...</p>
+                <button onclick="window.location.reload()">New Game</button>
+            </div>
+        </div>
+    </body>
+</html>

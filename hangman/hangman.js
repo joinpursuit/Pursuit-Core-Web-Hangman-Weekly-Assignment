@@ -36,18 +36,14 @@
 
   function pullRandomWord() {
 
+    let currentColorBlanks = [];
+
     for (let i = 0; i < randomColor.length; i++) {
 
-      let currentRoundColor = randomColor.split(" ");
-      let currentColorBlanks = [];
-
-      if (currentRoundColor[i]) {
-        currentColorBlanks[i] = "_";
+      currentColorBlanks[i] = "_";
 
         // currentColorBlanks.push(currentRoundColor[i]);
-
-        document.getElementById("blanksForRandomWord").innerText = currentColorBlanks;
-      }
+        document.getElementById("blanksForRandomWord").innerText = currentColorBlanks.join(" ");
 
       // document.getElementById("blanksForRandomWord").innerText = currentRoundColor;
 }

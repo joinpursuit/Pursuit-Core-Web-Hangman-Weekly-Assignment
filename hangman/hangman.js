@@ -46,19 +46,16 @@
       let blanksSection = document.querySelector("form");
 
       let userGuess = document.createElement("input");
-      // userGuess.type="text";
-      // userGuess.placeholder="Enter a letter guess";
-      // document.blanksSection.appendChild("userGuess");
-
       userGuess.setAttribute("type", "text");
       userGuess.setAttribute("placeholder", "Enter a letter");
       blanksSection.appendChild(userGuess);
 
-      // let submitButton = document.createElement("button");
-      // submitButton.setAttribute("type", "button");
-      // submitButton.setAttribute("placeholder", "Submit");
+      let submitButton = document.createElement("button");
+      submitButton.setAttribute("type", "button");
+      submitButton.setAttribute("placeholder", "Submit");
       // submitButton.attachEvent("onclick", handleAGuess);
-      // blanksSection.appendChild(submitButton);
+      submitButton.setAttribute("onclick", handleAGuess);
+      blanksSection.appendChild(submitButton);
   }
 
   function handleAGuess() {

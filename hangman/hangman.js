@@ -1,4 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
+//
+// })
+
+//variables
 
   let cssColorsBank = [ "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige",
      "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood","CadetBlue",
@@ -20,61 +24,57 @@ document.addEventListener("DOMContentLoaded", () => {
      "RebeccaPurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown",
      "SeaGreen", "SeaShell", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey","Snow",
      "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet",
-     "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
-   ];
-
-  let randomColor = cssColorsBank[Math.floor(Math.random()*cssColorsBank.length)];
-
-  let currentRoundColor = [];
-
-  for (let i = 0; i < randomColor.length; i++) {
-      currentRoundColor[i] === "_";
-      document.getElementById("blanks").innerText = currentRoundColor;
-    }
-
-  let userGuess = document.createElement("input");
-  userGuess.type="text";
-  userGuess.placeholder="Enter a letter guess";
-  document.body.appendChild(userGuess);
-
-  let submitButton = document.createElement("button");
-  submitButton.type="button";
-  submitButton.placeholder="Submit";
-  document.body.appendChild(submitButton);
+     "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen" ];
 
   let numberOfWrongGuessesAllowed = 5;
 
+  let randomColor = cssColorsBank[Math.floor(Math.random()*cssColorsBank.length)];
+
   let lettersRemaining = randomColor.length;
 
-  submitButton.addEventListener("click", makeAGuess);
-  function makeAGuess() {
-    if (userGuess.length !== 1) {
-    window.alert("Just enter one letter!");
-  } else if (userGuess.length === 1) {
-    for (let j = 0; j < currentRoundColor.length; j++) {
-      if (randomColor[j] === userGuess) {
-        currentRoundColor[j] === userGuess;
-        lettersRemaining--;
-      } else if (randomColor[j] !== userGuess) {
-        numberOfWrongGuessesAllowed--;
-      }
+//functions
+
+  function pullRandomWord() {
+
+    for (let i = 0; i < randomColor.length; i++) {
+      let currentRoundColor = [];
+      // currentRoundColor[i] === "_";
+      currentRoundColor.push("_");
+      document.getElementById("blanksForRandomWord").innerText = currentRoundColor;
+    }
+
+      let blanksSection = document.querySelector("form");
+
+      let userGuess = document.createElement("input");
+      // userGuess.type="text";
+      // userGuess.placeholder="Enter a letter guess";
+      // document.blanksSection.appendChild("userGuess");
+
+      userGuess.setAttribute("type", "text");
+      userGuess.setAttribute("placeholder", "Enter a letter");
+      blanksSection.appendChild(userGuess);
+
+      // let submitButton = document.createElement("button");
+      // submitButton.setAttribute("type", "button");
+      // submitButton.setAttribute("placeholder", "Submit");
+      // submitButton.attachEvent("onclick", handleAGuess);
+      // blanksSection.appendChild(submitButton);
+  }
+
+  function handleAGuess() {
+
+    if (userGuess.length === 1) {
+      for (let j = 0; j < currentRoundColor.length; j++) {
+        if (randomColor[j] === userGuess) {
+          currentRoundColor[j] === userGuess;
+          lettersRemaining--;
+        } else if (randomColor[j] !== userGuess) {
+          numberOfWrongGuessesAllowed--;
+        }
+        else if (userGuess.length !== 1) {
+            window.alert("Just enter one letter!");
     }
   }
 }
 
-})
-
-//_________
-//it has to acknowlege if it's 1 letter or not
-  //if not, prompt to guess with just 1 letter (1 character of string type?)
-  //if so, if letter is in word then equivalent letter appears instead of the underscore
-  //if so, if letter is not in word:
-    //# of guesses remaining goes down
-    //letter that's wrong appears in a box of wrong letters guessed?
-    //another hangperson image appears to show how far wrong you are
-//when all your letters are letters aka no more underscores, the user has won
-  //only while there are guesses remaining left
-  //if there are still guesses, program should alert that the user has won!
-  //if there are no guesses at any point, the game is over
-    //either way prompt to restart game
-//__________
+}

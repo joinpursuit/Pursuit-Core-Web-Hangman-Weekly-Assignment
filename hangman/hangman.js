@@ -41,11 +41,16 @@
       let currentRoundColor = randomColor.split(" ");
       let currentColorBlanks = [];
 
-      currentRoundColor[i] === "_";
-      currentColorBlanks.push(currentRoundColor[i]);
+      if (currentRoundColor[i]) {
+        currentColorBlanks[i] = "_";
 
-      document.getElementById("blanksForRandomWord").innerText = currentRoundColor;
-    }
+        // currentColorBlanks.push(currentRoundColor[i]);
+
+        document.getElementById("blanksForRandomWord").innerText = currentColorBlanks;
+      }
+
+      // document.getElementById("blanksForRandomWord").innerText = currentRoundColor;
+}
 
       let blanksSection = document.querySelector("form");
 

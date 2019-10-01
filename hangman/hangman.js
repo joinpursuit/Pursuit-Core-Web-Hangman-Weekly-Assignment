@@ -37,9 +37,13 @@
   function pullRandomWord() {
 
     for (let i = 0; i < randomColor.length; i++) {
-      let currentRoundColor = [];
-      // currentRoundColor[i] === "_";
-      currentRoundColor.push("_");
+
+      let currentRoundColor = randomColor.split(" ");
+      let currentColorBlanks = [];
+
+      currentRoundColor[i] === "_";
+      currentColorBlanks.push(currentRoundColor[i]);
+
       document.getElementById("blanksForRandomWord").innerText = currentRoundColor;
     }
 
@@ -53,7 +57,6 @@
       let submitButton = document.createElement("button");
       submitButton.setAttribute("type", "button");
       submitButton.setAttribute("placeholder", "Submit");
-      // submitButton.attachEvent("onclick", handleAGuess);
       submitButton.setAttribute("onclick", handleAGuess);
       blanksSection.appendChild(submitButton);
   }

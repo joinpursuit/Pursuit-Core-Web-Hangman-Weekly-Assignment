@@ -42,10 +42,7 @@
 
       currentColorBlanks[i] = "_";
 
-        // currentColorBlanks.push(currentRoundColor[i]);
-        document.getElementById("blanksForRandomWord").innerText = currentColorBlanks.join(" ");
-
-      // document.getElementById("blanksForRandomWord").innerText = currentRoundColor;
+      document.getElementById("blanksForRandomWord").innerText = currentColorBlanks.join(" ");
 }
 
       let blanksSection = document.querySelector("form");

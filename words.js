@@ -1,0 +1,3 @@
+let humanBody = ["blood", "body", "cell", "digestion", "disease", "drug", "excrete", "exercise", "face", "foot", "hair", "head", "health", "hygiene", "injury", "muscle", "nerve", "organ", "reproduction", "respiration", "sense", "skeleton", "tooth"];
+let humanMind = [ 'action', 'anger', 'behavior', 'belief', 'care', 'emotion', 'fear', 'happiness', 'hate', 'knowledge', 'learn', 'love', 'mind', 'morals', 'personality', 'sadness', 'thought' ];
+let everydayLife = ['airplane', 'boat', 'building', 'car', 'city', 'clothing', 'community', 'cooking', 'drink', 'family', 'food', 'furniture', 'game', 'home', 'jewelry', 'leisure', "relationship', 'room', 'school', 'sport', 'tool', 'transportation'];

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hangman</title>
+    <script src="hangman.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./hangman.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Guess The Animal</h1>
+      <h3>Hangman Game</h3>
+    </header>
+
+    <form>
+      <input
+        id="input"
+        type="text"
+        name="letter"
+        placeholder="Enter a Letter"
+        maxlength="1"
+      />
+
+      <input id="button" type="submit" value="send" />
+      <input id="reset" type="reset" value="reset" /> <br />
+      <p id="dashes"></p>
+    </form>
+
+    <div>
+      <strong> Letters Guessed: </strong>
+      <p id="Guesses"></p>
+      <p id="tries"></p>
+      <div id="image"></div>
+    </div>
+  </body>
+</html>
+
+<!--
+  1. Pick a random word.
+  2. Take the player’s guess.
+  4. Check that the player’s guess is a valid letter.
+  5. Keep track of letters the player has guessed.
+  6. Show the player their progress.
+  7. Finish when the player has guessed the word.
+-->

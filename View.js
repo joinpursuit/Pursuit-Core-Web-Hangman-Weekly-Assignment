@@ -3,7 +3,7 @@ class View {
         this.game = game;
         this.el = el;
         this.displayBoard();
-        this.blind();
+        this.bindEvents();
         
     }
 
@@ -18,7 +18,7 @@ class View {
         this.el.appendChild(boardDiv);
     }
 
-    blind(){
+    bindEvents(){
         let submit = document.querySelector("#getLetterBtn");
         submit.addEventListener("click", () => {
             let guess = document.querySelector("#getLetter").value;

@@ -1,0 +1,34 @@
+body{
+  text-align: center;
+  background-color: #bb99ff;
+  font-family: 'Permanent Marker';
+  font-size: 25px;
+
+}
+
+ input{
+   border: 2px solid blue;
+   border-radius: 25px;
+ }
+ button{
+   border: 2px solid blue;
+  border-radius: 25px;
+ }
+
+img{
+  display:none;
+}
+
+
+#content{
+  display:flex;
+  justify-content: space-around;
+}
+.side{
+  background-image:url("https://cdn.shopify.com/s/files/1/0169/1980/products/iPhoto-6_71e34a82-9ff6-4ea1-8f18-20a6fa24cf4c_grande.jpg?v=1415152812");
+  width: 60px;
+  height:auto;
+
+
+
+};

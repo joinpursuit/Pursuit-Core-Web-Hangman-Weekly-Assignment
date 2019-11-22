@@ -13,6 +13,11 @@ class Game {
         this.guessedAlready = [];
     }
 
+    displayGuessedAlready() {
+        let guessedAlready = this.guessedAlready.join(" ");
+        return guessedAlready;
+    }
+
     // Game should be able to check if a guess isValid
     isValidGuess (guess){
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -25,11 +30,19 @@ class Game {
 
     // Game should be able to check if game isOver
     isGameOver(){
-        if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
+        // if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        if(this.board.isComplete(this.computer.word)){
+            return true;
+        } else if(this.guessesRemaining === 0) {
             return true;
         } else {
             return false;
         }
+
     }
     
     

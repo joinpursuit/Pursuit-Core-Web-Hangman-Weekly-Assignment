@@ -90,9 +90,11 @@
 /*!******************!*\
   !*** ./Board.js ***!
   \******************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 class Board {
     constructor(length){
         this.board = new Array(length).fill("_")
@@ -124,7 +126,7 @@ class Board {
 
 }
 
-module.exports = Board;
+/* harmony default export */ __webpack_exports__["default"] = (Board);
 
  
 
@@ -147,7 +149,6 @@ module.exports = Board;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Board_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board.js */ "./Board.js");
-/* harmony import */ var _Board_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Board_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Guesser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Guesser.js */ "./Guesser.js");
 /* harmony import */ var _Referee_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Referee.js */ "./Referee.js");
 
@@ -160,9 +161,14 @@ class Game {
     constructor(player){
         this.player = player;
         this.computer = new _Referee_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
-        this.board = new _Board_js__WEBPACK_IMPORTED_MODULE_0___default.a(this.computer.secretWordLength());
+        this.board = new _Board_js__WEBPACK_IMPORTED_MODULE_0__["default"](this.computer.secretWordLength());
         this.guessesRemaining = 6;  // Game should have guessesRemaining, decrement if Gueser guesses wrong
         this.guessedAlready = [];
+    }
+
+    displayGuessedAlready() {
+        let guessedAlready = this.guessedAlready.join(" ");
+        return guessedAlready;
     }
 
     // Game should be able to check if a guess isValid
@@ -177,11 +183,19 @@ class Game {
 
     // Game should be able to check if game isOver
     isGameOver(){
-        if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
+        // if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        if(this.board.isComplete(this.computer.word)){
+            return true;
+        } else if(this.guessesRemaining === 0) {
             return true;
         } else {
             return false;
         }
+
     }
     
     
@@ -295,7 +309,8 @@ class Referee {
         for(let i = 0; i < this.word.length; i++){
             revealStr.push(this.word[i]);
         }
-        return revealStr.join(" ");
+        let currentBoard = revealStr.join(" ");
+        return currentBoard;
     }
     
 }
@@ -321,11 +336,28 @@ class View {
     constructor(game, el){
         this.game = game;
         this.el = el;
-        this.displayImgs(this.game.guessesRemaining);
-        this.displayBoard();
-        this.bindEvents();
+        this.play();
         // these will run in play method
         
+    }
+
+    play(){
+        if(!this.game.isGameOver()){
+            this.displayBoard();
+            this.displayImgs(this.game.guessesRemaining);
+            this.bindEvents();
+        } else {
+            let p = document.querySelector("#pSelect");
+            let h1 = document.querySelector("#h1");
+            let currentBoard = this.game.computer.reveal();
+            if(this.game.guessesRemaining){
+                h1.innerText = currentBoard;
+                p.innerText = "You win hangman! Congratulations!";
+            } else {
+                h1.innerText = currentBoard;
+                p.innerText = "You ran out of guesses! You lose! This was the word: ";
+            }
+        }
     }
 
     displayImgs(numGuesses){
@@ -335,22 +367,23 @@ class View {
         img.src = newSrc;
 
         imgDiv.appendChild(img);
-        this.el.appendChild(imgDiv);
+        this.el.prepend(imgDiv);
     }
 
     displayBoard(){
+        this.el.innerHTML = "";
         let boardDiv = document.createElement("div");
         let currentBoard = this.game.board.displayBoard();
         let h1 = document.createElement("h1")
+        h1.innerText = currentBoard;
         let p = document.createElement("p");
-        p.innerText = "Please Enter a letter:"
+        p.id="pSelect";
+        p.innerText = "Please enter a letter:"
         let input = document.createElement("input");
         input.id ="letterInput";
         let button = document.createElement("button");
         button.id="submitBtn"
         button.innerText = "Submit";
-
-        h1.innerText = currentBoard;
 
         boardDiv.appendChild(h1);
         boardDiv.appendChild(p);
@@ -359,7 +392,6 @@ class View {
         this.el.appendChild(boardDiv);
     }
 
-
     bindEvents(){
         let button = document.querySelector("#submitBtn");
         button.addEventListener("click", () => this.result());
@@ -367,7 +399,23 @@ class View {
     
     result(){
         let input = document.querySelector("#letterInput")
-        this.el.isValidGuess(input.value);
+        let p = document.querySelector("#pSelect")
+        if(this.game.isValidGuess(input.value) && !this.game.computer.word.includes(input.value)){
+            this.game.guessedAlready.push(input.value);
+            this.game.guessesRemaining -= 1;
+        } else if(this.game.isValidGuess(input.value)){
+            this.game.guessedAlready.push(input.value);
+            this.game.board.addChar(this.game.computer.word, input.value);
+        } else {
+            p.innerText = "Please enter a valid letter!!";
+        }
+
+        console.log(this.game.board);
+        console.log(this.game.guessedAlready)
+        console.log(this.game.guessesRemaining);
+        console.log(this.game.computer.word);
+
+        this.play();
     }
 
 

@@ -18,7 +18,8 @@ class Referee {
         for(let i = 0; i < this.word.length; i++){
             revealStr.push(this.word[i]);
         }
-        return revealStr.join(" ");
+        let currentBoard = revealStr.join(" ");
+        return currentBoard;
     }
     
 }

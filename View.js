@@ -2,11 +2,28 @@ class View {
     constructor(game, el){
         this.game = game;
         this.el = el;
-        this.displayImgs(this.game.guessesRemaining);
-        this.displayBoard();
-        this.bindEvents();
+        this.play();
         // these will run in play method
         
+    }
+
+    play(){
+        if(!this.game.isGameOver()){
+            this.displayBoard();
+            this.displayImgs(this.game.guessesRemaining);
+            this.bindEvents();
+        } else {
+            let p = document.querySelector("#pSelect");
+            let h1 = document.querySelector("#h1");
+            let currentBoard = this.game.computer.reveal();
+            if(this.game.guessesRemaining){
+                h1.innerText = currentBoard;
+                p.innerText = "You win hangman! Congratulations!";
+            } else {
+                h1.innerText = currentBoard;
+                p.innerText = "You ran out of guesses! You lose! This was the word: ";
+            }
+        }
     }
 
     displayImgs(numGuesses){
@@ -16,22 +33,23 @@ class View {
         img.src = newSrc;
 
         imgDiv.appendChild(img);
-        this.el.appendChild(imgDiv);
+        this.el.prepend(imgDiv);
     }
 
     displayBoard(){
+        this.el.innerHTML = "";
         let boardDiv = document.createElement("div");
         let currentBoard = this.game.board.displayBoard();
         let h1 = document.createElement("h1")
+        h1.innerText = currentBoard;
         let p = document.createElement("p");
-        p.innerText = "Please Enter a letter:"
+        p.id="pSelect";
+        p.innerText = "Please enter a letter:"
         let input = document.createElement("input");
         input.id ="letterInput";
         let button = document.createElement("button");
         button.id="submitBtn"
         button.innerText = "Submit";
-
-        h1.innerText = currentBoard;
 
         boardDiv.appendChild(h1);
         boardDiv.appendChild(p);
@@ -40,7 +58,6 @@ class View {
         this.el.appendChild(boardDiv);
     }
 
-
     bindEvents(){
         let button = document.querySelector("#submitBtn");
         button.addEventListener("click", () => this.result());
@@ -48,7 +65,23 @@ class View {
     
     result(){
         let input = document.querySelector("#letterInput")
-        this.el.isValidGuess(input.value);
+        let p = document.querySelector("#pSelect")
+        if(this.game.isValidGuess(input.value) && !this.game.computer.word.includes(input.value)){
+            this.game.guessedAlready.push(input.value);
+            this.game.guessesRemaining -= 1;
+        } else if(this.game.isValidGuess(input.value)){
+            this.game.guessedAlready.push(input.value);
+            this.game.board.addChar(this.game.computer.word, input.value);
+        } else {
+            p.innerText = "Please enter a valid letter!!";
+        }
+
+        console.log(this.game.board);
+        console.log(this.game.guessedAlready)
+        console.log(this.game.guessesRemaining);
+        console.log(this.game.computer.word);
+
+        this.play();
     }
 
 

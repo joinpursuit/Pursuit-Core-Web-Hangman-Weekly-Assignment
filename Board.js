@@ -29,7 +29,7 @@ class Board {
 
 }
 
-module.exports = Board;
+export default Board;
 
  
 

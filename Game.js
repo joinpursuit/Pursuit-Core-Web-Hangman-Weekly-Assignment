@@ -30,13 +30,7 @@ class Game {
         // } else {
         //     return false;
         // }
-        if(this.board.isComplete(this.computer.word)){
-            return true;
-        } else if(this.guessesRemaining === 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.guessesRemaining > 0 && !this.board.isComplete(this.computer.word)
 
     }
     

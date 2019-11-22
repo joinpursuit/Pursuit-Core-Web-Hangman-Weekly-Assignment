@@ -3,27 +3,24 @@ class View {
         this.game = game;
         this.el = el;
         this.play();
-        // these will run in play method
         
     }
 
     play(){
-        if(!this.game.isGameOver()){
+        let h1 = document.querySelector("#h1");
+
+        if(this.game.isGameOver()){
             this.displayBoard();
             this.displayGuessed();
             this.displayImgs(this.game.guessesRemaining);
             this.bindEvents();
-        } else {
-            let p = document.querySelector("#pSelect");
-            let h1 = document.querySelector("#h1");
+        } else if(this.game.board.isComplete(this.game.computer.word)){
             let currentBoard = this.game.computer.reveal();
-            if(this.game.guessesRemaining){
-                h1.innerText = currentBoard;
-                p.innerText = "You win hangman! Congratulations!";
-            } else {
-                h1.innerText = currentBoard;
-                p.innerText = "You ran out of guesses! You lose! This was the word: ";
-            }
+            h1.innerText = currentBoard;
+            p.innerText = "You win hangman! Congratulations!";
+        } else if(this.remainingGuesses === 0){
+            h1.innerText = currentBoard;
+            p.innerText = "You ran out of guesses! You lose! The word was: ";
         }
     }
 
@@ -43,8 +40,13 @@ class View {
         let currentBoard = this.game.board.displayBoard();
         let h1 = document.createElement("h1")
         h1.innerText = currentBoard;
+
+        let h4 = document.createElement("h4");
+        h4.id="guessesRemaining"
+        document.body.appendChild(h4)
+
         let p = document.createElement("p");
-        p.id="pSelect";
+        p.id="enterGuess";
         p.innerText = "Please enter a letter:"
         let guessed= document.createElement("p");
         guessed.id="guessedAlready";
@@ -79,23 +81,22 @@ class View {
 
     result(){
         let input = document.querySelector("#letterInput")
-        let p = document.querySelector("#pSelect")
-        if(this.game.isValidGuess(input.value) && !this.game.computer.word.includes(input.value)){
-            this.game.guessedAlready.push(input.value);
+        let h4 = document.querySelector("#guessesRemaining")
+        let p = document.querySelector("#enterGuess")
+        if(this.game.isValidGuess(input.value.toLowerCase()) && !this.game.computer.word.includes(input.value.toLowerCase())){
+            this.game.guessedAlready.push(input.value.toLowerCase());
             this.game.guessesRemaining -= 1;
-        } else if(this.game.isValidGuess(input.value)){
-            this.game.guessedAlready.push(input.value);
-            this.game.board.addChar(this.game.computer.word, input.value);
+            h4.innerText = `Incorrect guess! Guesses remaining: ${this.game.guessesRemaining}`;
+        } else if(this.game.isValidGuess(input.value.toLowerCase())){
+            this.game.guessedAlready.push(input.value.toLowerCase());
+            this.game.board.addChar(this.game.computer.word, input.value.toLowerCase());
+            h4.innerText = `Correct guess! Nice! Guesses remaining: ${this.game.guessesRemaining}`;
         } else {
-            p.innerText = "Please enter a valid letter!!";
+            h4.innerText = "Please enter a valid letter!! " + "Guesses Remaining: " + this.game.guessesRemaining;
         }
-
-        console.log(this.game.board);
-        console.log(this.game.guessedAlready)
-        console.log(this.game.guessesRemaining);
-        console.log(this.game.computer.word);
-
+        
         this.play();
+
     }
 
 

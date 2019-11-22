@@ -1,6 +1,6 @@
-const Board = require("./Board.js");
-const Guesser = require("./Guesser.js")
-const Referee = require("./Referee.js")
+import Board from "./Board.js";
+import Guesser from "./Guesser.js"
+import Referee from "./Referee.js";
 // const {hangManPics} = require("./hangmanPics");
 // const readline = require("readline-sync");
 

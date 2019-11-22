@@ -13,5 +13,5 @@ class Guesser {
 
 }
 
-module.exports = Guesser;
+export default Guesser;
 

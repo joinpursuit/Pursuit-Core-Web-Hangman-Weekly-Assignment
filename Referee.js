@@ -23,7 +23,7 @@ class Referee {
     
 }
 
-module.exports = Referee
+export default Referee;
 
  
 

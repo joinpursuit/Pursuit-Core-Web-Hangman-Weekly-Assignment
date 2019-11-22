@@ -146,17 +146,21 @@ module.exports = Board;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const Board = __webpack_require__(/*! ./Board.js */ "./Board.js");
-const Guesser = __webpack_require__(/*! ./Guesser.js */ "./Guesser.js")
-const Referee = __webpack_require__(/*! ./Referee.js */ "./Referee.js")
+/* harmony import */ var _Board_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board.js */ "./Board.js");
+/* harmony import */ var _Board_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Board_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Guesser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Guesser.js */ "./Guesser.js");
+/* harmony import */ var _Referee_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Referee.js */ "./Referee.js");
+
+
+
 // const {hangManPics} = require("./hangmanPics");
 // const readline = require("readline-sync");
 
 class Game {
     constructor(player){
         this.player = player;
-        this.computer = new Referee();
-        this.board = new Board(this.computer.secretWordLength());
+        this.computer = new _Referee_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        this.board = new _Board_js__WEBPACK_IMPORTED_MODULE_0___default.a(this.computer.secretWordLength());
         this.guessesRemaining = 6;  // Game should have guessesRemaining, decrement if Gueser guesses wrong
         this.guessedAlready = [];
     }
@@ -236,9 +240,11 @@ class Game {
 /*!********************!*\
   !*** ./Guesser.js ***!
   \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 // const readline = require("readline-sync");
 
 class Guesser {
@@ -254,7 +260,7 @@ class Guesser {
 
 }
 
-module.exports = Guesser;
+/* harmony default export */ __webpack_exports__["default"] = (Guesser);
 
 
 
@@ -264,9 +270,11 @@ module.exports = Guesser;
 /*!********************!*\
   !*** ./Referee.js ***!
   \********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 const {dictionary} = __webpack_require__(/*! ./dictionary.js */ "./dictionary.js");  
 
 class Referee {
@@ -292,7 +300,7 @@ class Referee {
     
 }
 
-module.exports = Referee
+/* harmony default export */ __webpack_exports__["default"] = (Referee);
 
  
 
@@ -313,33 +321,54 @@ class View {
     constructor(game, el){
         this.game = game;
         this.el = el;
+        this.displayImgs(this.game.guessesRemaining);
         this.displayBoard();
-        this.blind();
+        this.bindEvents();
+        // these will run in play method
         
+    }
+
+    displayImgs(numGuesses){
+        let imgDiv = document.createElement("div");
+        let img = document.createElement("img");
+        let newSrc = `./images/hangman${numGuesses}.jpg`;
+        img.src = newSrc;
+
+        imgDiv.appendChild(img);
+        this.el.appendChild(imgDiv);
     }
 
     displayBoard(){
         let boardDiv = document.createElement("div");
-        boardDiv.id = "boardDiv"
         let currentBoard = this.game.board.displayBoard();
-        let boardSpace = document.createElement("h1")
-        boardSpace.innerText = currentBoard;
-        boardDiv.appendChild(boardSpace);
+        let h1 = document.createElement("h1")
+        let p = document.createElement("p");
+        p.innerText = "Please Enter a letter:"
+        let input = document.createElement("input");
+        input.id ="letterInput";
+        let button = document.createElement("button");
+        button.id="submitBtn"
+        button.innerText = "Submit";
 
+        h1.innerText = currentBoard;
+
+        boardDiv.appendChild(h1);
+        boardDiv.appendChild(p);
+        boardDiv.appendChild(input);
+        boardDiv.appendChild(button);
         this.el.appendChild(boardDiv);
     }
 
-    blind(){
-        let submit = document.querySelector("#getLetterBtn");
-        submit.addEventListener("click", () => {
-            let guess = document.querySelector("#getLetter").value;
-           let bull =  this.game.isValidGuess(guess)
-             debugger
-             console.log(bull)
 
-        })
+    bindEvents(){
+        let button = document.querySelector("#submitBtn");
+        button.addEventListener("click", () => this.result());
     }
     
+    result(){
+        let input = document.querySelector("#letterInput")
+        this.el.isValidGuess(input.value);
+    }
 
 
 }
@@ -442,16 +471,23 @@ module.exports = {dictionary};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game.js */ "./Game.js");
 /* harmony import */ var _Guesser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Guesser.js */ "./Guesser.js");
-/* harmony import */ var _Guesser_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Guesser_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _View_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./View.js */ "./View.js");
 
 
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
-    let game = new _Game_js__WEBPACK_IMPORTED_MODULE_0__["default"](new _Guesser_js__WEBPACK_IMPORTED_MODULE_1___default.a("contestant"));
-    let el = document.querySelector("#hangman");
-    new _View_js__WEBPACK_IMPORTED_MODULE_2__["default"](game,el);
+    let start = document.createElement("button");
+    start.innerText = "Start New Game"
+    document.body.appendChild(start);
+    start.addEventListener("click", () => {
+        document.body.removeChild(start);
+        let game = new _Game_js__WEBPACK_IMPORTED_MODULE_0__["default"](new _Guesser_js__WEBPACK_IMPORTED_MODULE_1__["default"]("contestant"));
+        let el = document.querySelector("#hm");
+        new _View_js__WEBPACK_IMPORTED_MODULE_2__["default"](game,el);
+
+    })
     
 })
 

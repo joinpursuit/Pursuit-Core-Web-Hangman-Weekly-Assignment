@@ -45,6 +45,9 @@ class View {
         let p = document.createElement("p");
         p.id="pSelect";
         p.innerText = "Please enter a letter:"
+        let guessedLetters = document.createElement("p");
+        guessedLetters.id="guessedAlready";
+        guessedLetters.innerText = "No guesses made";
         let input = document.createElement("input");
         input.id ="letterInput";
         let button = document.createElement("button");
@@ -63,9 +66,11 @@ class View {
         button.addEventListener("click", () => this.result());
     }
     
+    
     result(){
         let input = document.querySelector("#letterInput")
         let p = document.querySelector("#pSelect")
+        let guessedAlready = document.querySelector("#guessedAlready");
         if(this.game.isValidGuess(input.value) && !this.game.computer.word.includes(input.value)){
             this.game.guessedAlready.push(input.value);
             this.game.guessesRemaining -= 1;
@@ -75,6 +80,7 @@ class View {
         } else {
             p.innerText = "Please enter a valid letter!!";
         }
+        guessedAlready.innerText = this.game.guessedAlready
 
         console.log(this.game.board);
         console.log(this.game.guessedAlready)

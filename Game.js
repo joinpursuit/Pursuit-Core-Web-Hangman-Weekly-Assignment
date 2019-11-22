@@ -13,11 +13,6 @@ class Game {
         this.guessedAlready = [];
     }
 
-    displayGuessedAlready() {
-        let guessedAlready = this.guessedAlready.join(" ");
-        return guessedAlready;
-    }
-
     // Game should be able to check if a guess isValid
     isValidGuess (guess){
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]

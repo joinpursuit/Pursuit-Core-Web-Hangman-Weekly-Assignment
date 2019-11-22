@@ -10,6 +10,7 @@ class View {
     play(){
         if(!this.game.isGameOver()){
             this.displayBoard();
+            this.displayGuessed();
             this.displayImgs(this.game.guessesRemaining);
             this.bindEvents();
         } else {
@@ -45,9 +46,8 @@ class View {
         let p = document.createElement("p");
         p.id="pSelect";
         p.innerText = "Please enter a letter:"
-        let guessedLetters = document.createElement("p");
-        guessedLetters.id="guessedAlready";
-        guessedLetters.innerText = "No guesses made";
+        let guessed= document.createElement("p");
+        guessed.id="guessedAlready";
         let input = document.createElement("input");
         input.id ="letterInput";
         let button = document.createElement("button");
@@ -55,6 +55,7 @@ class View {
         button.innerText = "Submit";
 
         boardDiv.appendChild(h1);
+        boardDiv.appendChild(guessed);
         boardDiv.appendChild(p);
         boardDiv.appendChild(input);
         boardDiv.appendChild(button);
@@ -66,11 +67,19 @@ class View {
         button.addEventListener("click", () => this.result());
     }
     
-    
+    displayGuessed(){
+        let guessedAlready = document.querySelector("#guessedAlready");
+        if(this.game.guessedAlready.length === 0){
+            guessedAlready.innerText = "No guesses have been made";
+        } else {
+            let guessedLetters = this.game.guessedAlready.join(", ");
+            guessedAlready.innerText = `Letters guessed already: ${guessedLetters}`;
+        }
+    }
+
     result(){
         let input = document.querySelector("#letterInput")
         let p = document.querySelector("#pSelect")
-        let guessedAlready = document.querySelector("#guessedAlready");
         if(this.game.isValidGuess(input.value) && !this.game.computer.word.includes(input.value)){
             this.game.guessedAlready.push(input.value);
             this.game.guessesRemaining -= 1;
@@ -80,7 +89,6 @@ class View {
         } else {
             p.innerText = "Please enter a valid letter!!";
         }
-        guessedAlready.innerText = this.game.guessedAlready
 
         console.log(this.game.board);
         console.log(this.game.guessedAlready)

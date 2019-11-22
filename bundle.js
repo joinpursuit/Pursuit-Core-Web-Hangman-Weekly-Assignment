@@ -166,11 +166,6 @@ class Game {
         this.guessedAlready = [];
     }
 
-    displayGuessedAlready() {
-        let guessedAlready = this.guessedAlready.join(" ");
-        return guessedAlready;
-    }
-
     // Game should be able to check if a guess isValid
     isValidGuess (guess){
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -344,6 +339,7 @@ class View {
     play(){
         if(!this.game.isGameOver()){
             this.displayBoard();
+            this.displayGuessed();
             this.displayImgs(this.game.guessesRemaining);
             this.bindEvents();
         } else {
@@ -379,6 +375,8 @@ class View {
         let p = document.createElement("p");
         p.id="pSelect";
         p.innerText = "Please enter a letter:"
+        let guessed= document.createElement("p");
+        guessed.id="guessedAlready";
         let input = document.createElement("input");
         input.id ="letterInput";
         let button = document.createElement("button");
@@ -386,6 +384,7 @@ class View {
         button.innerText = "Submit";
 
         boardDiv.appendChild(h1);
+        boardDiv.appendChild(guessed);
         boardDiv.appendChild(p);
         boardDiv.appendChild(input);
         boardDiv.appendChild(button);
@@ -397,6 +396,16 @@ class View {
         button.addEventListener("click", () => this.result());
     }
     
+    displayGuessed(){
+        let guessedAlready = document.querySelector("#guessedAlready");
+        if(this.game.guessedAlready.length === 0){
+            guessedAlready.innerText = "No guesses have been made";
+        } else {
+            let guessedLetters = this.game.guessedAlready.join(", ");
+            guessedAlready.innerText = `Letters guessed already: ${guessedLetters}`;
+        }
+    }
+
     result(){
         let input = document.querySelector("#letterInput")
         let p = document.querySelector("#pSelect")

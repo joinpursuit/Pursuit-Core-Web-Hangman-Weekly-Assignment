@@ -99,7 +99,6 @@ class Board {
     constructor(length){
         this.board = new Array(length).fill("_")
     }
-
     
     addChar(word, letter) {
         for(let i = 0; i < word.length; i++){
@@ -108,7 +107,6 @@ class Board {
             }
         }
     }
-
     
     isComplete(word){
         if(this.board.join("") === word){
@@ -122,7 +120,6 @@ class Board {
         let currentBoard = this.board.join(" ");
         return currentBoard;
     }
-    
 
 }
 
@@ -149,10 +146,9 @@ class Board {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Board_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board.js */ "./Board.js");
-/* harmony import */ var _Guesser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Guesser.js */ "./Guesser.js");
-/* harmony import */ var _Referee_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Referee.js */ "./Referee.js");
+/* harmony import */ var _Referee_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Referee.js */ "./Referee.js");
 
-
+// import Guesser from "./Guesser.js"
 
 // const {hangManPics} = require("./hangmanPics");
 // const readline = require("readline-sync");
@@ -160,12 +156,11 @@ __webpack_require__.r(__webpack_exports__);
 class Game {
     constructor(player){
         this.player = player;
-        this.computer = new _Referee_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        this.computer = new _Referee_js__WEBPACK_IMPORTED_MODULE_1__["default"]();
         this.board = new _Board_js__WEBPACK_IMPORTED_MODULE_0__["default"](this.computer.secretWordLength());
-        this.guessesRemaining = 6;  // Game should have guessesRemaining, decrement if Gueser guesses wrong
+        this.guessesRemaining = 6;  
         this.guessedAlready = [];
     }
-
 
     isValidGuess (guess){
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -176,17 +171,10 @@ class Game {
         return valid;
     }
 
-
     isGameOver(){
-        // if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
-        //     return true;
-        // } else {
-        //     return false;
-        // }
         return this.guessesRemaining > 0 && !this.board.isComplete(this.computer.word)
 
     }
-    
     
     play() {
         console.clear();
@@ -198,7 +186,7 @@ class Game {
             console.log(`You have ${this.guessesRemaining} guesses left.`);
             console.log("Letters already used: ", this.guessedAlready.join(", "))
             let guess = this.player.getGuess();
-            
+
             // sees if letter has been used
             while(this.guessedAlready.includes(guess)){
                 guess = readline.question("You already used that letter. Please try another unique letter: ")
@@ -227,10 +215,6 @@ class Game {
     }
 }
 
-// let playerName = readline.question("Please enter your name: "); 
-// let game = new Game(new Guesser(playerName));
-// game.play();
-
 /* harmony default export */ __webpack_exports__["default"] = (Game);
 
 
@@ -252,13 +236,6 @@ class Guesser {
     constructor(name) {
         this.name = name;
     }
-
-    // getGuess() {
-    //     let guess = readline.question("Please enter your guess: ")
-    //     guess.toLowerCase();
-    //     return guess;
-    // }
-
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Guesser);
@@ -284,13 +261,11 @@ class Referee {
         this.word = dictionary[(Math.floor(Math.random() * dictionary.length))];
     }
 
-    
     secretWordLength(){
         let secretWord = this.word;
         return secretWord.length;
     }
 
-    
     reveal(){
         let revealStr = [];
         for(let i = 0; i < this.word.length; i++){
@@ -298,8 +273,7 @@ class Referee {
         }
         let currentBoard = revealStr.join(" ");
         return currentBoard;
-    }
-    
+    }  
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Referee);
@@ -329,7 +303,6 @@ class View {
         this.game = game;
         this.el = el;
         this.play();
-        
     }
 
     play(){
@@ -341,7 +314,7 @@ class View {
         } else if(this.game.board.isComplete(this.game.computer.word)){
             this.displayBoard();
             this.removeItems();
-            this.end();
+            this.end(); 
         } else {
             this.displayBoard();
             this.removeItems();
@@ -466,10 +439,7 @@ class View {
         } else {
             h4.innerText = "Please enter a valid letter!! " + "Guesses Remaining: " + this.game.guessesRemaining;
         }
-        
         this.play();
-
-        console.log(this.game.computer.word);
     }
 
 
@@ -588,7 +558,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let game = new _Game_js__WEBPACK_IMPORTED_MODULE_0__["default"](new _Guesser_js__WEBPACK_IMPORTED_MODULE_1__["default"]("contestant"));
         let el = document.querySelector("#hm");
         new _View_js__WEBPACK_IMPORTED_MODULE_2__["default"](game,el);
-
     })
     
 })

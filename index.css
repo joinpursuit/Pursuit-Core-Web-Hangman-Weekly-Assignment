@@ -45,3 +45,8 @@ button {
     border-radius: 10%;
     border-color: rgb(230, 11, 11);
 }
+
+img {
+    border: 5px solid rebeccapurple;
+    border-radius: 10%;
+}

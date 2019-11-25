@@ -13,7 +13,7 @@ class Game {
         this.guessedAlready = [];
     }
 
-    // Game should be able to check if a guess isValid
+
     isValidGuess (guess){
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         let valid = false;
@@ -23,7 +23,7 @@ class Game {
         return valid;
     }
 
-    // Game should be able to check if game isOver
+
     isGameOver(){
         // if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
         //     return true;
@@ -40,7 +40,7 @@ class Game {
         console.log(`WELCOME to HANGMAN ${this.player.name}!`);
         // sees if game is over
         while(!this.isGameOver()){
-            // console.log(hangManPics[this.guessesRemaining]);
+            console.log(hangManPics[this.guessesRemaining]);
             this.board.displayBoard();
             console.log(`You have ${this.guessesRemaining} guesses left.`);
             console.log("Letters already used: ", this.guessedAlready.join(", "))

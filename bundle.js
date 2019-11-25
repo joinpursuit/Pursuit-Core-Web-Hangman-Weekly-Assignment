@@ -166,7 +166,7 @@ class Game {
         this.guessedAlready = [];
     }
 
-    // Game should be able to check if a guess isValid
+
     isValidGuess (guess){
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
         let valid = false;
@@ -176,7 +176,7 @@ class Game {
         return valid;
     }
 
-    // Game should be able to check if game isOver
+
     isGameOver(){
         // if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
         //     return true;
@@ -193,7 +193,7 @@ class Game {
         console.log(`WELCOME to HANGMAN ${this.player.name}!`);
         // sees if game is over
         while(!this.isGameOver()){
-            // console.log(hangManPics[this.guessesRemaining]);
+            console.log(hangManPics[this.guessesRemaining]);
             this.board.displayBoard();
             console.log(`You have ${this.guessesRemaining} guesses left.`);
             console.log("Letters already used: ", this.guessedAlready.join(", "))
@@ -248,18 +248,16 @@ class Game {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// const readline = require("readline-sync");
-
 class Guesser {
     constructor(name) {
         this.name = name;
     }
 
-    getGuess() {
-        let guess = readline.question("Please enter your guess: ")
-        guess.toLowerCase();
-        return guess;
-    }
+    // getGuess() {
+    //     let guess = readline.question("Please enter your guess: ")
+    //     guess.toLowerCase();
+    //     return guess;
+    // }
 
 }
 
@@ -321,6 +319,11 @@ class Referee {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game.js */ "./Game.js");
+/* harmony import */ var _Guesser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Guesser.js */ "./Guesser.js");
+
+
+
 class View {
     constructor(game, el){
         this.game = game;
@@ -330,21 +333,67 @@ class View {
     }
 
     play(){
-        let h1 = document.querySelector("#h1");
-
         if(this.game.isGameOver()){
             this.displayBoard();
             this.displayGuessed();
             this.displayImgs(this.game.guessesRemaining);
             this.bindEvents();
         } else if(this.game.board.isComplete(this.game.computer.word)){
-            let currentBoard = this.game.computer.reveal();
-            h1.innerText = currentBoard;
-            p.innerText = "You win hangman! Congratulations!";
-        } else if(this.remainingGuesses === 0){
-            h1.innerText = currentBoard;
-            p.innerText = "You ran out of guesses! You lose! This was the word: ";
+            this.displayBoard();
+            this.removeItems();
+            this.end();
+        } else {
+            this.displayBoard();
+            this.removeItems();
+            this.end();
         }
+    }
+
+    end() {
+        if(this.game.board.isComplete(this.game.computer.word)){
+            let h2 = document.createElement("h2");
+            h2.innerText = "You won hangman! Congratulations winner!";
+            let boardDiv = document.querySelector("div");
+            boardDiv.appendChild(h2);
+            let playAgainBtn = document.createElement("button");
+            playAgainBtn.innerText = "Play again?"
+            playAgainBtn.id = "playagain";
+            boardDiv.appendChild(playAgainBtn);
+            this.newGame();
+        } else {
+            let h2 = document.createElement("h2");
+            h2.innerText = `You ran out of guesses! You lose! The word was: ${this.game.computer.reveal()}`;
+            let boardDiv = document.querySelector("div");
+            boardDiv.appendChild(h2);
+            let playAgainBtn = document.createElement("button");
+            playAgainBtn.innerText = "Play again?"
+            playAgainBtn.id = "playagain";
+            boardDiv.appendChild(playAgainBtn);
+            this.newGame();
+        }
+    }
+
+    newGame(){
+        let playAgain = document.querySelector("#playagain")
+        playAgain.addEventListener("click", () => {
+            playAgain.parentNode.removeChild(playAgain);
+            let game = new _Game_js__WEBPACK_IMPORTED_MODULE_0__["default"](new _Guesser_js__WEBPACK_IMPORTED_MODULE_1__["default"]("contestant"));
+            let el = document.querySelector("#hm");
+            new View(game,el);
+        })
+    }
+
+    removeItems(){
+        let p1 = document.querySelector("#enterGuess");
+        p1.parentNode.removeChild(p1);
+        let p2 = document.querySelector("#guessedAlready");
+        p2.parentNode.removeChild(p2);
+        let input = document.querySelector("#letterInput");
+        input.parentNode.removeChild(input);
+        let btn = document.querySelector("#submitBtn");
+        btn.parentNode.removeChild(btn);
+        let h4 = document.querySelector("#guessesRemaining");
+        document.body.removeChild(h4)
     }
 
     displayImgs(numGuesses){
@@ -420,6 +469,7 @@ class View {
         
         this.play();
 
+        console.log(this.game.computer.word);
     }
 
 

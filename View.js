@@ -1,3 +1,6 @@
+import Game from "./Game.js";
+import Guesser from "./Guesser.js";
+
 class View {
     constructor(game, el){
         this.game = game;
@@ -7,21 +10,67 @@ class View {
     }
 
     play(){
-        let h1 = document.querySelector("#h1");
-
         if(this.game.isGameOver()){
             this.displayBoard();
             this.displayGuessed();
             this.displayImgs(this.game.guessesRemaining);
             this.bindEvents();
         } else if(this.game.board.isComplete(this.game.computer.word)){
-            let currentBoard = this.game.computer.reveal();
-            h1.innerText = currentBoard;
-            p.innerText = "You win hangman! Congratulations!";
-        } else if(this.remainingGuesses === 0){
-            h1.innerText = currentBoard;
-            p.innerText = "You ran out of guesses! You lose! The word was: ";
+            this.displayBoard();
+            this.removeItems();
+            this.end();
+        } else {
+            this.displayBoard();
+            this.removeItems();
+            this.end();
         }
+    }
+
+    end() {
+        if(this.game.board.isComplete(this.game.computer.word)){
+            let h2 = document.createElement("h2");
+            h2.innerText = "You won hangman! Congratulations winner!";
+            let boardDiv = document.querySelector("div");
+            boardDiv.appendChild(h2);
+            let playAgainBtn = document.createElement("button");
+            playAgainBtn.innerText = "Play again?"
+            playAgainBtn.id = "playagain";
+            boardDiv.appendChild(playAgainBtn);
+            this.newGame();
+        } else {
+            let h2 = document.createElement("h2");
+            h2.innerText = `You ran out of guesses! You lose! The word was: ${this.game.computer.reveal()}`;
+            let boardDiv = document.querySelector("div");
+            boardDiv.appendChild(h2);
+            let playAgainBtn = document.createElement("button");
+            playAgainBtn.innerText = "Play again?"
+            playAgainBtn.id = "playagain";
+            boardDiv.appendChild(playAgainBtn);
+            this.newGame();
+        }
+    }
+
+    newGame(){
+        let playAgain = document.querySelector("#playagain")
+        playAgain.addEventListener("click", () => {
+            playAgain.parentNode.removeChild(playAgain);
+            let game = new Game(new Guesser("contestant"));
+            let el = document.querySelector("#hm");
+            new View(game,el);
+        })
+    }
+
+    removeItems(){
+        let p1 = document.querySelector("#enterGuess");
+        p1.parentNode.removeChild(p1);
+        let p2 = document.querySelector("#guessedAlready");
+        p2.parentNode.removeChild(p2);
+        let input = document.querySelector("#letterInput");
+        input.parentNode.removeChild(input);
+        let btn = document.querySelector("#submitBtn");
+        btn.parentNode.removeChild(btn);
+        let h4 = document.querySelector("#guessesRemaining");
+        document.body.removeChild(h4)
     }
 
     displayImgs(numGuesses){
@@ -97,6 +146,7 @@ class View {
         
         this.play();
 
+        console.log(this.game.computer.word);
     }
 
 

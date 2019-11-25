@@ -6,7 +6,6 @@ class View {
         this.game = game;
         this.el = el;
         this.play();
-        
     }
 
     play(){
@@ -18,7 +17,7 @@ class View {
         } else if(this.game.board.isComplete(this.game.computer.word)){
             this.displayBoard();
             this.removeItems();
-            this.end();
+            this.end(); 
         } else {
             this.displayBoard();
             this.removeItems();
@@ -143,10 +142,7 @@ class View {
         } else {
             h4.innerText = "Please enter a valid letter!! " + "Guesses Remaining: " + this.game.guessesRemaining;
         }
-        
         this.play();
-
-        console.log(this.game.computer.word);
     }
 
 

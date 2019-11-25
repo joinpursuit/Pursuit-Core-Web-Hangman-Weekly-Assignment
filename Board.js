@@ -2,7 +2,6 @@ class Board {
     constructor(length){
         this.board = new Array(length).fill("_")
     }
-
     
     addChar(word, letter) {
         for(let i = 0; i < word.length; i++){
@@ -11,7 +10,6 @@ class Board {
             }
         }
     }
-
     
     isComplete(word){
         if(this.board.join("") === word){
@@ -25,7 +23,6 @@ class Board {
         let currentBoard = this.board.join(" ");
         return currentBoard;
     }
-    
 
 }
 

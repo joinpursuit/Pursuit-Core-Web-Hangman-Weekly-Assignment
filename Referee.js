@@ -6,13 +6,11 @@ class Referee {
         this.word = dictionary[(Math.floor(Math.random() * dictionary.length))];
     }
 
-    
     secretWordLength(){
         let secretWord = this.word;
         return secretWord.length;
     }
 
-    
     reveal(){
         let revealStr = [];
         for(let i = 0; i < this.word.length; i++){
@@ -20,8 +18,7 @@ class Referee {
         }
         let currentBoard = revealStr.join(" ");
         return currentBoard;
-    }
-    
+    }  
 }
 
 export default Referee;

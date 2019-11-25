@@ -1,5 +1,5 @@
 import Board from "./Board.js";
-import Guesser from "./Guesser.js"
+// import Guesser from "./Guesser.js"
 import Referee from "./Referee.js";
 // const {hangManPics} = require("./hangmanPics");
 // const readline = require("readline-sync");
@@ -9,10 +9,9 @@ class Game {
         this.player = player;
         this.computer = new Referee();
         this.board = new Board(this.computer.secretWordLength());
-        this.guessesRemaining = 6;  // Game should have guessesRemaining, decrement if Gueser guesses wrong
+        this.guessesRemaining = 6;  
         this.guessedAlready = [];
     }
-
 
     isValidGuess (guess){
         let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -23,17 +22,10 @@ class Game {
         return valid;
     }
 
-
     isGameOver(){
-        // if (this.guessesRemaining <= 0 || this.board.isComplete(this.computer.word)){
-        //     return true;
-        // } else {
-        //     return false;
-        // }
         return this.guessesRemaining > 0 && !this.board.isComplete(this.computer.word)
 
     }
-    
     
     play() {
         console.clear();
@@ -45,7 +37,7 @@ class Game {
             console.log(`You have ${this.guessesRemaining} guesses left.`);
             console.log("Letters already used: ", this.guessedAlready.join(", "))
             let guess = this.player.getGuess();
-            
+
             // sees if letter has been used
             while(this.guessedAlready.includes(guess)){
                 guess = readline.question("You already used that letter. Please try another unique letter: ")
@@ -73,10 +65,6 @@ class Game {
         }
     }
 }
-
-// let playerName = readline.question("Please enter your name: "); 
-// let game = new Game(new Guesser(playerName));
-// game.play();
 
 export default Game;
 

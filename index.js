@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let game = new Game(new Guesser("contestant"));
         let el = document.querySelector("#hm");
         new View(game,el);
-
     })
     
 })

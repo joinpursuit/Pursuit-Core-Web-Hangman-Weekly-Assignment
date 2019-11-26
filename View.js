@@ -34,6 +34,10 @@ class View {
             let playAgainBtn = document.createElement("button");
             playAgainBtn.innerText = "Play again?"
             playAgainBtn.id = "playagain";
+            let winnerImg = document.createElement("img");
+            winnerImg.src = "./extraStuff/winnerImage.gif";
+            winnerImg.id = "winnerImg";
+            boardDiv.appendChild(winnerImg);
             boardDiv.appendChild(playAgainBtn);
             this.newGame();
         } else {
@@ -44,6 +48,10 @@ class View {
             let playAgainBtn = document.createElement("button");
             playAgainBtn.innerText = "Play again?"
             playAgainBtn.id = "playagain";
+            let loserImg = document.createElement("img");
+            loserImg.src = "./extraStuff/loserImage.gif";
+            loserImg.id = "loserImg";
+            boardDiv.appendChild(loserImg);
             boardDiv.appendChild(playAgainBtn);
             this.newGame();
         }
@@ -100,15 +108,17 @@ class View {
         guessed.id="guessedAlready";
         let input = document.createElement("input");
         input.id ="letterInput";
+        let form = document.createElement("form");
         let button = document.createElement("button");
         button.id="submitBtn"
         button.innerText = "Submit";
+        form.appendChild(input);
+        form.appendChild(button);
 
         boardDiv.appendChild(h1);
         boardDiv.appendChild(guessed);
         boardDiv.appendChild(p);
-        boardDiv.appendChild(input);
-        boardDiv.appendChild(button);
+        boardDiv.appendChild(form);
         this.el.appendChild(boardDiv);
     }
 

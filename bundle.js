@@ -331,6 +331,10 @@ class View {
             let playAgainBtn = document.createElement("button");
             playAgainBtn.innerText = "Play again?"
             playAgainBtn.id = "playagain";
+            let winnerImg = document.createElement("img");
+            winnerImg.src = "./extraStuff/winnerImage.gif";
+            winnerImg.id = "winnerImg";
+            boardDiv.appendChild(winnerImg);
             boardDiv.appendChild(playAgainBtn);
             this.newGame();
         } else {
@@ -341,6 +345,10 @@ class View {
             let playAgainBtn = document.createElement("button");
             playAgainBtn.innerText = "Play again?"
             playAgainBtn.id = "playagain";
+            let loserImg = document.createElement("img");
+            loserImg.src = "./extraStuff/loserImage.gif";
+            loserImg.id = "loserImg";
+            boardDiv.appendChild(loserImg);
             boardDiv.appendChild(playAgainBtn);
             this.newGame();
         }
@@ -397,15 +405,17 @@ class View {
         guessed.id="guessedAlready";
         let input = document.createElement("input");
         input.id ="letterInput";
+        let form = document.createElement("form");
         let button = document.createElement("button");
         button.id="submitBtn"
         button.innerText = "Submit";
+        form.appendChild(input);
+        form.appendChild(button);
 
         boardDiv.appendChild(h1);
         boardDiv.appendChild(guessed);
         boardDiv.appendChild(p);
-        boardDiv.appendChild(input);
-        boardDiv.appendChild(button);
+        boardDiv.appendChild(form);
         this.el.appendChild(boardDiv);
     }
 
@@ -550,16 +560,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    let startImg = document.createElement("img");
+    startImg.src = "./extraStuff/startImg.gif";
+    startImg.id = "startImg";
+    document.body.appendChild(startImg);
     let start = document.createElement("button");
-    start.innerText = "Start New Game"
+    start.innerText = "START"
+    start.id = "startBtn";
+
     document.body.appendChild(start);
     start.addEventListener("click", () => {
+        document.getElementById("music").play();
+        document.body.removeChild(startImg);
         document.body.removeChild(start);
         let game = new _Game_js__WEBPACK_IMPORTED_MODULE_0__["default"](new _Guesser_js__WEBPACK_IMPORTED_MODULE_1__["default"]("contestant"));
         let el = document.querySelector("#hm");
         new _View_js__WEBPACK_IMPORTED_MODULE_2__["default"](game,el);
     })
-    
 })
 
 /***/ })

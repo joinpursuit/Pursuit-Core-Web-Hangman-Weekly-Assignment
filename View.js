@@ -2,7 +2,7 @@ class View {
   constructor( game, el) {
     this.game = game;
     this.el = el;
-    debugger
+    this.display();
     this.setUp()
     this.playAgain = playAgain()
   }

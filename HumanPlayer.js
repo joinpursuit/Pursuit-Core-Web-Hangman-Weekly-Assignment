@@ -14,5 +14,4 @@ class HumanPlayer {
         return userGuess.toLowerCase();
     }
 }
-
 module.exports = HumanPlayer;

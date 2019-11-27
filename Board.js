@@ -8,7 +8,7 @@ class Board {
   constructor(length) {
     this.board = new Array(length).fill("_");
   }
-
+ 
   isComplete(word) {
       if (word === this.board.join("")) {
         return true;

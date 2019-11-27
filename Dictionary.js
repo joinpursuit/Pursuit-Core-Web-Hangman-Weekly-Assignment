@@ -86,6 +86,5 @@ let dictionary =
     "wave", "weather", "week", "weight", "well", "west", "wheel", "when", "where", "while", "whip", "whistle", 
     "white", "wide", "will", "wind", "window", "wine", "wing", "winter", "wire", "wise", "with", "woman", "wood", 
     "wool", "word", "work", "worm", "wound", "writing", "wrong", "year", "yellow", "yesterday", "young"
-]
-
+];
 module.exports = {dictionary};

@@ -103,7 +103,7 @@ class Board {
   constructor(length) {
     this.board = new Array(length).fill("_");
   }
-
+ 
   isComplete(word) {
       if (word === this.board.join("")) {
         return true;
@@ -143,7 +143,7 @@ module.exports = Board;
 /***/ (function(module, exports, __webpack_require__) {
 
 const {dictionary} = __webpack_require__(/*! ./Dictionary.js */ "./Dictionary.js")
-// let dictionary = ['apple','watermelon']
+
   class ComputerPlayer {
     constructor (name = computer) {
       // this.computer = computer;
@@ -154,7 +154,7 @@ const {dictionary} = __webpack_require__(/*! ./Dictionary.js */ "./Dictionary.js
   secretWordLength() { return this.secretWord.length}
 
   reveal() {
-     return this.secretWord
+     return this.secretWord 
   }
 
 
@@ -162,8 +162,8 @@ const {dictionary} = __webpack_require__(/*! ./Dictionary.js */ "./Dictionary.js
 
 module.exports = ComputerPlayer;
 
-let comp = new ComputerPlayer('robo')
-console.log(comp.secretWord)
+// let comp = new ComputerPlayer('robot')
+// console.log(comp.secretWord)
 
 
 // let Con = new ComputerPlayer("Alex")
@@ -270,8 +270,7 @@ let dictionary =
     "wave", "weather", "week", "weight", "well", "west", "wheel", "when", "where", "while", "whip", "whistle", 
     "white", "wide", "will", "wind", "window", "wine", "wing", "winter", "wire", "wise", "with", "woman", "wood", 
     "wool", "word", "work", "worm", "wound", "writing", "wrong", "year", "yellow", "yesterday", "young"
-]
-
+];
 module.exports = {dictionary};
 
 /***/ }),
@@ -388,7 +387,6 @@ class HumanPlayer {
         return userGuess.toLowerCase();
     }
 }
-
 module.exports = HumanPlayer;
 
 /***/ }),
@@ -406,13 +404,26 @@ class View {
   constructor( game, el) {
     this.game = game;
     this.el = el;
-    debugger
-    // this.setUp()
-    // this.play = playAgain()
+    this.display();
+    this.setUp()
+    this.playAgain = playAgain()
   }
   // setUp(){
 
   // }
+
+  play() {
+    if (this.game.isGameOver()) {
+      let h1 = document.querySelector("h1");
+      h1.innerText = this.game.currentPlayer.name +" Text here this is view js";
+      // let button = document.querySelector("button");
+      // let input = document.querySelector("input");
+    }
+    let gameDiv = document.createElement('div');
+    gameDiv.id = "boardDiv";
+    this.el
+  }
+
   playAgain(){
     let button = document.querySelector('#playAgain');
     button.addEventListener('click' ,()=> {
@@ -420,12 +431,6 @@ class View {
       this.play();
     })
   }
-  // play() {
-  //   let
-  // }
-  // let gameDiv = document.createElement('div');
-  // gameDiv.id = "boardDiv";
-  // this.el
 
 }
 /* harmony default export */ __webpack_exports__["default"] = (View);

@@ -1,16 +1,15 @@
 const {dictionary} = require("./Dictionary.js")
 
   class ComputerPlayer {
-    constructor (name = computer) {
-      // this.computer = computer;
-      this.name = name;
+    constructor (ComputerPlayer) {
+      this.ComputerPlayer = ComputerPlayer;
       this.secretWord = dictionary[(Math.floor(Math.random()* dictionary.length))];
   }
 
   secretWordLength() { return this.secretWord.length}
 
   reveal() {
-     return this.secretWord
+     return this.secretWord 
   }
 
 
@@ -18,8 +17,8 @@ const {dictionary} = require("./Dictionary.js")
 
 module.exports = ComputerPlayer;
 
-let comp = new ComputerPlayer('robo')
-console.log(comp.secretWord)
+// let comp = new ComputerPlayer('robot')
+// console.log(comp.secretWord)
 
 
 // let Con = new ComputerPlayer("Alex")

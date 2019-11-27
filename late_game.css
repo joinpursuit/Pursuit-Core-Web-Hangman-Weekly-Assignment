@@ -1,0 +1,12 @@
+body{
+    background-image: url('http://giphygifs.s3.amazonaws.com/media/DpB9NBjny7jF1pd0yt2/giphy.gif');
+    background-size: cover;
+    width: auto;
+    height: auto;
+    color: gold;
+    text-align: center;
+}
+
+li{
+  list-style-position: inside;
+}

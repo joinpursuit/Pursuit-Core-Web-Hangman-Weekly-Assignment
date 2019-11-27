@@ -3,12 +3,16 @@ class View {
     this.game = game;
     this.el = el;
     this.display();
-    this.setUp()
+    //this.setUp()
     this.playAgain = playAgain()
   }
   // setUp(){
 
   // }
+  display(){
+    let boardDiv = document.createElement("div");
+    let currentBoard = this.game.board.displayBoard();
+  }
 
   play() {
     if (this.game.isGameOver()) {

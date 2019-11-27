@@ -23,10 +23,6 @@ For this assignment, you will build hangman.  This time, you'll build it as a we
 1. The website should tell the user if she wins or loses
 1. The user should be able to restart the game
 
-## Rubric
-
-![hanmanRubric](./hangmanRubric.png)
-
 ## V2: Bonus
 
 Integrate CSS to make your Hangman game look nicer.

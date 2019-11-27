@@ -1,0 +1,15 @@
+body {
+  background-color: PapayaWhip;
+  color: royalblue;
+  font-family: monospace;
+}
+
+p {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.gameButtons {
+  display: none;
+}

@@ -140,7 +140,6 @@ class View {
     result(){
         let input = document.querySelector("#letterInput")
         let h4 = document.querySelector("#guessesRemaining")
-        let p = document.querySelector("#enterGuess")
         if(this.game.isValidGuess(input.value.toLowerCase()) && !this.game.computer.word.includes(input.value.toLowerCase())){
             this.game.guessedAlready.push(input.value.toLowerCase());
             this.game.guessesRemaining -= 1;

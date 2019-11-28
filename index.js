@@ -5,17 +5,6 @@
 // import View from"./View.js"
 
 
-import humanBody from"./words.js"
-import humanMind from"./words.js"
-import everydayLife from"./words.js"
-import historyAndCulture from"./words.js"
-import communication from"./words.js"
-
-import humanBodyDefinition from"./words.js"
-import humanMindDefinition from"./words.js"
-import everydayLifeDefinition from"./words.js"
-import historyAndCultureDefinition from"./words.js"
-import communicationDefinition from"./words.js"
 console.log('humanBody')
 document.addEventListener('DOMContentLoaded', () => {
   let game = new Game(

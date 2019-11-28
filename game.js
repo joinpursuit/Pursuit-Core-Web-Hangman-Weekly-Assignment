@@ -7,37 +7,33 @@ class Game {
         this.player = player;
         this.computer = new ComputerPlayer();
         this.guessesRemaining = 6; 
-        this.guessedLetters = new set();
+        this.guessedLetters = [];
+        this.board = new Board();
     }
     play() {
-        let boardLength = this.ref.chooseSecretWord()
-        this.board = new Board(boardLength);
+        console.clear()
         while(!this.isGameOver()) {
-            console.log(hangManPics[this.guessesRemaining])
-          
-        
-            this.guesser.displayBoard(this.board);
-            this.ref.displayBoard(this.board);
-            let guess = "0"; 
-            while(!this.isValidGuess(guess)) {
-                guess = this.guesser.getMove();
-                if(!this.isValidGuess(guess)) {
-                    console.log("INVALID GUESS!")
+            this.displayBoard();
+            let guess = this.player.getMove()
+            while(this.guessedLetters.includes(guess)) {
+                guess = readline.question("That letter has already been entered, choose another letter")
+                if(this.isValidGuess(guess) && !this.computer.word.includes(guess)) {
+                    this.guessedAlready.push(guess);
+                    this.guessesRemaining --;
+                } else if(this.isValidGuess(guess)){
+                    this.guessedLetters.push(guess)
+                    this.board.addChar(this.computer.word, guess)
+                } else {
+                    guess = readline.question("Enter a Letter: ")
                 }
+                console.clear()
             }
-            this.guessedLetters.push(guess)
-            let positions = this.ref.checkGuess(guess);
-            if(positions.length === 0) {
-                this.guessesRemaining--;
-            }
-            this.board.addChar(positions, guess);
         }
-        if(this.guessesRemaining > 0) {
-            console.log(this.guesser.name + " wins!")
+        if(this.guessesRemaining){
+            console.log(this.computer.reveal())
+            console.log("You're a WINNER")
         } else {
-            let winningWord = this.ref.reveal();
-            console.log("word was " + winningWord)
-            console.log(this.ref.name + " wins!")
+            console.log("You lose!!!!")
         }
 
     }
@@ -47,7 +43,7 @@ class Game {
         !this.guessedLetters.includes(char);
     }
     isGameOver() {
-       return  this.board.isComplete() || this.guessesRemaining === 0;
+        return this.guessesRemaining > 0 && !this.board.isComplete(this.computer.word)
     }
 }
 

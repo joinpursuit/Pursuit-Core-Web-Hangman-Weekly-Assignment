@@ -1,0 +1,63 @@
+<!DOCTYPE html>	
+<html>
+<head>
+	<title>Chucks Hangman Game</title>
+	<link rel='stylesheet' href='./hangman.css'>
+	<script src='./giantList.js'></script>
+	<script src='./hangman.js'></script>
+</head>
+<body>
+	<div class='opening-screen '>
+		<h1 class=' centered-text'>Welcome to Hangman</h1>
+		<div class="form_div ">
+			<form>
+				<button id='start-game-button' type='submit'>START GAME</button>
+			</form>
+		</div>
+	</div>
+	<div class='hider hidden'>
+		<div class='game-board form_div'>
+			<div class='form_div game-state-div'>
+				<img src='./hangman1.png' class='game-state'>
+			</div>
+			<div class='lives-left'>
+				<p class='lives-para'>9</p><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjiA_nnCST1kX4r7R-RPpdkrfEah-GaeZIgG9bfJ4VbqFuNSDLNg' class='lives-img'>
+			</div>
+			<div class='incorrect-letters'>
+				<p class='incorrect-letters-para'>Letters guessed [a,e,i,o,u,y]</p>
+			</div>
+			<div class='guess-word'>
+			</div>
+			<div>
+				<form id='take-a-guess'>
+					<label for='guesser'>
+						Please enter a letter
+					</label>
+					<input id='guesser' type='text'>
+					<button type='submit'>Enter</button>
+					<p id='bad-input'></p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class='winner hidden'>
+		<div class='user-won'>
+			<h2 class='victory-text'>Congratulations! You won!!!</h2>
+			<iframe src="https://giphy.com/embed/15sVMypdUvazWFSgXy" width="480" height="288" frameBorder="0" class="giphy-embed" ></iframe>
+			<Button type='button' class='restart-game-winner'>Restart Game</Button>
+		</div>
+	</div>
+	<div class='loser hidden'>
+		<div class='user-lost'>
+			<h2 class='loser-text'>Better luck next time!!!</h2>
+			<iframe src="https://giphy.com/embed/12s9pIqBzbpFeM" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+			<Button type='button' class='restart-game-loser'>Restart Game</Button>
+		</div>
+	</div>
+
+
+
+
+
+</body>
+</html>

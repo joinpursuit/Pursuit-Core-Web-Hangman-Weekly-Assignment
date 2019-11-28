@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Let's play hangman!</title>
+    <script src="./hangmanweb.js"></script>
+    <link rel="stylesheet" href="hangmanweb.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+    </style>
+  </head>
+  <body>
+    <div>
+    <p id="header"></p>
+    <!-- class ="blink" -->
+    <p id="image"></p>
+    <p id="para"></p>
+    <form>
+    <input type="text" placeholder="Insert guess" id="input" maxlength= "1" length= "1">
+    <input type="submit" value="Guess" id="button">
+    </form>
+    <p id="error_msg"> </p>
+    <p id="guesses_left"> </p>
+    <p id="letters_guessed_right"> </p>
+    <p id="letters_guessed_wrong">Wrong Letters: </p>
+    <button onclick="reset()">Click Here to Play Again!</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "Pursuit-Core-Web-Hangman-Weekly-Assignment",
+  "version": "1.0.0",
+  "description": "## Instructions for weekly assignment submission",
+  "main": "hangman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karenm09/Pursuit-Core-Web-Hangman-Weekly-Assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karenm09/Pursuit-Core-Web-Hangman-Weekly-Assignment/issues"
+  },
+  "homepage": "https://github.com/karenm09/Pursuit-Core-Web-Hangman-Weekly-Assignment#readme",
+  "dependencies": {
+    "pack-cli": "^1.4.5",
+    "web": "0.0.2",
+    "webpack": "^4.41.2"
+  }
+}

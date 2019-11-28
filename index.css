@@ -1,0 +1,45 @@
+body{
+   background-color: aquamarine;
+   text-align: center;
+   display:flex;
+   flex-direction: column;
+}
+
+
+.container{
+    height: 100%;
+  
+
+    border:10px solid royalblue
+    
+}
+header {
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+ul{
+    color: green;
+}
+button:hover{
+    cursor: pointer;
+    background: black;
+    color:white;
+}
+input{
+    width: 200px;
+    height: 20px;
+  
+}
+#guess{
+    background-color: greenyellow;
+    height: 40px;
+    width: 100px;
+
+}
+#restart{
+    background-color: rgb(0, 68, 255);
+    height: 40px;
+    width: 80px;
+
+}

@@ -1,0 +1,86 @@
+body {
+    background: rgb(62, 255, 245);
+    text-align: center;
+}
+
+#gameTitle {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    color: rebeccapurple;
+}
+
+h1 {
+    color: rgb(230, 11, 11);
+    font-weight: 800;
+}
+
+#guessedAlready {
+    font: 20px bold;
+    font-family: fantasy;
+}
+
+#enterGuess {
+    font: 20px bold;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    font-style: italic;
+}
+
+#guessesRemaining {
+    font: 20px large;
+    font-family: fantasy;
+    color: rebeccapurple;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    border-radius: 40%;
+    border-color: purple;
+}
+
+#submitBtn {
+    border-radius: 40%;
+    border-color: purple;
+}
+    
+#letterInput {
+    border-radius: 10%;
+    border-color: rgb(230, 11, 11);
+}
+
+img {
+    border: 5px solid rebeccapurple;
+    border-radius: 10%;
+}
+
+#music {
+    left:0;
+    bottom: 0;
+    position: fixed;
+    height: 25px;
+    width: 100%;
+}
+
+#startImg {
+    width: 600px;
+    height: auto;
+}
+
+#startBtn {
+    border-color: purple;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 70%;
+    left: 47%;
+}
+
+#playagain {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 68%;
+    left: 47%;
+}

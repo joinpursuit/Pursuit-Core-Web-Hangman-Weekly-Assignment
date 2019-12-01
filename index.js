@@ -1,15 +1,11 @@
-import Game from("./Game.js")
-import HumanPlayer from ("./HumanPlayer.js")
-import ComputerPlayer from ("./ComputerPlayer.js")
-import View from ("./View.js")
-// const { hangManPics } = require ("./hangmanPics.js")
-
-document.addEventListener("DOMContentLoaded", () => {
-    let game = new Game(
-        new HumanPlayer("Deja"),
-        new ComputerPlayer("Computer ")
-    )
-    let el = document.querySelector("#SSS")
+import View from "./View.js"
+import HumanPlayer from "./HumanPlayer.js"
+import ComputerPlayer from "./ComputerPlayer.js"
+import Game from "./Game"
+document.addEventListener("DOMContentLoaded", ()=>{
+    let el = document.querySelector("#myHangman")
+    let human = new HumanPlayer("Sunshine")
+    let robot = new ComputerPlayer()
+    let game = new Game({ref: robot, guesser:human})
     new View(game, el)
-  
 })

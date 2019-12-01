@@ -1,7 +1,7 @@
 const { allTheWords } = require("./words.js")
 
 class ComputerPlayer {
-    constructor(name = "Robo Bobo") {
+    constructor(name = "SunnySheetMetal") {
         this.dictionary = allTheWords;
         this.name = name; 
         this.guessesMade = new Set();
@@ -12,7 +12,7 @@ class ComputerPlayer {
     }
 
     getMove() {
-        let alph = "abcdefghijklmnopqrstuvwxyz";
+        let abcds = "abcdefghijklmnopqrstuvwxyz";
         this.dictionary = this.dictionary.filter(word => word.length === this.board.length())
         let missed = new Set([...this.guessesMade])
         for(let i = 0; i < this.board.length(); i++) {
@@ -27,26 +27,26 @@ class ComputerPlayer {
             this.dictionary = this.dictionary.filter(word => !word.includes(char))
         })
 
-        let lettersCount = {}
+        let letterCounter = {}
         this.dictionary.forEach(word => {
             for(let char of word) {
-                lettersCount[char] ? lettersCount[char]++ : lettersCount[char] = 1;
+                letterCounter[char] ? letterCounter[char]++ : letterCounter[char] = 1;
             }
         })
 
         let max = 0; 
         let guess = null; 
 
-        for(let char in lettersCount) {
-            if(lettersCount[char] > max && !this.guessesMade.has(char)) {
-                max = lettersCount[char];
+        for(let char in letterCounter) {
+            if(letterCounter[char] > max && !this.guessesMade.has(char)) {
+                max = letterCounter[char];
                 guess = char; 
             }
         }
 
         while(!guess) {
-            let rand = Math.floor(Math.random() * alph.length);
-            let char = alph[rand];
+            let rand = Math.floor(Math.random() * abcds.length);
+            let char = abcds[rand];
             if(!this.guessesMade.has(char)) {
                 guess = char;
             }
@@ -63,13 +63,13 @@ class ComputerPlayer {
     }
 
     checkGuess(char) {
-        let indicies = [];
+        let indices = [];
         for(let i = 0 ; i < this.secretWord.length; i++) {
             if(this.secretWord[i] === char) {
-                indicies.push(i);
+                indices.push(i);
             }
         }
-        return indicies
+        return indices
     }
 
     reveal() {
@@ -77,4 +77,4 @@ class ComputerPlayer {
     }
 }
 
-export default ComputerPlayer;
+module.exports = ComputerPlayer;

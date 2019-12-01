@@ -1,41 +1,31 @@
-// const readline = require('readline-sync');
-
-class HumanPlayer {
-  constructor(name) {
-    this.name = name;
-  }
-
-  getMove() {
-    return "Please Enter a char: ".toLowerCase();
-  }
-
-  displayBoard(board) {
-    let output = "";
-    for (let i = 0; i < board.length(); i++) {
-      output += board.get(i) + " ";
+class  HumanPlayer{
+    constructor(name){
+        this.name = name;
     }
-    console.log(output);
-  }
+    getMove(){
+        return ("please Enter a letter: ").toLowerCase()
+    }
+    displayBoard(){
+        let output = " "
+        for(let i = 0; i < board.length(); i++){
+            output += board.get(i) + " "
+        }
+        console.log(output)
 
-  chooseSecretWord() {
-    return this.name + " Enter the length of your word: "
-  }
+    }
+    secretWord(){
+        return (this.name + "Enter the length of your Word: ")
 
-  checkGuess(char) {
-    console.log(char + " was guessed")
-    console.log("Please enter the position of the character");
-    console.log("if the character appears more than once separate by a comma");
-    console.log("If your word is hello and the guess is l, you response should look like 3,4");
-    let guess = ""
-    let result = guess.split(",").map(el => Number(el) - 1)
-    return result[0] === -1 ? [] : result
-    
-    
-  }
+    }
+    guessChecker(char){
+        console.log(char + " was guessed")
+        let guess = (" ")
+        let result = guess.split(" , ").map(el=>Number(el)-1)
+        return result[0] === -1 ? []: result
+    }
+    reveal(){
+         return ("What was your word? ").toLowerCase()
+    }
 
-  reveal() {
-    return "What was your word? ".toLowerCase();
-  }
 }
-
-export default HumanPlayer;
+module.exports = HumanPlayer;

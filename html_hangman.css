@@ -1,0 +1,12 @@
+   body{
+   background: rgb(2,0,36);
+   background: linear-gradient(90deg, rgb(53, 209, 136) 0%, rgb(17, 180, 30) 35%, rgb(156, 179, 24) 100%);
+}
+
+#statement{
+   color: #b60d0d
+}
+p {
+   color: #0d48b6
+}
+   

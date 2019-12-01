@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="hangmanWeb.js"></script> <!-- inports a javascript file into the html file --->
+    <link href='hangmanWeb.css' rel='stylesheet'>
+    </link>
+    <title> Hangman </title>
+</head>
+
+<body id = 'body'>
+    <div id='heading'>
+        <h1> Welcome to Ballon Pop </h1>
+    </div>
+    <div id = 'directions'>
+    <p> Try to beat the computer by solving the mystery word before all your balloons pop!</p>
+    <p>Press any letter to start playing!</p>
+    </div>
+
+    <div id='button'>
+        <button value="Refresh Page" onClick="window.location.reload();"> New Game </button> <!-- Restarts the game-->
+    </div>
+ 
+
+    <div id='pictures'>
+        <p id='comments'></p>
+        <img src='https://www.balloondealer.com/app/images/BD11ASSORT.jpg'></imgsrc>
+    </div>
+
+    <div id='underScore'> </div>
+
+    <div id='wrong'>
+        <p>Wrong guesses: <div id='wrongGuess'> </div></p>
+    </div>
+    <p id='guess'></p>
+    <div>
+        <p id='outcome'></p>
+    </div>
+    <br>
+</body>
+
+</html>

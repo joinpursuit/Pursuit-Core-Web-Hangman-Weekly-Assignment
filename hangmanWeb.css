@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Cuprum|Trade+Winds&display=swap');
+
+
+body{
+    background-color: light whitesmoke;
+}
+#directions{
+    display: inline;
+    font-size: 20px;
+    text-align: center;
+}
+#instructions{
+    /* text-align: center; */
+    font-size: 20px;
+    font-family: 'Cuprum';
+}
+#picture{
+display: flex-wrap;
+}
+/* make the text be a mix of blue, yellow, & green */
+h1{
+    background-image: linear-gradient(to left, yellow,blue, yellow,lightgreen,  blue, yellow,green, blue, yellow);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 80px;
+    text-align: center;
+
+}
+#wrongGuess{
+    display: wrap;
+    /* border: 2px dashed black; */
+    /* height: auto;
+    width: auto; */
+    font-size: 50px;
+    color: purple;
+
+}
+#underScore{
+   
+    font-size: 70px;
+    color: blue;
+    text-align: center;
+}
+#outcome{
+    font-size: 150px;
+    /* font-family: circus */
+    text-align: center;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+}
+/* img + p{
+    display: flex;
+    align-items: center;
+    height: 300px;
+    width: 200px;
+    
+}
+p + img{
+    display: inline;
+    justify-content: center;
+    
+} */
+
+#button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+button{
+    font-size: 30px;
+    border-radius: 15px;
+    background-color: lavender;
+    color: black;
+}
+button:hover {
+        background-color:white; 
+        color: black;
+        border: 5px solid lavender;
+}
+
+
+

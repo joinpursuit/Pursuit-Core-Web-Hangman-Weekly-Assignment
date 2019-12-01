@@ -1,4 +1,9 @@
-# Hangman: The Web App
+# Github-Hosted Link
+[Playable link](https://joseph-p-pasaoa.github.io/Pursuit-Core-Web-Hangman-Weekly-Assignment/)
+
+
+
+# ~Hangman~ Tic-Tac-Toe ;D : The Web App
 
 ## Instructions for weekly assignment submission
 

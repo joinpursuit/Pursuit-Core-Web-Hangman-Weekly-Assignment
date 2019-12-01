@@ -1,9 +1,19 @@
-document.addEventListener("DOMContentLoaded",()=> {
+import View from "./View.js";
+import HumanPlayer from "./HumanPlayer.js";
+import ComputerPlayer from "./ComputerPlayer.js";
+import Game from "./Game.js";
 
 
-        let newName =(prompt("What is your name"))
-     let alertOne = (alert(newName))
-        alertOne.innerText = newName
-    
-    
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+let el = document.querySelector("#hangman")
+let robot = new ComputerPlayer();
+let human = new HumanPlayer("#You")
+let game = new Game({referee: robot, guesses: human});
+new View(el,game);
+game.play();
+
 })
+

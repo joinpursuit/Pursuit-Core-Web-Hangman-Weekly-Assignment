@@ -3,6 +3,11 @@ import HumanPLayer from "./HumanPlayer.js";
 import ComputerPlayer from "./ComputerPlayer.js";
 import View from"./View.js"
 
+<<<<<<< HEAD
+=======
+
+console.log('humanBody')
+>>>>>>> 1bf2de5e64734bae047b5e525ac8d408b9523f3f
 document.addEventListener('DOMContentLoaded', () => {
   
   let element = document.querySelector("#hm");

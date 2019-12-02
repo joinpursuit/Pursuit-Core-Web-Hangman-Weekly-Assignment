@@ -86,6 +86,7 @@
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ "./ComputerPlayer.js":
 /*!***************************!*\
   !*** ./ComputerPlayer.js ***!
@@ -432,10 +433,13 @@ module.exports = { hangmanPics }
 
 /***/ }),
 
+=======
+>>>>>>> 1bf2de5e64734bae047b5e525ac8d408b9523f3f
 /***/ "./index.js":
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
+<<<<<<< HEAD
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -461,6 +465,32 @@ document.addEventListener('DOMContentLoaded', () => {
   //new View(el, game)
     });
 
+=======
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// import Game from"./Game.js";
+// import HumanPLayer from"./HumanPlayer.js";
+// import ComputerPlayer from"./ComputerPlayer.js";
+// import Dictionary from"./Dictionary.js";
+// import View from"./View.js"
+
+
+console.log('humanBody')
+document.addEventListener('DOMContentLoaded', () => {
+  let game = new Game(
+    new HumanPLayer('namehere'),
+    new ComputerPlayer("Robot")
+  );
+  })
+  
+// Enter name and Display into the HTML page
+function HumanPLayer() {
+let askForName = document.querySelector("#name");
+let userName = askForName.value;
+body.appendChild(userName)
+}
+>>>>>>> 1bf2de5e64734bae047b5e525ac8d408b9523f3f
 
 /***/ })
 

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 let dictionary = [
     "able", "about", "account", "acid", "across",
+=======
+let dictionary = 
+["able", "about", "account", "acid", "across",
+>>>>>>> 1bf2de5e64734bae047b5e525ac8d408b9523f3f
     "addition", "adjustment", "advertisement", "after", "again", "against",
     "agreement", "almost", "among", "amount", "amusement", "angle", "angry",
     "animal", "answer", "apparatus", "apple", "approval", "arch", "argument",

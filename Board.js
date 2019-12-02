@@ -1,21 +1,18 @@
-// Board
-//   This would construct a board to the length. 
-//   It should check if the board is complete. 
-//   It should be able to add characters at different indices.
-
-
 class Board {
   constructor(length) {
     this.board = new Array(length).fill("_");
   }
- 
-  isComplete(word) {
-      if (word === this.board.join("")) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+  length() { 
+    return this.board.length;
+  }
+
+  get(idx) {
+  return this.board[idx];
+  }
+
+  isComplete() {
+    return this.board.every(element => element !== "_");
+     
   
   addLetter(word, letter) {
     for (let i = 0; i < word.length; i++) {
@@ -24,15 +21,7 @@ class Board {
       }
     }
   }  
-
-  display() {
-    console.log(this.board.join(" "))
-  }
 }
 
 module.exports = Board;
-
-
-  
-
 

@@ -1,28 +1,39 @@
-const {dictionary} = require("./Dictionary.js")
+const { dictionary } = require("./Dictionary.js")
 
   class ComputerPlayer {
-    constructor (ComputerPlayer) {
-      this.ComputerPlayer = ComputerPlayer;
-      this.secretWord = dictionary[(Math.floor(Math.random()* dictionary.length))];
+    constructor (name = "Computer") {
+      this.dictionary = dictionary;
+      this.name = name;
+      this.userGuess = new guess()
+    }
+  display(board) {
+    this.board = board;
   }
-
-  secretWordLength() { return this.secretWord.length}
+  secretWordLength() { 
+    return this.secretWord.length
+  }
 
   reveal() {
-     return this.secretWord 
-  }
-
-
+    let revealStr = [];
+    for(let i = 0; i < this.word.length; i++){
+        revealStr.push(this.word[i]);
+    }
+    let currentBoard = revealStr.join(" ");
+    return currentBoard;
+  } 
+  checkGuess(letter) {
+    let word = [];
+    for(let i = 0 ; i < this.secretWord.length; i++) {
+        if(this.secretWord[i] === char) {
+            word.push(i);
+        }
+    }
+    return word
 }
 
-module.exports = ComputerPlayer;
-
-// let comp = new ComputerPlayer('robot')
-// console.log(comp.secretWord)
-
-
-// let Con = new ComputerPlayer("Alex")
-// console.log(Con.secretWord)
-// console.log(Con.reveal())
-
+reveal() {
+    return this.secretWord;
+} 
+}
+export default ComputerPlayer;
 

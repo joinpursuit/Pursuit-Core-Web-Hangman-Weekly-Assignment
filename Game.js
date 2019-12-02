@@ -1,21 +1,18 @@
-// const HumanPlayer = require("./HumanPlayer.js")
-// const ComputerPlayer = require("./ComputerPlayer")
-const Board = require("./Board.js")
+import Board from "./Board.js";
+import ComputerPlayer from "./ComputerPlayer.js";
+//const HumanPlayer = require("./HumanPlayer.js")
+//const ComputerPlayer = require("./ComputerPlayer")
+//const Board = require("./Board.js")
 class Game {
-  constructor(player1, player2) {
-    this.player1 = player1;
-    this.player2 = player2;
-    //this.computer = computer;
-    this.currentPlayer = player1;
-    this.board = new Board();
-    // (this.computer.secretWordLength());
-    this.guessesRemaining = 9;
+  constructor(player) {
+    this.player = player;
+    this.ComputerPlayer = ComputerPlayer;
+    this.board = new Board
+    new Board = this.ComputerPlayer.secretWordLength();
+    this.guessesRemaining = 6;
     this.guessedLetters = [];
   }
-  switchPlayers(){
-    
-    this.currentPlayer === this.player1? this.player2: this.player1
-  }  
+  
   isGameOver() {
     if(this.board.isComplete(this.computer.secretWord) || this.guessesRemaining === 0) {
       return true;
@@ -24,7 +21,6 @@ class Game {
     }
   }
 
-   
   guessValidity(letter) {
     let alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     if (!this.guessedLetters.includes(letter) &&  alphabets.includes(letter)) {
@@ -35,26 +31,23 @@ class Game {
   }
 
   play() {
-    while(!this.isGameOver()) {
     console.clear();
-    console.log('Welcome ' + this.player1.name )
+    console.log('Welcome To Hangman ' + this.player.name + " Let's Have Fun!");
 
+    while(!this.isGameOver()) {
       this.board.display();
       console.log("you have " + this.guessesRemaining  + " guesses remaining")
       console.log("Guessed letter: " + this.guessedLetters)
-      let letter = this.player1.getMove();
+      let letter = this.player.getMove();
 
       if(this.guessedLetters.includes(letter)) {
         letter = readline.question("You already picked this letter. Please enter a different letter: ")
       } 
       if (this.guessValidity(letter)) {
-        this.guessedLetters.push(letter);
-        this.board.addLetter(this.computer.secretWord, letter);
-        this.guessesRemaining --;
+        this.enterValidGuess(letter);
       } else {
-         letter = console.log("Please enter a valid letter: ")
+         letter = readline.question("Please enter a valid letter: ")
       }
-
 
       console.clear();
     } 
@@ -67,10 +60,13 @@ class Game {
       console.log("The word is: " + this.computer.reveal());
     }
   }
+
+  enterValidGuess(letter) {
+    this.guessedLetters.push(letter);
+    this.board.addLetter(this.computer.secretWord, letter);
+    this.guessesRemaining--;
+  }
+ 
 }
-export default Game;
-
-
-// let playerName = console.log('Please enter name ');
-// let game = new Game(new HumanPlayer(playerName))
-// game.play(); 
+module.exports = Game;
+//export default Game;

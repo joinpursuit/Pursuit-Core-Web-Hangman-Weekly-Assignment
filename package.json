@@ -2,7 +2,7 @@
   "name": "pursuit-core-web-hangman-weekly-assignment",
   "version": "1.0.0",
   "description": "## Instructions for weekly assignment submission",
-  "main": "HumanPlayer.js",
+  "main": "index.js",
   "dependencies": {
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"

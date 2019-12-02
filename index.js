@@ -22,7 +22,7 @@ setup()
     document.getElementById('hangman').onsubmit = setup()
 
 const play=()=>{
-     let lives = 1
+     let lives = 0
      let letterMorgue =[]
     let zero = currentWord[0]
     let one = currentWord[1]
@@ -60,7 +60,8 @@ function guessFunction() {
                              if (document.querySelector("#score").innerText>5){
                                 alert("Game over! Click on Start to Play Again")
                             } else if (correctzero && correctone && correcttwo){
-                                document.querySelector("#beforeWin").id = "afterWin" && ( document.querySelector("#letters").innerText = "Congratolations You Win!!!!!!!")
+                                document.querySelector("#hangmantitle").id = "winnerDinner"
+                                document.querySelector("#winnerDinner").innerText ="Winner You Are"
                             }
                       
               }

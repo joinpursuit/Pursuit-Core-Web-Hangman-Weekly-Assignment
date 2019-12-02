@@ -9,12 +9,13 @@
             <link rel="stylesheet" href="./master.css">
 </head>
 <body id="beforeWin">        
-<h1>Simple 'Hangman' Game</h1>
+<h1 id="hangmantitle"> Hangman Game 6.4</h1>
 <div id="startbutton">
 <form id="hangman">
                                         
         <input id="start" name="start game" type="submit" value="Start" />
-      
+        <h5 id="winner"></h5>
+
                                              
 </form>
 
@@ -48,7 +49,7 @@
      
 
 
-           <div id="letter"><input id="letterin" type="text" value=><br>
+           <div id="letter"><input id="letterin" onfocus="this.value=''" type="text" value=><br>
                 <button id="roundletter" onclick="play()">lock in letter</button>
               </div>
 

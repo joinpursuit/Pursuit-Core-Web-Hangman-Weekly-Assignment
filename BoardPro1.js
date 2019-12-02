@@ -1,31 +1,29 @@
+const { celebrities } = require("./words.js")
 
 class Board {
     constructor() {
-        this.word = //grab from file;
-            this.letters = new Set();
-
-        this.maxGuesses = 6;
-        this.failedGuesses = 0;
+        this.word = celebrities;
     }
-    //display hidden word with underscores
-    secretWord() {
-        let display = "";
+    
+    selectCeleb () {
+        let randCeleb = celebrities[Math.floor(Math.random() * celebrities.length)]
+        return randCeleb
+    }
 
-        for (let l of this.word) {
-            display += (this.letters.has(l) ? l + " " : "_ ");
+    secretCeleb(selectCeleb) {
+        let blank = [];
+        for (let i = 0; i < selectCeleb.length; i++){
+            blank[i] = "_"
         }
-        return display
+        return blank
     }
-    //show guessed letters not in word
-    letterNotInWord() {
-        return "Guessed Letters: " + Array.from(this.letters);
+    displayBoard() {
+        return this.secretCeleb
     }
-    //show number of failed guesses
-    failedGuesses() {
-        return "failed guesses: " + this.failedGuesses;
+
+    isDone(){
+        
     }
 }
-
-
 
 module.exports = Board;

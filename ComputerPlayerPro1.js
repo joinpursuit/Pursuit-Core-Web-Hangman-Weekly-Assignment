@@ -1,17 +1,25 @@
-const ALPHABET = [
-    "a", "b", "c", "d", "e",
-    "f", "g", "h", "i", "j",
-    "k", "l", "m", "n", "o",
-    "p", "q", "r", "s", "t",
-    "u", "v", "w", "x", "y",
-    "z", " "];
+const Board = require("./BoardPro1.js")
+
 
 class ComputerPlayer {
     constructor() {
         this.name = "AI"
+        this.letters = new Set();
+
     }
-    computerGuess() {
-        return ALPHABET[Math.floor(Math.random() * 26)]
+
+   
+
+    
+    //show guessed letters not in word
+    letterNotInWord() {
+        return "Guessed Letters: " + Array.from(this.letters);
+    }
+    //show number of failed guesses
+    failedGuesses() {
+        return "failed guesses: " + this.failedGuesses;
     }
 }
+
+
 module.exports = ComputerPlayer;

@@ -1,26 +1,84 @@
 {
-  "name": "Pursuit-Core-Web-Hangman-Weekly-Assignment",
-  "version": "1.0.0",
-  "description": "## Instructions for weekly assignment submission",
-  "main": "hangman.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch"
+  "_from": "package-json",
+  "_id": "package-json@6.5.0",
+  "_inBundle": false,
+  "_integrity": "sha512-k3bdm2n25tkyxcjSKzB5x8kfVxlMdgsbPr0GkZcwHsLpba6cBjqCt1KlcChKEvxHIcTB1FVMuwoijZ26xex5MQ==",
+  "_location": "/package-json",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "package-json",
+    "name": "package-json",
+    "escapedName": "package-json",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/karenm09/Pursuit-Core-Web-Hangman-Weekly-Assignment.git"
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/package-json/-/package-json-6.5.0.tgz",
+  "_shasum": "6feedaca35e75725876d0b0e64974697fed145b0",
+  "_spec": "package-json",
+  "_where": "/Users/karen/Desktop/Core/6.4/2_UnitTwo/Projects/Pursuit-Core-Web-Hangman-Weekly-Assignment",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/karenm09/Pursuit-Core-Web-Hangman-Weekly-Assignment/issues"
+    "url": "https://github.com/sindresorhus/package-json/issues"
   },
-  "homepage": "https://github.com/karenm09/Pursuit-Core-Web-Hangman-Weekly-Assignment#readme",
+  "bundleDependencies": false,
   "dependencies": {
+    "got": "^9.6.0",
     "pack-cli": "^1.4.5",
+    "registry-auth-token": "^4.0.0",
+    "registry-url": "^5.0.0",
+    "semver": "^6.2.0",
     "web": "0.0.2",
     "webpack": "^4.41.2"
-  }
+  },
+  "deprecated": false,
+  "description": "Get metadata of a package from the npm registry",
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "ava": "^2.2.0",
+    "mock-private-registry": "^1.1.2",
+    "tsd": "^0.7.4",
+    "webpack-cli": "^3.3.10",
+    "xo": "^0.24.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "homepage": "https://github.com/sindresorhus/package-json#readme",
+  "keywords": [
+    "npm",
+    "registry",
+    "package",
+    "pkg",
+    "package.json",
+    "json",
+    "module",
+    "scope",
+    "scoped"
+  ],
+  "license": "MIT",
+  "name": "package-json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindresorhus/package-json.git"
+  },
+  "scripts": {
+    "test": "xo && ava && tsd",
+    "build": "webpack --watch"
+  },
+  "version": "6.5.0"
 }

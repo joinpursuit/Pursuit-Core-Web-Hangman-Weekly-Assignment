@@ -1,5 +1,5 @@
 module.exports = {
-   entry: "./hangman.js",
+   entry: "./index.js",
    output: {
      path: __dirname,
      filename: "bundle.js",
@@ -8,8 +8,4 @@ module.exports = {
    watch: true,
    mode: "development",
  };
- Collapse
- 
- 
- 
  

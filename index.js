@@ -9,7 +9,7 @@ const setup = ()=>{
 
     availableLetters = "abcdefghijklmnopqrstuvwxyz";
     lives = 5;
-    words = ["cat", "dog", "cow"];
+    words = ["cat", "dog", "cow", "wex", "wox", "box", "cox", "job", "why", "zas", "zea", "zee", "zel", "zen", "zes", "zin", "zit", "zoa", "zol", "zoo"];
 
 
     currentWord = words[Math.floor(Math.random() * words.length)];
@@ -24,13 +24,13 @@ setup()
 const play=()=>{
      let lives = 0
      let letterMorgue =[]
-    let zero = currentWord[0]
+    let zero = currentWord[0] 
     let one = currentWord[1]
     let two = currentWord[2]
 // let blankArr = zero + one + two
 
 let arrayzero = document.querySelector("#arrayzero")
-arrayzero.innerText = zero;
+arrayzero.innerText =  zero  ;
 
 let arrayone = document.querySelector("#arrayone")
 arrayone.innerText = one;
@@ -48,6 +48,7 @@ score.innerText = lives;
 
 document.querySelector("#roundletter").addEventListener("click", guessFunction);
 function guessFunction() {
+
     if(document.querySelector("#letterin").value === zero){
         document.getElementById("arrayzero").id = "correctzero"
         }else if(document.querySelector("#letterin").value === one){
@@ -61,7 +62,7 @@ function guessFunction() {
                                 alert("Game over! Click on Start to Play Again")
                             } else if (correctzero && correctone && correcttwo){
                                 document.querySelector("#hangmantitle").id = "winnerDinner"
-                                document.querySelector("#winnerDinner").innerText ="Winner You Are"
+                                document.querySelector("#winnerDinner").innerText ="Winner You Are!!!"
                             }
                       
               }
@@ -86,3 +87,5 @@ function guessFunction() {
 
 
 })
+
+

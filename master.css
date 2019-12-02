@@ -1,256 +1,103 @@
 body {
-    padding-top: 22px;
-    background-color: red;
+
+
+  display: grid;
   
-    display: grid;
-    grid-gap: 3px;
-    grid-template-columns: repeat(12,1fr);
-    grid-template-rows:repeat(12,1fr);
-  }
+
+
+
+
+}
+
+#hangman{
+  text-align: center;
+  font-size: 26px;
+}
+
+#hangman > #start{
+  height: 100px;
+  width: 160px;
+text-align: center;
+font-size: 55px;
+ background-color: chartreuse;
+
+ grid-column-start: 5;
+
+}
+
+/* #arrayzero{
+
+} */
+#correctzero{
+  color: blue;
+ }
+ #correctone{
+  color: blue;
+ }
+ #correcttwo{
+  color: blue;
+ }
+#array{
+/* color:white; */
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
   
-  
-  
-  #letterone{
-    grid-row-start: 4;
-    grid-column-start: 4;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 50px;
-    background-color: royalblue;
-    text-align: center;
-  }
-  
-  #roundone{
-    grid-row-start: 4;
-    grid-column-start: 4;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 78px;
-    background-color: rgb(92, 139, 20);
-    text-align: center;
-  font-size: 13px;
-  cursor: pointer;
-  }
-  
-  
-  #onein{
+  margin-left: 44%;
   height: 110px;
   width: 80px;
-  font-size: 76px;
+  font-size: 86px;
+
+}
+
+
+
+#letter{
+
+  grid-row-start: 80%;
+  margin-left: 44%;
+  height: 110px;
+  width: 80px;
+  font-size: 26px;
+
+}
+
+
+#roundletter{
+
+  margin-left: 66%;
+  height: 110px;
+  width: 68px;
+  font-size: 26px;
   background-color:yellow;
   text-align: center;
-  }
+
+
   
-  #lettertwo{
-    grid-row-start: 4;
-    grid-column-start: 5;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 50px;
-    background-color: yellow;
-    text-align: center;
-  }
-  
-  #roundtwo{
-    grid-row-start: 4;
-    grid-column-start: 5;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 78px;
-    background-color: royalblue;
-    text-align: center;
-  font-size: 13px;
-  }
-  
-  #twoin{
-  
-    height: 110px;
-    width: 80px;
-    font-size: 76px;
-    background-color:orangered;
-    text-align: center;
-  }
-  
-  
-  #letterthree{
-    grid-row-start: 4;
-    grid-column-start: 6;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 50px;
-    background-color: royalblue;
-    text-align: center;
-  }
-  
-  #roundthree{
-    grid-row-start: 4;
-    grid-column-start: 6;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 78px;
-    background-color: royalblue;
-    text-align: center;
-  font-size: 13px;
-  
-  }
-  
-  #threein{
-  
-    height: 110px;
-    width: 80px;
-    font-size: 76px;
-    background-color:purple;
-    text-align: center;
-  }
-  #letterfour{
-    grid-row-start: 4;
-    grid-column: 7;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 50px;
-    background-color: royalblue;
-    text-align: center;
-  }
-  
-  
-  #roundfour{
-    grid-row-start: 4;
-    grid-column-start: 7;
-    height:60px;
-    width: 4px;
-    border-radius: 30%;
-    width: 78px;
-    background-color: royalblue;
-    text-align: center;
-  font-size: 13px;
-  }
-  
-  #fourin{
-    height: 110px;
-    width: 80px;
-    font-size: 76px;
-    background-color:purple;
-    text-align: center;
-  }
-  
-  
-  
-  
-  
-  
-  #dot { 
-  
-    grid-column-start: 2;
-    grid-row-start: 2;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow:
-      0 0 60px 30px #fff,
-      0 0 100px 60px #f0f,
-      0 0 140px 90px #0ff;
-  }
-  
-  #dota {
-    grid-column-start: 4;
-    grid-row-start: 2;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow:
-    0 0 60px 30px #fff,
-    0 0 100px 60px #f0f,
-    0 0 140px 90px #0ff;
-  
-  }
-  
-  #dotb {
-    grid-column-start: 6;
-    grid-row-start: 2;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow:
-    0 0 60px 30px #fff,
-    0 0 100px 60px #f0f,
-    0 0 140px 90px #0ff;
-  
-  }
-  
-  #dotc {
-  grid-column-start: 8;
-  grid-row-start: 2;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow:
-    0 0 60px 30px #fff,
-    0 0 100px 60px #f0f,
-    0 0 140px 90px #0ff;
-  
-  }
-  #dotd {
-    grid-column-start: 10;
-    grid-row-start: 2;
-      top: calc(50% - 20px);
-      left: calc(50% - 20px);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #fff;
-      box-shadow:
-      0 0 60px 30px #fff,
-      0 0 100px 60px #f0f,
-      0 0 140px 90px #0ff;
-    
-    }
-  
-    #dote {
-      grid-column-start: 8;
-      grid-row-start: 2;
-        top: calc(50% - 20px);
-        left: calc(50% - 20px);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #fff;
-        box-shadow:
-        0 0 60px 30px #fff,
-        0 0 100px 60px #f0f,
-        0 0 140px 90px #0ff;
-      
-      }
-      #dotf {
-        grid-column-start: 12;
-        grid-row-start: 2;
-          top: calc(50% - 20px);
-          left: calc(50% - 20px);
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background-color: #fff;
-          box-shadow:
-          0 0 60px 30px #fff,
-          0 0 100px 60px #f0f,
-          0 0 140px 90px #0ff;
-        
-        }  
+  border-radius: 30%;
+
+  background-color: royalblue;
+  text-align: center;
+font-size: 13px;
+
+
+
+
+
+
+
+}
+
+
+#letterin{
+margin-left: 66%;
+height: 110px;
+width: 66px;
+font-size: 76px;
+background-color:yellow;
+
+}
+#afterWin{
+  background-color: black;
+}

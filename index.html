@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hangman OnTheDom</title>
+        <script src="./bundle.js"></script>
+        <link href="master.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="guessee"></div>
+        <div id="robot"></div>
+        <div id="hm"></div>
+        <!-- 
+          <div id="myModal" class="modal">
+            Hey! Welcome to Hangman On The DOM!
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Enter your name below!</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+            </div> -->
+            
+          </div>
+          <!-- <input type="text" value="What's your name?"></input> -->
+          <form> 
+              <input type="button" value="let's play!">
+            </form>
+            <p>let's go</p>
+        <h2>Let's Play!</h2>
+        <img src="data:image/png;base64,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" class="center"/>
+         <form>
+            <p>Take a guess!</p>
+            <p>You have 6 guesses in total before the man hangs!</p>
+            <input type="text" id="guess" placeholder="Enter your letter here!"/>
+            <button>Go!</button>
+        </form>
+        <p id="invalid"></p>
+        <p id="valid"></p>
+    </body>
+</html> 

@@ -1,0 +1,41 @@
+body {
+  background-image: url(http://www.vinotique.com/postpic/2011/08/lined-notebook-paper-template_370654.jpg);
+  background-size: cover;
+  background-color: darkgray;
+  font-family: sans-serif;
+  font-size: 25px
+}
+
+h1 {
+  padding-top: 200px;
+  padding-left: 200px;
+  text-align:center;
+  color:black;
+  font-style: italic;
+}
+
+div {
+  text-align:center;
+}
+
+img {
+  padding-left: 170px
+}
+
+input {
+  height: 25px;
+  width: 25px
+}
+
+button {
+  height: 30px
+}
+p {
+  font-size: 25px;
+  color: darkblue;
+}
+
+#p3 {
+  padding-top: 50px;
+  padding-left: 390px;
+}

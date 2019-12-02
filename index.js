@@ -8,6 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let human = new HumanPlayer("Nilber")
     let cylon = new ComputerPlayer()
-    let lostsoul = new Game ({ref: cylon}, {guesser: human})
+    let lostsoul = new Game ({diviner: cylon}, {guesser: human})
     new View (vis,lostsoul)
 })

@@ -5,26 +5,14 @@ class View {
         this.game = game
         this.vis = vis
         this.game.start()
-        this.game.foundation()
-        this.bindEvents()
+        this.foundation()
+        this.events()
         this.play()
     }
-    play(){
-    this.displayBoard()
-    this.displayGuessedLetters()
-    this.displayHangman()
-        while(this.game.isGameOver()){ 
-            let hi = document.createElement("h1")
-            hi.innerText = this.game.resolveGame()
-            this.vis.appendChild(h1)
-            let form = document.querySelector("form")
-            form.parentNode.removeChild(form)
-        }
-    }
     foundation() {
-        let guessed = document.createElement("ul")
-        guessed.id = "guessed"
-        this.vis.appendChild("#guessed")
+        let guess = document.createElement("ul")
+        guess.id = "guess"
+        this.vis.appendChild("#guess")
         
         let hangpic = document.createElement("p")
         hangpic.id = "hangpic"
@@ -41,10 +29,22 @@ class View {
         form.appendChild(input)
         this.vis.appendChild(form)
     }
-    bindEvents() {
+    play(){
+    this.displayBoard()
+    this.displayGuessedLetters()
+    this.displayHangman()
+        while(this.game.gameOver()){ 
+            let hi = document.createElement("h1")
+            hi.innerText = this.game.endGame()
+            this.vis.appendChild(h1)
+            let form = document.querySelector("form")
+            form.parentNode.removeChild(form)
+        }
+    }
+    events() {
         let form = document.querySelector("form")
-        form.addEventListener("submit", v => {
-            v.preventDefault()
+        form.addEventListener("submit", event => {
+            event.preventDefault()
             let input = document.querySelector("input")
             let guess = input.value
             input.value = ""
@@ -58,7 +58,7 @@ class View {
         // submit.addEventListener("click", () => {
     }
     displayBoard(board = this.game.board){
-        this.el.innerHTML = "" //clears the HTML
+        this.vis.innerHTML = "" //clears the HTML
         let heading = document.createElement("h1")
         heading.innerText = "Guess the Word"
         this.vis.appendChild(heading)
@@ -67,7 +67,7 @@ class View {
         ul.innerText = "" //clears all the text in the ul. innerHTML shows the HTML code
         for(let i=0; i < board.length(); i++){
             let li = document.createElement("li")
-            li.innerText = board.get(i)
+            li.innerText = board[i]
             ul.appendChild(li)
             }
     }

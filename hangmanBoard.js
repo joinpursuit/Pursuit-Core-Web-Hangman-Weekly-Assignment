@@ -1,20 +1,14 @@
 class Board {
     constructor(length){
-        this.board = new Array(length).fill("_")
+        this.board = new Array(length).fill(" ")
     }
-    isComplete(){
-        return this.board.every(el => el !== "_")
+    boardDisclosure(){
+        return this.board.every(el => el !== " ")
     }
-    addLetter(indicies, letter){
-        for (let i of indicies){
+    addLetter(secretWordIndices, letter){
+        for (let i of secretWordIndices){
             this.board[i] = letter
         }
-    }
-    length(){
-    return this.board.length
-    }
-    get(idx) {
-    return this.board[idx]
     }
 }
 

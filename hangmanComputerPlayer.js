@@ -5,21 +5,12 @@ class ComputerPlayer {
         this.dictionary = {dictionary}
         this.name = name
     }
-    chooseSecretWord() {
-        let idx = Math.floor(Math.random() * this.dictionary.length)
-        this.secretWord = this.dictionary[idx]
+    secretWord() {
+        let index = Math.floor(Math.random() * this.dictionary.length)
+        this.secretWord = this.dictionary[index]
         return this.secretWord.length
     }
-    checkGuess(character){
-        let indicies = []
-        for (let i=0; i<this.secretWord.length; i++){
-            if (this.secretWord[i] === character){
-            indicies.push(i)
-            }
-        }
-        return indicies
-    }
-    reveal () {
+    disclosure() {
         return this.secretWord
     }
 }

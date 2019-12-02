@@ -4,8 +4,8 @@ class View {
     constructor(game) {
         this.game = game
         this.game.start()
-        this.events()
         this.play()
+        this.gameMove()
     }
 // let submit = document.querySelector("#button")
 // submit.addEventListener("click", () => {
@@ -30,6 +30,17 @@ class View {
         hangmanPics.innerText = hangmanPics[this.game.guessCount]
     }
     play(){
+        this.displayBoard()
+        this.displayGuesses()
+        this.displayHangmanPics()
+        while(this.game.gameOver()){ 
+            let endGame = document.querySelector("#ticker")
+            endGame.innerText = this.game.endGame()
+            let submit = document.querySelector("#guessSubmission")
+            submit.parentNode.removeChild(form)
+        }
+    }
+    gameMove(){
         let submit = document.querySelector("#guessSubmission")
         submit.addEventListener("submit", event => {
             event.preventDefault() //prevent it from submitting
@@ -41,17 +52,6 @@ class View {
         })
         this.play()
     }
-    play(){
-        this.displayBoard()
-        this.displayGuesses()
-        this.displayHangmanPics()
-        while(this.game.gameOver()){ 
-            let endGame = document.querySelector("#ticker")
-            endGame.innerText = this.game.endGame()
-            let submit = document.querySelector("#guessSubmission")
-            submit.parentNode.removeChild(form)
-        }
-     }
 }
         
 export default View

@@ -4,7 +4,7 @@ class Game {
     constructor(players){
         this.god = players["god"]
         this.diviner = players[""]
-        this.guessCount = 5
+        this.guessCount = 7
         this.guesses = []
     }
     start() {
@@ -12,7 +12,7 @@ class Game {
         this.board = new Board(boardLength)
     }
     guessValidator(){
-        let alphabet = "abcdefghijklmnopqrstuvwxyz"
+        let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         return (guess.length === 1 && alphabet.includes(guess) && !this.guesses.includes(guess))
     }
     guessIndexValidator(guess){
@@ -38,10 +38,10 @@ class Game {
     }
     endGame(){
         if (this.guessCount > 0){
-            return `YOU ${this.guesser.name} WIN`
+            return `YOU ${this.diviner.name} WIN`
         } else {
-            let winningWord = this.disclosure()
-            return `Word was ${winningWord}. YOU LOSE`
+            let secretWord = this.disclosure()
+            return `Word was ${secretWord}. YOU LOSE`
         }
     }
 

@@ -1,30 +1,24 @@
 import {hangmanPics} from "./hangmanPics.js"
 
 class View {
-    constructor(vis, game) {
+    constructor(game) {
         this.game = game
-        this.vis = vis
         this.game.start()
-        this.foundation()
         this.events()
         this.play()
     }
-    foundation() {
-        let guess = document.querySelector("#guess")
-        let hangpic = document.querySelector("img")
-        let secretWord = document.querySelector("ul")
-        
-
-        let form = document.createElement("form")
-        let guessTextInput = document.createElement("input")
-        let submit = document.createElement("button")
-        submit.setAttribute("id", "submit")
-        form.appendChild(guessTextInput)
-        this.vis.appendChild(form)
+    //foundation() {
+       
+        let form = document.querySelector("#guessSubmission")
+        let guessTextInput = document.querySelector("#guess")
+        let submit = document.querySelector("#submit")
+        // submit.setAttribute("id", "submit")
+        // form.appendChild(guessTextInput)
+        // this.vis.appendChild(form)
     }
     play(){
     this.displayBoard()
-    this.displayGuessedLetters()
+    this.displayGuesses()
     this.displayHangman()
         while(this.game.gameOver()){ 
             let hi = document.createElement("h1")
@@ -51,40 +45,25 @@ class View {
         // submit.addEventListener("click", () => {
     }
     displayBoard(board = this.game.board){
-        this.vis.innerHTML = ""
-        let heading = document.createElement("h1")
-        heading.innerText = "Guess the Word"
-        this.vis.appendChild(heading)
-    
-        let ul = document.querySelector("#board")
-        ul.innerText = ""
+        let secretWord = document.querySelector("#secretWord")
         for(let i=0; i < board.length(); i++){
-            let li = document.createElement("li")
-            li.innerText = board[i]
-            ul.appendChild(li)
+            let guessLetter = document.createElement("li")
+            guessLetter.innerText = board[i]
+            secretWord.appendChild(guessLetter)
             }
     }
     displayGuesses(){
-        let guess = document.querySelector("#guessed")
-        guesses.innerHTML = ""
-        guesses.innerText = this.game.guessedLetters
-        
-        // let input = document.createElement("input")
-        // input.type = "text"
-        // input.placeholder = "Enter Letter"
-        // input.id = "words"
-        // this.el.appendChild(input)
-        
+        let guesses = document.querySelector("#guesses")
+        for(let i=0; i < this.game.guesses.length; i++){
+            let guesses = document.createElement("li")
+            guesses.innerText = this.game.guesses[i]
+            guesses.appendChild(guesses)
+        }
     }
-displayHangman(){
-    let hangmanPic = document.createElement("img")
-    hangmanPic.setAttribute("id", "board")
-    hangmanPic.setAttribute("src", )
-    this.vis.appendChild("#hangmanPic")
-    document.querySelector("#hangmanPic").innerText = hangmanPics[this.game.guessCount]
+    displayHangman(){
+        let hangmanPics = document.querySelector("img")
+        hangmanPics.innerText = hangmanPics[this.game.guessCount]
     }
-
-
 }
 
 export default View

@@ -6,16 +6,30 @@
     <script src="./bundle.js"></script>
   </head>
 
-<body id="vis">
-  <h1></h1>
+<body>
+  <section></section>
+  <h1>Welcome to HangMan</h1>
+  <h3>Guess the secret word to save the life of your protagonist</h3>
+  </section>
   <section>
     <img src="">
   </section>
   <section>
-    <ul id="guess"></ul>
+    <ul class="list id="guesses"></ul>
   </section>
   <section>
-    <ul id="board"></ul>
+    <ul class="list id="secretWord"></ul>
+  </section>
+  <section>
+    <form id="guessSubmission">
+      <p>
+        <label for="letter">Guess a Letter</label> 
+        <input type="text" name="letter" placeholder="Enter Letter">
+      </p>
+      <p>
+        <input type="submit" id="submit" value="Submit Your Guess">
+      </p>
+    </form>
   </section>
 </body>
 

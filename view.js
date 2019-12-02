@@ -7,50 +7,15 @@ class View {
         this.events()
         this.play()
     }
-    //foundation() {
-       
-        let form = document.querySelector("#guessSubmission")
-        let guessTextInput = document.querySelector("#guess")
-        let submit = document.querySelector("#submit")
-        // submit.setAttribute("id", "submit")
-        // form.appendChild(guessTextInput)
-        // this.vis.appendChild(form)
-    }
-    play(){
-    this.displayBoard()
-    this.displayGuesses()
-    this.displayHangman()
-        while(this.game.gameOver()){ 
-            let hi = document.createElement("h1")
-            hi.innerText = this.game.endGame()
-            this.vis.appendChild(h1)
-            let form = document.querySelector("form")
-            form.parentNode.removeChild(form)
-        }
-    }
-    events() {
-        let form = document.querySelector("form")
-        form.addEventListener("submit", event => {
-            event.preventDefault()
-            let input = document.querySelector("input")
-            let guess = input.value
-            input.value = ""
-            if (this.game.isValidGuess(guess)) {
-                this.game.enterValidGuess(guess)
-            }
-            this.play()
-        })
-        
-        // let submit = document.querySelector("#button")
-        // submit.addEventListener("click", () => {
-    }
+// let submit = document.querySelector("#button")
+// submit.addEventListener("click", () => {
     displayBoard(board = this.game.board){
         let secretWord = document.querySelector("#secretWord")
         for(let i=0; i < board.length(); i++){
             let guessLetter = document.createElement("li")
             guessLetter.innerText = board[i]
             secretWord.appendChild(guessLetter)
-            }
+        }
     }
     displayGuesses(){
         let guesses = document.querySelector("#guesses")
@@ -60,10 +25,37 @@ class View {
             guesses.appendChild(guesses)
         }
     }
-    displayHangman(){
-        let hangmanPics = document.querySelector("img")
+    displayHangmanPics(){
+        let hangmanPics = document.querySelector("#hangmanPic")
         hangmanPics.innerText = hangmanPics[this.game.guessCount]
     }
+    play(){
+        let submit = document.querySelector("#guessSubmission")
+        submit.addEventListener("submit", event => {
+            event.preventDefault() //prevent it from submitting
+            let guessTextInput = document.querySelector("#guess")
+            let guess = guessTextInput.value
+            if (this.game.guessValidator(guess)) {
+                this.game.enterGuess(guess)
+            }
+        })
+        this.play()
+    }
+    play(){
+        this.displayBoard()
+        this.displayGuesses()
+        this.displayHangmanPics()
+        while(this.game.gameOver()){ 
+            let endGame = document.querySelector("#ticker")
+            endGame.innerText = this.game.endGame()
+            let submit = document.querySelector("#guessSubmission")
+            submit.parentNode.removeChild(form)
+        }
+     }
 }
-
+        
 export default View
+        
+        // submit.setAttribute("id", "submit")
+        // form.appendChild(guessTextInput)
+        // this.vis.appendChild(form)

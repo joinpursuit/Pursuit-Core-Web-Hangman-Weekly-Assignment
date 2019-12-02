@@ -2,7 +2,7 @@ import ComputerPlayer from "./computerPlayer.js"
 import Game from "./game.js"
 import HumanPlayer from "./humanPlayer.js"
 import View from "./view.js"
-// import dictionary from "./words.js"
+import dictionary from "./words.js"
 
 class View{ 
     constructor(game,element){

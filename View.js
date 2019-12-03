@@ -46,6 +46,7 @@ class View {
         let guesses = document.querySelector("#guessSoFar")
         guesses.innerHTML = ""
         guesses.innerText = this.game.guessedLetters.join(" , ")
+        this.game.guessesRemaining -=1;
     }
     hangmanDisplay(){
         document.querySelector("#hangmanPic").innerText = hangmanPics[this.game.guessesRemaining]

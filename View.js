@@ -49,7 +49,6 @@ class View {
     }
     hangmanDisplay(){
         document.querySelector("#hangmanPic").innerText = hangmanPics[this.game.guessesRemaining]
-
     }
     gameSetUp(){
         let hangmanPic = document.createElement("div")

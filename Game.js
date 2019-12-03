@@ -8,12 +8,22 @@ class Game {
         this.guesser = players["guesser"];
         this.guessesRemaining = 6;
         this.guessedLetters = [];
+
+        /*make a variable that is equal to the length of the word. 
+        each time a letter is guessed, subtract from that variable. 
+        game will end when the variable reaches 0*/
         
     }
     beginGame(){
         let boardLength = this.ref.chooseSecretWord()
         this.board = new Board(boardLength)
 
+    }
+    wordLength(){
+        if(this.guessesRemaining===0){
+            this.guesser.innerText = "you lost!"
+
+        }
     }
     play(){
         let boardLength = this.ref.chooseSecretWord();
@@ -37,19 +47,19 @@ class Game {
 
     }
     resolveGame(){
-        if (this.guessesRemaining > 0){
-            return this.guesser.name + "IS THE WINNER!"
-        }else {
+        if(this.guessesRemaining === 0){
             let winningWord = this.ref.reveal();
             return "The word was: " + winningWord() + " " + "Sorry you lose! PLAY AGAIN"
         }
+
+
 
     }
     enterValidGuess(guess){
         this.guessedLetters.push(guess);
         let positions = this.ref.checkGuess(guess)
         if (positions.length === 0 ){
-            this.guessesRemaining--
+            this.guessesRemaining --;
         }
         this.board.addChar(positions, guess)
     }

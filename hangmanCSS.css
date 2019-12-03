@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+    display: inline;
+    justify-content: center;
+    list-style-type: none
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Hangman Game</title>
+            <script src="./index.js"></script>
+            <link rel="stylesheet" href="./master.css">
+</head>
+<body id="beforeWin">        
+<h1 id="hangmantitle"> Farrah Isabelle's Hangman Game 6.4 </h1>
+
+<!-- <h3 id="presshere"> click here to begin game</h3> -->
+<p>To Play: Press Start, enter letter in yellow box, and lock it in.</p> 
+<div id="startbutton"> 
+<form id="hangman">                                
+        <input id="start" name="start game" type="submit" value="Start" />
+        <h5 id="winner"></h5>                                            
+</form>
+<ul> 
+ <li id="scorekeeper"> 5 strikes and you Lose. So far you have this many strikes: &nbsp;</li><li id="score"></li>
+</ul>
+</div>
+  <div id="letters"></div>
+  <p id="man"></p>
+  <p id="output" class="output"></p> 
+  <div id="array">
+<div id="arrayzero"></div>
+<div id="arrayone" style=margin-left:25px></div>
+<div id="arraytwo" style=margin-left:25px></div>
+        </div>
+        <br>
+           <div id="letter"><input id="letterin" onfocus="this.value=''" type="text" value=><br>
+                <br><button id="roundletter" onclick="play()">lock in letter</button>
+              </div>
+
+   
+</body>
+</html>
+       
+
+
+
+
+

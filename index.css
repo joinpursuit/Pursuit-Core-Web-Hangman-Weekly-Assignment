@@ -1,0 +1,17 @@
+body{
+    background-color: aqua;
+    text-align: center;
+}
+myHangman{
+    background: white;
+    font-size: large;
+    border-color:blue;
+}
+ul{
+    list-style: none;
+    font-size: larger;
+}
+input{
+    width: 200px;
+    height: 20px;
+}

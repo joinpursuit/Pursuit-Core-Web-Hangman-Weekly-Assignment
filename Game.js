@@ -18,9 +18,28 @@ class Game {
         this.board.buildBoard(this.referee.getWord());
     }
 
-    placeGuess(guess) {
-        guess = readline.question("Enter a guess: ");
+    isValidMove(guess) {
+        return this.board.isValidMove(guess);
+    }
+
+    isGuessedMove(guess) {
+        return this.board.isGuessedLetter(guess);
+    }
+
+    isCorrectGuess(guess) {
+        return this.board.isCorrectGuess(guess);
+    }
+
+    incorrectGuess() {
+        this.board.incorrectGuess();
+    }
+
+    placeLetter(guess) {
         this.board.placeLetter(guess);
+    }
+
+    addGuess(guess) {
+        this.board.addGuess(guess);
     }
 
     getBoard() {
@@ -39,3 +58,5 @@ class Game {
         return [this.board.movesRemaining, this.board.movesTaken];
     }
 }
+
+export default Game;

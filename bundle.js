@@ -101,7 +101,7 @@ class Board {
         this.board = []; 
         this.answer;
         this.guesses = [];
-        this.movesRemaining = 9; 
+        this.movesRemaining = 6; 
         this.movesTaken = 0;
         this.MOVES = Moves;  
     } 
@@ -121,7 +121,7 @@ class Board {
     } 
 
     isValidMove(guess) {
-        if(guess === undefined || !isNaN(guess) || !this.isMoveLong(guess) || this.board.includes(guess.toLowerCase()) || this.guesses.includes(guess.toLowerCase())) {
+        if(guess === undefined || !isNaN(guess) || !this.isMoveLong(guess)) {
             return false; 
         } else {
             if(!Moves[guess.toUpperCase()]) {
@@ -131,27 +131,41 @@ class Board {
         }
     } 
 
-    placeLetter(guess) {
-        if(this.isValidMove(guess)) {
-            this.answer.forEach((el, i) => {
-                if(el === guess.toLowerCase()) {
-                    this.board[i] = guess.toLowerCase();
-                }
-            })
-
-            if(!this.board.includes(guess.toLowerCase())) {
-                this.movesRemaining -= 1;
-            }
-
-            this.guesses.push(guess.toLowerCase());
+    isGuessedLetter(guess) {
+        if(this.guesses.includes(guess.toLowerCase())) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    isGameOver(board) {
+    isCorrectGuess(guess) {
+        return this.answer.includes(guess);
+    }
+
+    incorrectGuess() {
+        this.movesRemaining -= 1;
+        this.movesTaken += 1;
+    }
+
+    placeLetter(guess) {
+        this.answer.forEach((el, i) => {
+            if(el === guess.toLowerCase()) {
+                this.board[i] = guess.toLowerCase();               
+            }
+        })
+        this.movesTaken++;
+    }
+
+    addGuess(guess) {
+        this.guesses.push(guess);
+    }
+
+    isGameOver() {
         if(this.movesRemaining === 0) {
             return true; 
         } else {
-            return board.every((el) => el !== "_"); 
+            return this.board.every((el) => el !== "_"); 
         }
     } 
 } 
@@ -244,9 +258,11 @@ module.exports = allTheWords;
 /*!*****************!*\
   !*** ./Game.js ***!
   \*****************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 const ComputerPlayer = __webpack_require__(/*! ./ComputerPlayer.js */ "./ComputerPlayer.js");
 const HumanPlayer = __webpack_require__(/*! ./HumanPlayer.js */ "./HumanPlayer.js");
 const Board = __webpack_require__(/*! ./Board.js */ "./Board.js");
@@ -267,9 +283,28 @@ class Game {
         this.board.buildBoard(this.referee.getWord());
     }
 
-    placeGuess(guess) {
-        guess = readline.question("Enter a guess: ");
+    isValidMove(guess) {
+        return this.board.isValidMove(guess);
+    }
+
+    isGuessedMove(guess) {
+        return this.board.isGuessedLetter(guess);
+    }
+
+    isCorrectGuess(guess) {
+        return this.board.isCorrectGuess(guess);
+    }
+
+    incorrectGuess() {
+        this.board.incorrectGuess();
+    }
+
+    placeLetter(guess) {
         this.board.placeLetter(guess);
+    }
+
+    addGuess(guess) {
+        this.board.addGuess(guess);
     }
 
     getBoard() {
@@ -288,6 +323,8 @@ class Game {
         return [this.board.movesRemaining, this.board.movesTaken];
     }
 }
+
+/* harmony default export */ __webpack_exports__["default"] = (Game);
 
 /***/ }),
 
@@ -378,15 +415,117 @@ module.exports = moves;
 /*!*****************!*\
   !*** ./View.js ***!
   \*****************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 class View {
     constructor(game, element) {
         this.game = game;
         this.element = element;
+        this.game.getNewWord();
+        this.displayBoard();
     }
+
+    displayBoard() {
+        this.removeChildren();
+        let guessFeedback = document.querySelector("#guessFeedback");
+        if(!guessFeedback) {
+            let guessFeedback = document.createElement("p");
+            guessFeedback.id = "guessFeedback";
+            this.element.appendChild(guessFeedback);
+        }
+
+        let board = document.createElement("h2");
+        board.innerText = this.game.getBoard().join(" ");
+
+        let guesses = document.createElement("p");
+        guesses.innerText = `Guesses: ${this.game.getGuesses().join(", ")}`;
+        guesses.id = "guesses";
+
+        let movesRemaining = document.createElement("p");
+        movesRemaining.innerText = `Moves Remaining: ${this.game.getMoves()[0]}`;
+        movesRemaining.id = "movesRemaining";
+
+        this.appendChildren(board, guesses, movesRemaining);
+
+        this.isGameOver();
+    }
+
+    removeChildren() {
+        let board = document.querySelector("h2");
+        if(board) {
+            board.parentNode.removeChild(board);
+        }
+
+        let guesses = document.querySelector("#guesses");
+        if(guesses) {
+            guesses.parentNode.removeChild(guesses);
+        }
+
+        let movesRemaining = document.querySelector("#movesRemaining");
+        if(movesRemaining) {
+            movesRemaining.parentNode.removeChild(movesRemaining);
+        }
+    }
+
+    appendChildren(...elements) {
+        elements.forEach(child => this.element.appendChild(child));
+    }
+    
+    guess() {
+        let button = document.querySelector("#guess");
+        let guessFeedback = document.querySelector("#guessFeedback");
+
+        button.addEventListener("click", () => {
+            let userInput = document.querySelector("input");
+            if(!this.game.isValidMove(userInput.value)) {
+                guessFeedback.innerText = "Invalid Letter";
+                userInput.value = "";
+            } else if(this.game.isGuessedMove(userInput.value)) {
+                guessFeedback.innerText = "Guessed Letter";
+            } else {
+                this.validGuess(userInput);
+            }
+        })
+    }
+
+    validGuess(userInput) {
+        let guessFeedback = document.querySelector("#guessFeedback");
+        if(this.game.isCorrectGuess(userInput.value)) {
+            guessFeedback.innerText = "Correct Guess";
+            this.game.placeLetter(userInput.value);
+        } else {
+            guessFeedback.innerText = "Incorrect Guess";
+            this.game.incorrectGuess();
+        }
+        this.game.addGuess(userInput.value);
+        userInput.value = "";
+        this.displayBoard();
+    }
+
+    isGameOver() {
+        if(this.game.isGameOver()) {
+            this.removeGuessing();
+            if(this.game.board.movesRemaining === 0) {
+                guessFeedback.innerText = "Lose!";
+            } else if(this.game.getBoard().every(el => el !== "_")){
+                guessFeedback.innerText = "Win!";
+            }
+        } else {
+            this.guess();
+        }
+    }
+
+    removeGuessing() {
+        let guessing = document.querySelector("#guessBox");
+        guessing.parentNode.removeChild(guessing);
+    }
+    
 }
+
+/* harmony default export */ __webpack_exports__["default"] = (View);
 
 /***/ }),
 
@@ -400,15 +539,13 @@ class View {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game.js */ "./Game.js");
-/* harmony import */ var _Game_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Game_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _View_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./View.js */ "./View.js");
-/* harmony import */ var _View_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_View_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
     let displayBox = document.querySelector("#playerFeedback");
-    new _View_js__WEBPACK_IMPORTED_MODULE_1__["View"](new _Game_js__WEBPACK_IMPORTED_MODULE_0__["Game"](), displayBox);
+    new _View_js__WEBPACK_IMPORTED_MODULE_1__["default"](new _Game_js__WEBPACK_IMPORTED_MODULE_0__["default"](), displayBox);
 })
 
 /***/ })

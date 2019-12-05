@@ -6,7 +6,7 @@ class Board {
         this.board = []; 
         this.answer;
         this.guesses = [];
-        this.movesRemaining = 9; 
+        this.movesRemaining = 6; 
         this.movesTaken = 0;
         this.MOVES = Moves;  
     } 
@@ -26,7 +26,7 @@ class Board {
     } 
 
     isValidMove(guess) {
-        if(guess === undefined || !isNaN(guess) || !this.isMoveLong(guess) || this.board.includes(guess.toLowerCase()) || this.guesses.includes(guess.toLowerCase())) {
+        if(guess === undefined || !isNaN(guess) || !this.isMoveLong(guess)) {
             return false; 
         } else {
             if(!Moves[guess.toUpperCase()]) {
@@ -36,27 +36,41 @@ class Board {
         }
     } 
 
-    placeLetter(guess) {
-        if(this.isValidMove(guess)) {
-            this.answer.forEach((el, i) => {
-                if(el === guess.toLowerCase()) {
-                    this.board[i] = guess.toLowerCase();
-                }
-            })
-
-            if(!this.board.includes(guess.toLowerCase())) {
-                this.movesRemaining -= 1;
-            }
-
-            this.guesses.push(guess.toLowerCase());
+    isGuessedLetter(guess) {
+        if(this.guesses.includes(guess.toLowerCase())) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    isGameOver(board) {
+    isCorrectGuess(guess) {
+        return this.answer.includes(guess);
+    }
+
+    incorrectGuess() {
+        this.movesRemaining -= 1;
+        this.movesTaken += 1;
+    }
+
+    placeLetter(guess) {
+        this.answer.forEach((el, i) => {
+            if(el === guess.toLowerCase()) {
+                this.board[i] = guess.toLowerCase();               
+            }
+        })
+        this.movesTaken++;
+    }
+
+    addGuess(guess) {
+        this.guesses.push(guess);
+    }
+
+    isGameOver() {
         if(this.movesRemaining === 0) {
             return true; 
         } else {
-            return board.every((el) => el !== "_"); 
+            return this.board.every((el) => el !== "_"); 
         }
     } 
 } 

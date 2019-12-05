@@ -1,5 +1,5 @@
-import { Game } from "./Game.js";
-import { View } from "./View.js";
+import Game from "./Game.js";
+import View from "./View.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     let displayBox = document.querySelector("#playerFeedback");

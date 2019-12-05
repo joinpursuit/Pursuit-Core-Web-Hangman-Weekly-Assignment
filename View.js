@@ -1,3 +1,6 @@
+import Visual from "./Visual.js";
+import Game from "./Game.js";
+
 class View {
     constructor(game, element) {
         this.game = game;
@@ -8,6 +11,7 @@ class View {
 
     displayBoard() {
         this.removeChildren();
+        this.visualHangman();
         let guessFeedback = document.querySelector("#guessFeedback");
         if(!guessFeedback) {
             let guessFeedback = document.createElement("p");
@@ -23,12 +27,20 @@ class View {
         guesses.id = "guesses";
 
         let movesRemaining = document.createElement("p");
-        movesRemaining.innerText = `Moves Remaining: ${this.game.getMoves()[0]}`;
+        movesRemaining.innerText = `Moves Remaining: ${this.game.board.movesRemaining}`;
         movesRemaining.id = "movesRemaining";
 
         this.appendChildren(board, guesses, movesRemaining);
 
         this.isGameOver();
+    }
+
+    visualHangman() {
+        let visualBoard = document.querySelector("#visualBoard");
+        let hangman = document.createElement("img");
+        hangman.id = "hangman";
+        hangman.src = Visual[this.game.board.movesRemaining];
+        visualBoard.prepend(hangman);
     }
 
     removeChildren() {
@@ -45,6 +57,11 @@ class View {
         let movesRemaining = document.querySelector("#movesRemaining");
         if(movesRemaining) {
             movesRemaining.parentNode.removeChild(movesRemaining);
+        }
+
+        let hangman = document.querySelector("#hangman");
+        if(hangman) {
+            hangman.parentNode.removeChild(hangman);
         }
     }
 
@@ -91,14 +108,29 @@ class View {
             } else if(this.game.getBoard().every(el => el !== "_")){
                 guessFeedback.innerText = "Win!";
             }
+            this.playAgain();
         } else {
             this.guess();
         }
     }
 
+    playAgain() {
+        let button = document.createElement("button");
+        button.innerText = "Play Again";
+        this.element.appendChild(button);
+        button.addEventListener("click", () => {
+            let guessFeedback = document.querySelector("#guessFeedback");
+            guessFeedback.parentNode.removeChild(guessFeedback);
+            button.parentNode.removeChild(button);
+            let guessing = document.querySelector("#guessBox");
+            guessing.style.display = "inline";
+            new View(new Game(), this.element);
+        })
+    }
+
     removeGuessing() {
         let guessing = document.querySelector("#guessBox");
-        guessing.parentNode.removeChild(guessing);
+        guessing.style.display = "none";
     }
     
 }

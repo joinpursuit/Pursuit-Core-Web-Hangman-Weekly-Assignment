@@ -420,6 +420,11 @@ module.exports = moves;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Visual_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Visual.js */ "./Visual.js");
+/* harmony import */ var _Game_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Game.js */ "./Game.js");
+
+
+
 class View {
     constructor(game, element) {
         this.game = game;
@@ -430,6 +435,7 @@ class View {
 
     displayBoard() {
         this.removeChildren();
+        this.visualHangman();
         let guessFeedback = document.querySelector("#guessFeedback");
         if(!guessFeedback) {
             let guessFeedback = document.createElement("p");
@@ -445,12 +451,20 @@ class View {
         guesses.id = "guesses";
 
         let movesRemaining = document.createElement("p");
-        movesRemaining.innerText = `Moves Remaining: ${this.game.getMoves()[0]}`;
+        movesRemaining.innerText = `Moves Remaining: ${this.game.board.movesRemaining}`;
         movesRemaining.id = "movesRemaining";
 
         this.appendChildren(board, guesses, movesRemaining);
 
         this.isGameOver();
+    }
+
+    visualHangman() {
+        let visualBoard = document.querySelector("#visualBoard");
+        let hangman = document.createElement("img");
+        hangman.id = "hangman";
+        hangman.src = _Visual_js__WEBPACK_IMPORTED_MODULE_0__["default"][this.game.board.movesRemaining];
+        visualBoard.prepend(hangman);
     }
 
     removeChildren() {
@@ -467,6 +481,11 @@ class View {
         let movesRemaining = document.querySelector("#movesRemaining");
         if(movesRemaining) {
             movesRemaining.parentNode.removeChild(movesRemaining);
+        }
+
+        let hangman = document.querySelector("#hangman");
+        if(hangman) {
+            hangman.parentNode.removeChild(hangman);
         }
     }
 
@@ -513,19 +532,57 @@ class View {
             } else if(this.game.getBoard().every(el => el !== "_")){
                 guessFeedback.innerText = "Win!";
             }
+            this.playAgain();
         } else {
             this.guess();
         }
     }
 
+    playAgain() {
+        let button = document.createElement("button");
+        button.innerText = "Play Again";
+        this.element.appendChild(button);
+        button.addEventListener("click", () => {
+            let guessFeedback = document.querySelector("#guessFeedback");
+            guessFeedback.parentNode.removeChild(guessFeedback);
+            button.parentNode.removeChild(button);
+            let guessing = document.querySelector("#guessBox");
+            guessing.style.display = "inline";
+            new View(new _Game_js__WEBPACK_IMPORTED_MODULE_1__["default"](), this.element);
+        })
+    }
+
     removeGuessing() {
         let guessing = document.querySelector("#guessBox");
-        guessing.parentNode.removeChild(guessing);
+        guessing.style.display = "none";
     }
     
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (View);
+
+/***/ }),
+
+/***/ "./Visual.js":
+/*!*******************!*\
+  !*** ./Visual.js ***!
+  \*******************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let visual = [
+    "./assets/images/hangman_6.gif",
+    "./assets/images/hangman_5.gif",
+    "./assets/images/hangman_4.gif",
+    "./assets/images/hangman_3.gif",
+    "./assets/images/hangman_2.gif",
+    "./assets/images/hangman_1.gif",
+    "./assets/images/hangman_0.gif"
+]
+
+/* harmony default export */ __webpack_exports__["default"] = (visual);
 
 /***/ }),
 

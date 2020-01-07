@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bill Cipher's Kdqjpdq</title>
+        <script src="./hangman.js" type="text/javascript"></script>
+        <link href="./hangman.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="music">
+            <audio id="chiptune" controls autoplay="true" loop="true"> 
+                <source src="./gf chiptune.mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div id="page1">
+            <h1 class="bill-greeting">
+                HEY THERE.<br>
+                LONG TIME NO SEE.
+            </h1>
+            <img class="bill bill-greet" src="https://media2.giphy.com/media/5bxBsk0qT5cjK/source.gif" alt="Bill Cipher Cycle">
+            <h1 class="bill-greeting">
+                WANT TO PLAY A GAME?
+            </h1>
+            <div id="do_you_want_to_play">
+                <form id="yes-no">
+                    <button id="yes" type="button" value="YES">YES</button>
+                    <button id="no" type="button" value="NO">NO</button>
+                </form>
+            </div>
+        </div>
+        <div id="page2">
+            <h1 class="header">WELCOME TO<br>Bill Cipher's Kdqjpdq</h1>
+            <div class="bill-collector">
+                <div class="container">
+
+                </div>
+                <img class="bill" src="https://media2.giphy.com/media/5bxBsk0qT5cjK/source.gif" alt="Bill Cipher Cycle">
+                <div class="container">
+
+                </div>
+            </div>
+            <div class="center-text">
+                <p class="dialog bill-talk">BILL: The game is simple.<br>
+                    I've encoded a word, and you need to decode it.<br>
+                    However, for every wrong guess you make,<br>
+                    I get a little more powerful.<br>
+                    Make SEVEN wrong guesses,<br>
+                    and I'll be poweful enough to enter your dimension<br>
+                    and have some REAL fun.<br>
+                </p>
+                <p id="empty-word-display"></p>
+            </div>
+            <div class="character_pane">
+                    <img class="character" src="https://www.stickpng.com/assets/images/5b45cb3dc051e602a568cd0f.png" alt="Dipper Best">
+            </div>
+            <div class="reset-button">
+                <button id="refresh" onclick="window.location.reload();">RESET</button>
+            </div>
+            <div class="game-buttons">
+                <button id="press-to-talk1">NEXT</button>                
+            </div>
+
+        </div>
+        <div id="page3">
+                <h1 class="header">WELCOME TO<br>Bill Cipher's Kdqjpdq</h1>
+                <div class="bill-collector">
+                    <div class="container">
+                    </div>
+                    <img class="bill" src="https://media2.giphy.com/media/5bxBsk0qT5cjK/source.gif" alt="Bill Cipher Cycle">
+                    <div class="container">
+                        </div>
+                    </div>
+                    <div>
+                        <p class="dialog dipper-talk">DIPPER: And what do I get if I win?<br>
+                        </p>
+                    <p id="empty-word-display"></p>
+                </div>
+                <div class="character_pane">
+                        <img class="character" src="https://www.stickpng.com/assets/images/5b45cb37c051e602a568cd0e.png" alt="Dipper Upset">
+                </div>
+                <div class="reset-button">
+                    <button id="refresh" onclick="window.location.reload();">RESET</button>
+                </div>
+                <div class="game-buttons">
+                    <button id="press-to-talk2">NEXT</button>
+                </div>
+            </div>
+            <div id="page4">
+                    <h1 class="header">WELCOME TO<br>Bill Cipher's Kdqjpdq</h1>
+                    <div class="bill-collector">
+                        <div class="container">
+                        </div>
+                        <img class="bill" src="https://media2.giphy.com/media/5bxBsk0qT5cjK/source.gif" alt="Bill Cipher Cycle">
+                        <div class="container">                                
+                            </div>
+                        </div>
+                        <div>
+                            <p class="dialog bill-talk">BILL: You get to live out the handful of remaining years your pathetic mortal body can survive!<br>
+                                Ready or not, HERE WE GO!<br>
+                            </p>
+                        <p id="empty-word-display"></p>
+                    </div>
+                    <div class="character_pane">
+                            <img class="character" src="./Dipper worried.png" alt="Dipper Worried">
+                    </div>
+                    <div class="reset-button">
+                        <button id="refresh" onclick="window.location.reload();">RESET</button>
+                    </div>
+                    <div class="game-buttons">
+                        <button id="press-to-talk3">START</button>
+                    </div>
+                </div>
+                <div id="page5">
+                        <h1 class="header">WELCOME TO<br>Bill Cipher's Kdqjpdq</h1>
+                        <div class="bill-collector">
+                            <div class="container">
+                                    <img class="energy" id="energy3" src="https://media2.giphy.com/media/3oEhmP1i8wzdgx2vrW/giphy.gif">
+                                    <img class="energy" id="energy2" src="https://media2.giphy.com/media/3oEhmP1i8wzdgx2vrW/giphy.gif">
+                                    <img class="energy" id="energy1" src="https://media2.giphy.com/media/3oEhmP1i8wzdgx2vrW/giphy.gif">
+                            </div>
+                            <img class="bill" src="https://media2.giphy.com/media/5bxBsk0qT5cjK/source.gif" alt="Bill Cipher Cycle">
+                            <div class="container">
+                                    <img class="energy" id="energy6" src="https://media2.giphy.com/media/3oEhmP1i8wzdgx2vrW/giphy.gif">
+                                    <img class="energy" id="energy5" src="https://media2.giphy.com/media/3oEhmP1i8wzdgx2vrW/giphy.gif">
+                                    <img class="energy" id="energy4" src="https://media2.giphy.com/media/3oEhmP1i8wzdgx2vrW/giphy.gif">
+                            </div>
+                        </div>
+                        <div class="gameplay-text">
+                            <h2 id="encoded-word"></h2>
+                            <h2 id="dash-holder"></h2>
+                            <h2 id="user-guesses"></h2>
+                        </div>
+                        <div class="character_pane">
+                            <img class="character" id="final-dipper" src="./Dipper Journal CROP.png" alt="Dipper Start">
+                        </div>
+                        <div class="reset-button">
+                            <button id="refresh" onclick="window.location.reload();">RESET</button>
+                        </div>
+                        <div class="game-buttons">
+                            <form id="form4">
+                                <p>CHOOSE A LETTER: </p><input type="text" id="user-input" autocomplete="off" autofocus>
+                                <button id="submit">SUBMIT</button>
+                                <p id="player-choice"></p>
+                            </form>               
+                        </div>
+                    </div>
+            <div id="you-win">
+                    <p class="finish-text">YOU WIN!!!</p>
+                    <div class="bill-collector">
+                        <div class="container">
+                        </div>
+                        <img class="bill bill-lose" src="https://steamuserimages-a.akamaihd.net/ugc/269465930029069958/CFCAB8F231974280CEDB014A9869812D77A77434/" alt="Bill Cipher Cycle">
+                        <div class="container">
+                        </div>
+                        <div class="spacer">
+                        </div>
+                    </div>
+                    <button id="refresh" onclick="window.location.reload();">PLAY AGAIN!</button>
+            </div>
+        <div id="you-lose">
+            <p class="finish-text">YOU LOSE!!!</p>
+            <div class="bill-collector">
+                <img class="bill-wins" src="https://i.redd.it/zquddsqjeprz.gif" alt="Weirdmageddon">
+            </div>
+            <p class="correct-text" id="correct-answer"></p>
+            <button id="refresh" onclick="window.location.reload();">PLAY AGAIN!</button>
+        </div>
+    </body>
+</html>

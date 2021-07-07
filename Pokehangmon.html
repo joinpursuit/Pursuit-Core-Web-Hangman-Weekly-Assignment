@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pokehangmon</title>
+<link rel="stylesheet" href="Pokehangmon.css">
+
+
+<!-- <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+<style>
+/* Got this directly from w3schools */
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+</style>
+<script src="Pokehangmon.js"></script>
+</head>
+<body>
+
+<!-- <audio class="introMusic">
+        <source src="./Music/Music_Title_Screen.mp3" type="audio/mpeg">
+</audio> -->
+
+
+<div class="header">
+  <h1>Pokehangmon</h1>
+</div>
+
+<!-- Creating a stage for the play to be displayed -->
+<div class="row">
+  <div class="column side" style="background-color:rgb(236, 255, 128);">
+    <p id="current_lives">Current Health:</p>
+    <div id="6" class="green"></div>
+    <div id="5" class="green"></div>
+    <div id="4" class="green"></div>
+    <div id="3" class="green"></div>
+    <div id="2" class="green"></div>
+    <div id="1" class="green"></div>
+  </div>
+
+  <div class="column middle" style="background-color:rgb(148, 117, 135);">
+        <p style="text-align: center">
+            <img id="introPic" src="./Pictures/splashPage.gif">
+        </p>
+    <p style="text-align: center"><button id="runGame" onclick="playGame()">Run Game</button></p>
+  </div>
+
+  <div class="column side" style="background-color:rgb(236, 255, 128);">
+    <p>Recent Guesses:</p>
+    <p  id="recent_guesses"></p>
+  </div>
+</div>
+
+<!-- User guesses will take place here -->
+<div class="footer">
+    <form id="form">
+      <p><input id="new_letter" style="margin-top: 20px;" placeholder="Enter Input" type="type">
+        <button id="enter_guess" style="margin-bottom: 20px;">Enter</button>
+      </p>
+    </form>
+    <form id="form1">
+        <p><button id="reset_page" style="margin-bottom: 20px;">Reset Game</button></p>
+      </form>
+
+</div>
+
+</body>
+</html>

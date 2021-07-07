@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./hang-man.css">
+    <script src="./words.js"></script>
+    <script src="./hang-man.js"></script>
+    <script></script>
+
+</head>
+
+<body>
+    <h1>Hangman</h1>
+    <br>
+    <p class="remaining"></p>
+    <br>
+
+    <div class="underscores"></div>
+    <br>
+    <div id="right_guess_parent">Right Guess
+        <div class="right_letter"></div>
+        <p class="win_text"></p>
+    </div>
+    <div id="wrong_guess_parent">Wrong Guess
+        <div class="wrong_letter"> </div>
+        <br>
+        <p class="lose"></p>
+    </div>
+    <button id='button'>Restart</button>
+
+    <audio controls autoplay></audio>
+</body>
+
+</html>
